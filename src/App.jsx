@@ -1,4 +1,7 @@
 import { useState } from 'react'
+import Hero from './components/homepage/Hero'
+import GradeLevel from './components/homepage/GradeLevel'
+import Carousel from './components/homepage/Carousel'
 
 
 function App() {
@@ -6,7 +9,9 @@ function App() {
 
   return (
 <div>
-<p>This is </p>
+<Hero />
+<GradeLevel />
+<Carousel />
 
 </div>
   )
