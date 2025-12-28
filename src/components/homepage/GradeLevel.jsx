@@ -13,7 +13,7 @@ const Card = ({ grade }) => {
 
 const GradeLevel = () => {
   return (
-    <div className='pt-10'>
+    <div className=''>
       <p className="text-[36px] text-center text-black font-semibold">
         Choose Your Grade Level
       </p>

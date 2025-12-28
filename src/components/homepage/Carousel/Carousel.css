@@ -1,0 +1,84 @@
+/* Import Swiper CSS */
+@import 'swiper/swiper-bundle.css';
+
+/* Custom Swiper Styles */
+.swiper-pagination-bullet {
+  border: 1px solid #1da1f2;
+}
+
+.swiper-pagination-bullet-active {
+  background: #1da1f2;
+}
+
+img:not([draggable]), embed, object, video {
+  max-width: 100%;
+  height: auto;
+}
+
+.swiper-container {
+
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  width: 100%;
+  padding-bottom: 60px;
+}
+
+.swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  transition-property: transform;
+  box-sizing: content-box;
+}
+
+.swiper-slide {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Specific styles for your slider */
+.swiper-container.two .swiper-slide {
+  width: 300px;
+  height: auto;
+  padding: 0 15px;
+}
+
+.swiper-slide img {
+  display: block;
+  margin: auto;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  bottom: 0;
+}
+
+.swiper-pagination-bullet {
+  background: transparent;
+  border: 1px solid #ee0f6f;
+  border-radius: 10px;
+  display: inline-block;
+  height: 10px;
+  opacity: 1;
+  width: 26px;
+  transition: 0.2s;
+}
+
+.swiper-pagination-bullet-active {
+  background: linear-gradient(to right, #ee0f6f 0%, #f89482 100%);
+  border: none;
+  height: 12px;
+  opacity: 1;
+  width: 12px;
+}
+
+/* Additional Swiper styles from your code can be added here */
+/* ... rest of your provided CSS styles ... */
