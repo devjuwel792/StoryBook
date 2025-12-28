@@ -4,6 +4,7 @@ import Signup from "../pages/Auth/Signup";
 import Login from "../pages/Auth/Login";
 import ForgotPassword from "../pages/Auth/Forgot";
 import Otp from "../pages/Auth/OTP";
+import { Progress } from "../pages/Progress/Progress";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
   { path: "/signup", element: <Signup /> },
   { path: "/forgot", element: <ForgotPassword /> },
   { path: "/otp", element: <Otp /> },
+  { path: "/progress", element: <Progress /> },
 ]);
 
 export default router;
