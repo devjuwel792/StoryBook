@@ -7,7 +7,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Signup submitted");
+    console.log("Login submitted");
   };
 
   return (
@@ -70,7 +70,7 @@ const Login = () => {
               {/* Forgot Password Link */}
               <div>
                 <p className="text-base font-bold text-right text-[#87CEEB] mt-1 pl-1">
-                  Forgot Password?
+                  <a href="/forgot">Forgot Password?</a>
                 </p>
               </div>
               {/* Submit Button */}

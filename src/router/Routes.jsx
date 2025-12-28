@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Signup from "../pages/Auth/Signup";
 import Login from "../pages/Auth/Login";
+import ForgotPassword from "../pages/Auth/Forgot";
+import Otp from "../pages/Auth/OTP";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +19,8 @@ const router = createBrowserRouter([
   },
   { path: "/login", element: <Login /> },
   { path: "/signup", element: <Signup /> },
+  { path: "/forgot", element: <ForgotPassword /> },
+  { path: "/otp", element: <Otp /> },
 ]);
 
 export default router;
