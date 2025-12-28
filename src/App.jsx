@@ -20,7 +20,7 @@ function App() {
     }}
 >
   <GradeLevel />
-  <h2 className='text-[30px] px-24 font-semibold'>Populer Stories</h2>
+  <h2 className='text-[30px] px-24 py-16 font-semibold'>Populer Stories</h2>
 <Carousel />
 
 <div className='flex flex-col gap-3 justify-center items-center'>

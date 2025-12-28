@@ -5,6 +5,10 @@ import Login from "../pages/Auth/Login";
 import ForgotPassword from "../pages/Auth/Forgot";
 import Otp from "../pages/Auth/OTP";
 import { Progress } from "../pages/Progress/Progress";
+import DashboardHome from "../components/dashboard/DashboardHome";
+import LibraryLists from "../components/dashboard/_component/Library/LibraryLists";
+import ViewBook from "../components/dashboard/_component/Library/ViewBook";
+import Achievement from "../components/dashboard/_component/Achivement/Achivement";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +27,18 @@ const router = createBrowserRouter([
   { path: "/forgot", element: <ForgotPassword /> },
   { path: "/otp", element: <Otp /> },
   { path: "/progress", element: <Progress /> },
+  {
+    path: "/dashboard", element: <DashboardHome />
+  },
+  {
+    path: "/library", element: <LibraryLists />
+  },
+  {
+    path: "/:read-book", element: <ViewBook />
+  },
+  {
+path: "/achivement", element: <Achievement />
+  }
 ]);
 
 export default router;

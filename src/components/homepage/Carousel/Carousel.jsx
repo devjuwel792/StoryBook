@@ -72,7 +72,7 @@ const SwiperSlider = () => {
   ];
 
   return (
-    <div className="swiper-container two flex justify-center items-center">
+    <div className="swiper-container two py-12 flex justify-center items-center">
       <Swiper
         modules={[Pagination, EffectCoverflow]}
         pagination={{ clickable: true }}
