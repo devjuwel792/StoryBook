@@ -1,15 +1,9 @@
-import { useState } from 'react'
-
-
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-<div>
-<p>This is </p>
-
-</div>
-  )
+    <div>
+      <p>This is </p>
+    </div>
+  );
 }
 
-export default App
+export default App;
