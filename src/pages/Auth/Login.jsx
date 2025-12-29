@@ -26,6 +26,12 @@ const Login = () => {
       navigate("/dashboard");
       return;
     }
+    if (email === "student@gmail.com" && password === "student@gmail.com") {
+      localStorage.setItem("role", "student");
+      toast.success("Admin login successful");
+      navigate("/student-dashboard");
+      return;
+    }
 
     // ❌ Invalid credentials
     toast.error("Invalid email or password");

@@ -20,7 +20,8 @@ const DashboardHome = () => {
       title: "My Stories",
       subtitle: "Write & create",
       bg: "linear-gradient(90.14deg, #FFE87C 1.43%, #FFDAB9 99.13%)",
-      icon: <FaPenNib size={20} />
+      icon: <FaPenNib size={20} />,
+      link: '/myStories'
     },
     {
       title: "Achievements",

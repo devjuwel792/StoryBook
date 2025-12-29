@@ -151,7 +151,8 @@ export default function StoryCreatorStudio() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-[#FFF0F5] to-white p-20">
+ <div className="bg-gradient-to-br from-[#FFF0F5] to-white">
+     <div className="min-h-screen w-[80vw] mx-auto   p-10">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-2">
@@ -483,5 +484,6 @@ export default function StoryCreatorStudio() {
         </div>
       )}
     </div>
+ </div>
   );
 }
