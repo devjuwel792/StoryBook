@@ -13,6 +13,8 @@ import DashboardContent from "../utils/DashboardContent";
 import AdminDashboard from "../components/Dashboard/AdminPannel/AdminDashboard";
 import StudentManagement from "../components/Dashboard/TeacherPannel/Students/StudentManagement";
 import TeacherSettings from "../components/Dashboard/TeacherPannel/TeacherSettings/TeacherSettings";
+import { StoryLibrary } from "../components/Dashboard/AdminPannel/StoryLibrary/StoryLibrary";
+import AdminStoryCreatorStudio from "../components/Dashboard/AdminPannel/StoryLibrary/StoryCreatorStudio";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +46,14 @@ const router = createBrowserRouter([
       {
         path: "admin",
         element: <AdminDashboard />,
+      },
+      {
+        path: "admin/story-library",
+        element: <StoryLibrary />,
+      },
+      {
+        path: "admin/story-create",
+        element: <AdminStoryCreatorStudio/>,
       },
       // Teacher Dashboard
       {

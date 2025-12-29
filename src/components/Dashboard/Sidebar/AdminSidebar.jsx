@@ -115,7 +115,7 @@ const AdminSidebar = ({ collapsed }) => {
 
           {/* School Admin */}
           <NavLink
-            to="/dashboard/makeAdmin"
+            to="admin/story-library"
             className="flex items-center justify-between "
           >
             <div
