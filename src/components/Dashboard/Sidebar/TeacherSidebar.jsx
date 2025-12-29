@@ -1,37 +1,26 @@
-import { FaSignOutAlt } from "react-icons/fa";
-import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 
-import { PiStudentBold } from "react-icons/pi";
-import { BiRevision } from "react-icons/bi";
-import { FaRegCalendarCheck } from "react-icons/fa";
-import { GrResources } from "react-icons/gr";
+import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
+import { MdOutlineDashboard } from "react-icons/md";
+import { IoSettingsOutline } from "react-icons/io5";
+import { LuUsers } from "react-icons/lu";
 
 const TeacherSidebar = ({ collapsed }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const location = useLocation();
 
-  const isActiveDashboard =
-    location.pathname.startsWith("/dashboard/lesson-plan") ||
-    location.pathname.startsWith("/dashboard/theme");
-  const isActiveAllLesson = location.pathname.startsWith(
-    "/dashboard/all-lesson-plan"
-  );
-  const isActiveStudent =
-    location.pathname.startsWith("/dashboard/student-management") ||
-    location.pathname.startsWith("/dashboard/observation") ||
-    location.pathname.startsWith("/dashboard/weekly-goal") ||
-    location.pathname.startsWith("/dashboard/progress") ||
-    location.pathname.startsWith("/dashboard/generate");
-  const isActiveRsource = location.pathname.startsWith("/dashboard/resource");
+  const isActiveDashboard = location.pathname.startsWith("/dashboard/teacher");
 
-  const handleLogout = () => {
-    // dispatch(userLoggedOut());
-    localStorage.removeItem("accessToken");
-    navigate("/login", { replace: true });
-  };
+  const isActiveSettings = location.pathname.startsWith("/dashboard/settings");
+  const isActiveStudent = location.pathname.startsWith("/dashboard/student");
+
+  // const handleLogout = () => {
+  //   // dispatch(userLoggedOut());
+  //   localStorage.removeItem("accessToken");
+  //   navigate("/login", { replace: true });
+  // };
 
   return (
-    <div className="bg-[#FFFFFF] border-r-2 border-r-[#E8E8E8] min-h-screen flex flex-col justify-between open-sns">
+    <div className="green border-r-2 border-r-[#E8E8E8] min-h-screen flex flex-col justify-between inter">
       {/* Logo */}
       <div className="flex flex-col py-4">
         <Link to="/">
@@ -42,34 +31,35 @@ const TeacherSidebar = ({ collapsed }) => {
           >
             {/* <img src={logo} alt="Logo" className="h-[63px] w-[63px] mb-2" /> */}
             {!collapsed && (
-              <h1 className="montserrat text-[#222222] text-lg font-medium whitespace-nowrap">
-                WayLearn AI
-              </h1>
+              <div>
+                <h1 className="text-xl font-medium text-color whitespace-nowrap">
+                  Teacher Pannel
+                </h1>
+                <p className="text-[14px] text-[#FFFFFFB3]">
+                  Literacy Platform
+                </p>
+              </div>
             )}
           </div>
         </Link>
 
         {/* Menu Items */}
-        <nav className="flex flex-col text-[#364636]">
+        <nav className="flex flex-col border-t-2 border-[#384f37b3] text-color">
           {/* Lesson Plan */}
           <NavLink
-            to="/dashboard/lesson-plan"
+            to="/dashboard/teacher"
             className="flex items-center justify-between w-[280px]"
           >
             <div className="flex items-center justify-between w-[280px] font-medium p-2 pt-7">
               <div
                 className={`flex items-center space-x-2 justify-start gap-2  p-5 text-center ${
                   collapsed ? "w-[63px] h-[40px]" : "w-[250px] h-[50px] "
-                }  ${
-                  isActiveDashboard
-                    ? "bg-[#1E3A8A] text-[#FAF1E6] rounded-xl"
-                    : "text-[#18181B]"
-                }`}
+                }  ${isActiveDashboard ? "yellow text-green rounded-xl" : ""}`}
               >
-                <BiRevision className="w-[24px] h-[24px] montserrat" />
+                <MdOutlineDashboard className="w-[24px] h-[24px] " />
                 {!collapsed && (
-                  <h1 className="text-lg font-medium montserrat">
-                    Lesson plan
+                  <h1 className="text-base font-medium montserrat">
+                    Dashboard
                   </h1>
                 )}
               </div>
@@ -78,24 +68,18 @@ const TeacherSidebar = ({ collapsed }) => {
 
           {/* All Lesson Plan */}
           <NavLink
-            to="/dashboard/all-lesson-plan"
+            to="/dashboard/students"
             className="flex items-center justify-between w-[280px]"
           >
             <div className="flex items-center justify-between w-[280px] font-medium p-2">
               <div
                 className={`flex items-center space-x-2 justify-start gap-2  p-5 text-center ${
                   collapsed ? "w-[63px] h-[40px]" : "w-[250px] h-[50px] "
-                } ${
-                  isActiveAllLesson
-                    ? "bg-[#1E3A8A] text-[#FAF1E6] rounded-xl"
-                    : "text-[#18181B]"
-                }`}
+                } ${isActiveStudent ? "yellow text-green rounded-xl" : ""}`}
               >
-                <FaRegCalendarCheck className="w-[24px] h-[24px] montserrat" />
+                <LuUsers className="w-[24px] h-[24px]" />
                 {!collapsed && (
-                  <h1 className="text-lg font-medium montserrat">
-                    All Lesson plan
-                  </h1>
+                  <h1 className="text-base font-medium montserrat">Student</h1>
                 )}
               </div>
             </div>
@@ -103,47 +87,18 @@ const TeacherSidebar = ({ collapsed }) => {
 
           {/* Student Profile */}
           <NavLink
-            to="/dashboard/student-management"
+            to="/dashboard/settings"
             className="flex items-center justify-between w-[280px]"
           >
             <div className="flex items-center justify-between w-[280px] font-medium p-2 pt-2">
               <div
                 className={`flex items-center space-x-2 justify-start gap-2  p-5 text-center ${
                   collapsed ? "w-[63px] h-[40px]" : "w-[250px] h-[50px] "
-                } ${
-                  isActiveStudent
-                    ? "bg-[#1E3A8A] text-[#FAF1E6] rounded-xl"
-                    : "text-[#18181B]"
-                }`}
+                } ${isActiveSettings ? "yellow text-green rounded-xl" : ""}`}
               >
-                <PiStudentBold className="w-[24px] h-[24px] montserrat" />
+                <IoSettingsOutline className="w-[24px] h-[24px]" />
                 {!collapsed && (
-                  <h1 className="text-lg font-medium montserrat">
-                    Student Profile
-                  </h1>
-                )}
-              </div>
-            </div>
-          </NavLink>
-
-          {/* Resources */}
-          <NavLink
-            to="/dashboard/resource"
-            className="flex items-center justify-between w-[280px]"
-          >
-            <div className="flex items-center justify-between w-[280px] font-medium p-2 pt-2">
-              <div
-                className={`flex items-center space-x-2 justify-start gap-4 p-5 text-center ${
-                  collapsed ? "w-[63px] h-[40px]" : "w-[250px] h-[50px] "
-                } ${
-                  isActiveRsource
-                    ? "bg-[#1E3A8A] text-[#FAF1E6] rounded-xl"
-                    : "text-[#18181B]"
-                }`}
-              >
-                <GrResources className="w-[24px] h-[24px]" />
-                {!collapsed && (
-                  <h1 className="text-lg font-medium montserrat">Resources</h1>
+                  <h1 className="text-base font-medium montserrat">Settings</h1>
                 )}
               </div>
             </div>
@@ -152,13 +107,13 @@ const TeacherSidebar = ({ collapsed }) => {
       </div>
 
       {/* Logout */}
-      <div
+      {/* <div
         onClick={handleLogout}
         className="flex items-center p-2 pb-10 pl-10 space-x-3 text-red-600 rounded-lg cursor-pointer"
       >
         <FaSignOutAlt />
         {!collapsed && <span>Log Out</span>}
-      </div>
+      </div> */}
     </div>
   );
 };
