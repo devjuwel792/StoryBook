@@ -2,9 +2,6 @@ import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import Header from "./Header";
 import { useEffect, useState } from "react";
 
-
-
-
 import { MdOutlineMenu } from "react-icons/md";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { LuArrowLeftFromLine } from "react-icons/lu";
@@ -19,8 +16,6 @@ const Root = () => {
   const role = localStorage.getItem("role");
   // const dispatch = useDispatch();
   // const { data: profile, refetch } = useGetProfileQuery();
-
-
 
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -69,7 +64,7 @@ const Root = () => {
     <div className="relative flex h-screen bg-white">
       {/* Mobile hamburger */}
       <button
-        className="absolute top-4 left-4 z-50 lg:hidden text-2xl text-[#1E3A8A]"
+        className="absolute z-50 text-2xl top-[1rem] left-4 lg:hidden text-green"
         onClick={() => setMobileOpen(true)}
       >
         <MdOutlineMenu />
@@ -83,11 +78,15 @@ const Root = () => {
         {/* Arrow Toggle */}
         <button
           onClick={() => setCollapsed(!collapsed)}
-          className={`absolute  -right-[0.25rem]  text-[#000000] p-1 ${
-            collapsed ? "top-[57px] " : " top-[49px] "
+          className={`absolute text-white  -right-[-1.75rem]  text-whitep-1 ${
+            collapsed ? "top-[30px] " : " top-[28px] "
           }`}
         >
-          {collapsed ? <GoArrowRight size={22} /> : <GoArrowLeft size={22} />}
+          {collapsed ? (
+            <MdOutlineMenu size={25} />
+          ) : (
+            <MdOutlineMenu size={25} />
+          )}
         </button>
 
         {/* Sidebar Content */}
@@ -100,7 +99,7 @@ const Root = () => {
         <div className="fixed inset-0 z-50 flex">
           <div className="bg-white w-[270px] h-full border border-[#E8E8E8] p-0 relative">
             <button
-              className="absolute top-4 right-4 text-2xl text-[#1E3A8A]"
+              className="absolute text-2xl text-white top-4 right-4"
               onClick={() => setMobileOpen(false)}
             >
               ✕
