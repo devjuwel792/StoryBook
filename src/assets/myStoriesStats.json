@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "title": "Total Stories",
+    "value": 3
+  },
+  {
+    "id": 2,
+    "title": "Total Words",
+    "value": 2
+  },
+  {
+    "id": 3,
+    "title": "Edited Today",
+    "value": 3
+  }
+]
