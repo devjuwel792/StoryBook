@@ -1,4 +1,3 @@
-
 import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 import { MdOutlineDashboard } from "react-icons/md";
 import { IoSettingsOutline } from "react-icons/io5";
@@ -58,7 +57,7 @@ const TeacherSidebar = ({ collapsed }) => {
               >
                 <MdOutlineDashboard className="w-[24px] h-[24px] " />
                 {!collapsed && (
-                  <h1 className="text-base font-medium montserrat">
+                  <h1 className="text-base font-medium font-[Montserrat]">
                     Dashboard
                   </h1>
                 )}
@@ -79,7 +78,9 @@ const TeacherSidebar = ({ collapsed }) => {
               >
                 <LuUsers className="w-[24px] h-[24px]" />
                 {!collapsed && (
-                  <h1 className="text-base font-medium montserrat">Student</h1>
+                  <h1 className="text-base font-medium font-[Montserrat]">
+                    Student
+                  </h1>
                 )}
               </div>
             </div>
