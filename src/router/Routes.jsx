@@ -6,7 +6,6 @@ import ForgotPassword from "../pages/Auth/Forgot";
 import Otp from "../pages/Auth/OTP";
 import StoryCreatorStudio from "../pages/Creator/StoryCreatorStudio";
 import { MyStories } from "../pages/MyStories/MyStories";
-import { Progress } from "../pages/Progress/Progress";
 import Root from "../components/Dashboard/Root";
 import TeacherSidebar from "../components/Dashboard/Sidebar/TeacherSidebar";
 
@@ -28,7 +27,6 @@ const router = createBrowserRouter([
   { path: "/otp", element: <Otp /> },
   { path: "/story-creator", element: <StoryCreatorStudio /> },
   { path: "/myStories", element: <MyStories /> },
-  { path: "/progress", element: <Progress /> },
   // Dashbaord
   {
     path: "/dashboard",
