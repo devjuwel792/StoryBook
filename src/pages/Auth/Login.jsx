@@ -1,13 +1,34 @@
 import { useState } from "react";
-import { BookOpen, Shield, Sparkles } from "lucide-react";
+import { BookOpen } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Login = () => {
-  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Login submitted");
+
+    // ✅ Teacher Login
+    if (email === "teacher@gmail.com" && password === "teacher@gmail.com") {
+      localStorage.setItem("role", "TEACHER");
+      toast.success("Teacher login successful");
+      navigate("/dashboard");
+      return;
+    }
+
+    // ✅ Admin Login
+    if (email === "admin@gmail.com" && password === "admin@gmail.com") {
+      localStorage.setItem("role", "ADMIN");
+      toast.success("Admin login successful");
+      navigate("/dashboard");
+      return;
+    }
+
+    // ❌ Invalid credentials
+    toast.error("Invalid email or password");
   };
 
   return (
@@ -18,44 +39,43 @@ const Login = () => {
           "linear-gradient(to bottom, #1F3A2B, #98D8C8, rgba(255,255,255,0.8))",
       }}
     >
-      <div className="py-20 px-24 flex items-center justify-start gap-10">
+      <div className="flex items-center justify-start gap-10 px-24 py-20">
         <div className="bg-white rounded-3xl shadow-2xl w-full max-w-[524px] h-[888px] overflow-hidden">
           <div className="p-14">
             {/* Logo */}
             <div className="flex flex-col items-center justify-center gap-3 mb-8">
               <div className="bg-gradient-to-b from-[#87CEEB] to-[#98D8C8] rounded-full w-16 h-16 flex items-center justify-center">
-                <BookOpen className="w-9 h-9 text-white" />
+                <BookOpen className="text-white w-9 h-9" />
               </div>
-              {/* Title */}
+
               <h1 className="text-4xl font-bold text-[#1E2939]">
                 Welcome Back! 👋
               </h1>
 
-              {/* Subtitle */}
-              <p className=" text-[#4A5565] text-lg font-normal">
+              <p className="text-[#4A5565] text-lg">
                 Ready to read some amazing stories?
               </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name Field */}
-              <div className="relative">
-                <label className="flex items-center gap-2 font-bold text-base text-gray-700 mb-2">
-                  Your Name
+              {/* Email */}
+              <div>
+                <label className="block mb-2 font-bold text-gray-700">
+                  Email
                 </label>
                 <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Enter your name..."
-                  className="w-full px-6 py-4 border border-gray-300 rounded-2xl text-lg font-normal focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email..."
+                  className="w-full px-6 py-4 text-lg border rounded-2xl focus:ring-2 focus:ring-teal-500"
                   required
                 />
               </div>
 
-              {/* Email Field */}
-              <div className="relative">
-                <label className="flex items-center gap-2 font-bold text-base text-gray-700 mb-2">
+              {/* Password */}
+              <div>
+                <label className="block mb-2 font-bold text-gray-700">
                   Password
                 </label>
                 <input
@@ -63,32 +83,28 @@ const Login = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter your password..."
-                  className="w-full px-6 py-4 border border-gray-300 rounded-2xl text-lg font-normal focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition"
+                  className="w-full px-6 py-4 text-lg border rounded-2xl focus:ring-2 focus:ring-teal-500"
                   required
                 />
               </div>
-              {/* Forgot Password Link */}
-              <div>
-                <p className="text-base font-bold text-right text-[#87CEEB] mt-1 pl-1">
-                  <a href="/forgot">Forgot Password?</a>
-                </p>
-              </div>
-              {/* Submit Button */}
+
+              {/* Forgot Password */}
+              <p className="text-right text-[#87CEEB] font-bold">
+                <a href="/forgot">Forgot Password?</a>
+              </p>
+
+              {/* Submit */}
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-[#98D8C8] to-[#1F3A2B] text-white font-bold text-lg py-4 rounded-2xl hover:opacity-90 transition-all flex items-center justify-center gap-3 shadow-lg"
+                className="w-full bg-gradient-to-r from-[#98D8C8] to-[#1F3A2B] text-white font-bold text-lg py-4 rounded-2xl shadow-lg"
               >
                 Log in
               </button>
             </form>
 
-            {/* Sign In Link */}
-            <p className="text-center font-normal text-base text-gray-600 mt-6">
+            <p className="mt-6 text-center text-gray-600">
               Are you a parent or teacher?{" "}
-              <a
-                href="/login"
-                className="text-[#87CEEB] font-medium hover:underline"
-              >
+              <a href="/login" className="text-[#87CEEB] hover:underline">
                 Click here
               </a>
             </p>

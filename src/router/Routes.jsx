@@ -5,13 +5,15 @@ import Login from "../pages/Auth/Login";
 import ForgotPassword from "../pages/Auth/Forgot";
 import Otp from "../pages/Auth/OTP";
 import { Progress } from "../pages/Progress/Progress";
+import Root from "../components/Dashboard/Root";
+import TeacherSidebar from "../components/Dashboard/Sidebar/TeacherSidebar";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     errorElement: (
-      <h2 className="text-red-500 text-center mt-10">Route not found</h2>
+      <h2 className="mt-10 text-center text-red-500">Route not found</h2>
     ),
     children: [
       { index: true, element: <App /> },
@@ -23,6 +25,18 @@ const router = createBrowserRouter([
   { path: "/forgot", element: <ForgotPassword /> },
   { path: "/otp", element: <Otp /> },
   { path: "/progress", element: <Progress /> },
+  // Dashbaord
+
+  {
+    path: "/dashboard",
+    element: <Root></Root>,
+    children: [
+      {
+        index: true,
+        element: <TeacherSidebar></TeacherSidebar>,
+      },
+    ],
+  },
 ]);
 
 export default router;

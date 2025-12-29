@@ -4,14 +4,14 @@ import GradeLevel from './components/homepage/GradeLevel'
 import Carousel from './components/homepage/Carousel/Carousel'
 import AboutCard from './components/homepage/AboutCard'
 import AchivementCard from './components/homepage/AchivementCard'
-
+import { Toaster } from "react-hot-toast";
 
 function App() {
 
 
   return (
 <div>
-<Hero />
+       <Toaster position="top-right" /><Hero />
 
 <div className=''
     style={{
@@ -23,9 +23,9 @@ function App() {
   <h2 className='text-[30px] px-24 font-semibold'>Populer Stories</h2>
 <Carousel />
 
-<div className='flex flex-col gap-3 justify-center items-center'>
+<div className='flex flex-col items-center justify-center gap-3'>
   <button
-  className='px-7 py-2 text-white rounded-3xl'
+  className='py-2 text-white px-7 rounded-3xl'
   style={{
     background: 'linear-gradient(270deg, #98D8C8 -0.1%, #1F3A2B 100.1%)'
   }}
