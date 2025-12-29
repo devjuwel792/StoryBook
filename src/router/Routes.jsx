@@ -8,6 +8,11 @@ import StoryCreatorStudio from "../pages/Creator/StoryCreatorStudio";
 import { MyStories } from "../pages/MyStories/MyStories";
 import Root from "../components/Dashboard/Root";
 import TeacherSidebar from "../components/Dashboard/Sidebar/TeacherSidebar";
+import TeacherDashboard from "../components/Dashboard/TeacherPannel/TeacherDashboard";
+import DashboardContent from "../utils/DashboardContent";
+import AdminDashboard from "../components/Dashboard/AdminPannel/AdminDashboard";
+import StudentManagement from "../components/Dashboard/TeacherPannel/Students/StudentManagement";
+import TeacherSettings from "../components/Dashboard/TeacherPannel/TeacherSettings/TeacherSettings";
 
 const router = createBrowserRouter([
   {
@@ -34,8 +39,28 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <TeacherSidebar></TeacherSidebar>,
+        element: <DashboardContent></DashboardContent>,
       },
+      {
+        path: "admin",
+        element: <AdminDashboard />,
+      },
+      // Teacher Dashboard
+      {
+        path: "teacher",
+        element: <TeacherDashboard />,
+      },
+      {
+        path: "students",
+        element: <StudentManagement />,
+      },
+       {
+        path: "settings",
+        element: <TeacherSettings />,
+      },
+      
+      
+     
     ],
   },
 ]);
