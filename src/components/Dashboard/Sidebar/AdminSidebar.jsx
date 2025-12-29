@@ -5,6 +5,7 @@ import { FaUsers } from "react-icons/fa";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import { FiSettings } from "react-icons/fi";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import { BookOpen, MessageSquare } from "lucide-react";
 
 const AdminSidebar = ({ collapsed }) => {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ const AdminSidebar = ({ collapsed }) => {
   };
 
   return (
-    <div className="bg-[#FFFFFF] border-r-2 border-r-[#E8E8E8] min-h-screen flex flex-col justify-between open-sns">
+    <div className="green border-r-2 border-r-[#E8E8E8] min-h-screen flex flex-col justify-between inter">
       {/* Logo Section */}
       <div className="flex flex-col py-4">
         <Link to="/">
@@ -35,15 +36,25 @@ const AdminSidebar = ({ collapsed }) => {
           >
             {/* <img src={logo} alt="Logo" className="h-[63px] w-[63px] mb-2" /> */}
             {!collapsed && (
-              <h1 className="montserrat text-[#222222] text-lg font-medium whitespace-nowrap">
-                WayLearn AI
-              </h1>
+              <div className="flex items-center gap-2">
+                <div className="w-10 h-10 bg-yellow-400 rounded-[10px] inline-flex justify-center items-center">
+                  <BookOpen color="#1F3A2B" strokeWidth={1.5} />
+                </div>
+                <div className="flex flex-col justify-center">
+                  <h1 className="justify-start text-white text-2xl font-normal font-nunito">
+                  LiteracyHub
+                </h1>
+                <p className="justify-start text-gray-400 text-xs font-normal font-nunito">
+                  Admin Portal
+                </p>
+                </div>
+              </div>
             )}
           </div>
         </Link>
 
         {/* Menu Items */}
-        <nav className="flex flex-col text-[#364636] space-y-2">
+        <nav className="flex flex-col text-[#364636] space-y-2 mt-4">
           {/* Admin Dashboard */}
           <NavLink
             to="/dashboard/admin"
@@ -59,13 +70,13 @@ const AdminSidebar = ({ collapsed }) => {
                   collapsed ? "w-[63px] h-[40px]" : "w-[250px] h-[50px]"
                 } ${
                   isActiveDashboard
-                    ? "bg-[#1E3A8A] text-[#FAF1E6] rounded-xl"
-                    : "text-[#18181B]"
+                    ? "bg-[yellow] text-black rounded-xl"
+                    : "text-white"
                 }`}
               >
-                <AiOutlineHome className="w-[24px] h-[24px]" />
+                <AiOutlineHome className="w-5 h-5" />
                 {!collapsed && (
-                  <h1 className="text-lg font-medium montserrat">
+                  <h1 className="text-sm font-normal montserrat">
                     Admin Dashboard
                   </h1>
                 )}
@@ -88,13 +99,13 @@ const AdminSidebar = ({ collapsed }) => {
                   collapsed ? "w-[63px] h-[40px]" : "w-[250px] h-[50px]"
                 } ${
                   isActiveUsers
-                    ? "bg-[#1E3A8A] text-[#FAF1E6] rounded-xl"
-                    : "text-[#18181B]"
+                    ? "bg-[yellow] text-black rounded-xl"
+                    : "text-white"
                 }`}
               >
-                <FaUsers className="w-[24px] h-[24px]" />
+                <FaUsers className="w-5 h-5" />
                 {!collapsed && (
-                  <h1 className="text-lg font-medium montserrat">
+                  <h1 className="text-sm font-normal montserrat">
                     User Management
                   </h1>
                 )}
@@ -117,14 +128,14 @@ const AdminSidebar = ({ collapsed }) => {
                   collapsed ? "w-[63px] h-[40px]" : "w-[250px] h-[50px]"
                 } ${
                   isActiveAdmin
-                    ? "bg-[#1E3A8A] text-[#FAF1E6] rounded-xl"
-                    : "text-[#18181B]"
+                    ? "bg-[yellow] text-black rounded-xl"
+                    : "text-white"
                 }`}
               >
-                <LuUserRoundPlus className="w-[24px] h-[24px]" />
+                <BookOpen className="w-5 h-5" />
                 {!collapsed && (
-                  <h1 className="text-lg font-medium montserrat">
-                    School Admin
+                  <h1 className="text-sm font-normal montserrat">
+                    Story Library
                   </h1>
                 )}
               </div>
@@ -146,14 +157,14 @@ const AdminSidebar = ({ collapsed }) => {
                   collapsed ? "w-[63px] h-[40px]" : "w-[250px] h-[50px]"
                 } ${
                   isActiveSubs
-                    ? "bg-[#1E3A8A] text-[#FAF1E6] rounded-xl"
-                    : "text-[#18181B]"
+                    ? "bg-[yellow] text-black rounded-xl"
+                    : "text-white"
                 }`}
               >
-                <RiMoneyDollarCircleLine className="w-[24px] h-[24px]" />
+                <MessageSquare className="w-5 h-5" />
                 {!collapsed && (
-                  <h1 className="text-lg font-medium montserrat">
-                    Subscription
+                  <h1 className="text-sm font-normal montserrat">
+                    AI Chatbot
                   </h1>
                 )}
               </div>
@@ -171,13 +182,13 @@ const AdminSidebar = ({ collapsed }) => {
                   collapsed ? "w-[63px] h-[40px]" : "w-[250px] h-[50px]"
                 } ${
                   isActiveSettings
-                    ? "bg-[#1E3A8A] text-[#FAF1E6] rounded-xl"
-                    : "text-[#18181B]"
+                    ? "bg-[yellow] text-black rounded-xl"
+                    : "text-white"
                 }`}
               >
-                <FiSettings className="w-[24px] h-[24px]" />
+                <FiSettings className="w-5 h-5" />
                 {!collapsed && (
-                  <h1 className="text-lg font-medium montserrat">Settings</h1>
+                  <h1 className="text-sm font-normal montserrat">Settings</h1>
                 )}
               </div>
             </div>
@@ -188,7 +199,7 @@ const AdminSidebar = ({ collapsed }) => {
       {/* Logout */}
       <div
         onClick={handleLogOut}
-        className="flex items-center p-2 pb-10 pl-10 space-x-3 text-red-600 rounded-lg cursor-pointer"
+        className="flex items-center p-2 pb-10 pl-8 space-x-3 text-red-600 rounded-lg cursor-pointer"
       >
         <FaSignOutAlt />
         {!collapsed && <span>Log Out</span>}
