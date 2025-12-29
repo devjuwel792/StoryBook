@@ -5,6 +5,7 @@ import Login from "../pages/Auth/Login";
 import ForgotPassword from "../pages/Auth/Forgot";
 import Otp from "../pages/Auth/OTP";
 import StoryCreatorStudio from "../pages/Creator/StoryCreatorStudio";
+import { MyStories } from "../pages/MyStories/MyStories";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
   { path: "/forgot", element: <ForgotPassword /> },
   { path: "/otp", element: <Otp /> },
   { path: "/story-creator", element: <StoryCreatorStudio /> },
+  { path: "/myStories", element: <MyStories /> },
 ]);
 
 export default router;

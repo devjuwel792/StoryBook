@@ -401,7 +401,10 @@ export default function StoryCreatorStudio() {
           </div>
         </div>
         {/* Card 3 */}
-        <div className="w-full p-6 bg-gradient-to-b from-red-200 to-orange-200 rounded-3xl shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10)] inline-flex flex-col justify-start items-start gap-3">
+        <div
+          onClick={() => navigate("/myStories")}
+          className="w-full p-6 bg-gradient-to-b from-red-200 to-orange-200 rounded-3xl shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10)] inline-flex flex-col justify-start items-start gap-3 cursor-pointer hover:shadow-lg transition-all hover:brightness-105"
+        >
           <div className="justify-start text-white text-xl font-bold font-nunito leading-7">
             My Saved Stories
           </div>
