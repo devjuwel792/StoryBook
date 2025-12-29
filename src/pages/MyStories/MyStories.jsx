@@ -11,11 +11,15 @@ import statsData from "../../assets/myStoriesStats.json";
 import storiesData from "../../assets/myStoriesList.json";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import StoryModal from "../../components/StoryModal";
 import { useNavigate } from "react-router";
 
 export const MyStories = () => {
   const navigate = useNavigate();
   const [stories, setStories] = useState(storiesData);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalStory, setModalStory] = useState(null);
+  const [modalPage, setModalPage] = useState(1);
 
   const handleDelete = (id) => {
     toast(
@@ -123,18 +127,32 @@ export const MyStories = () => {
                 </div>
                 {/* Buttons */}
                 <div className="grid grid-cols-3 gap-2">
-                  <div className="w-24 h-9 relative bg-gray-50 rounded-[10px] shadow-[0px_2px_2px_0px_rgba(0,0,0,0.12)] flex items-center justify-center gap-2 hover:bg-gray-100 cursor-pointer transition-colors">
+                  <button
+                    type="button"
+                    className="w-24 h-9 relative bg-gray-50 rounded-[10px] shadow-[0px_2px_2px_0px_rgba(0,0,0,0.12)] flex items-center justify-center gap-2 hover:bg-gray-100 cursor-pointer transition-colors"
+                    onClick={() => {
+                      navigate(`/story-creator?id=${story.id}`, { state: { title: story.title, story: story.story } });
+                    }}
+                  >
                     <SquarePen size={16} color="#767676" strokeWidth={1.5} />
-                    <p className="text-center justify-start text-[#767676] text-sm font-medium font-nunito leading-5">
+                    <span className="text-center justify-start text-[#767676] text-sm font-medium font-nunito leading-5">
                       Edit
-                    </p>
-                  </div>
-                  <div className="w-24 h-9 relative bg-gray-50 rounded-[10px] shadow-[0px_2px_2px_0px_rgba(0,0,0,0.12)] flex items-center justify-center gap-2 hover:bg-gray-100 cursor-pointer transition-colors">
+                    </span>
+                  </button>
+                  <button
+                    type="button"
+                    className="w-24 h-9 relative bg-gray-50 rounded-[10px] shadow-[0px_2px_2px_0px_rgba(0,0,0,0.12)] flex items-center justify-center gap-2 hover:bg-gray-100 cursor-pointer transition-colors"
+                    onClick={() => {
+                      setModalStory(story);
+                      setModalPage(1);
+                      setModalOpen(true);
+                    }}
+                  >
                     <Eye size={16} color="#767676" strokeWidth={1.5} />
-                    <p className="text-center justify-start text-[#767676] text-sm font-medium font-nunito leading-5">
+                    <span className="text-center justify-start text-[#767676] text-sm font-medium font-nunito leading-5">
                       View
-                    </p>
-                  </div>
+                    </span>
+                  </button>
                   <button
                     type="button"
                     className="w-24 h-9 relative bg-gray-50 rounded-[10px] shadow-[0px_2px_2px_0px_rgba(0,0,0,0.12)] flex items-center justify-center gap-2 hover:bg-gray-100 cursor-pointer transition-colors"
@@ -151,6 +169,14 @@ export const MyStories = () => {
           </div>
         </div>
       </div>
+      {/* Story Modal */}
+      <StoryModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        story={modalStory}
+        page={modalPage}
+        setPage={setModalPage}
+      />
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import EmojiPicker from "emoji-picker-react";
 import {
   ArrowLeft,
@@ -19,8 +19,9 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function StoryCreatorStudio() {
   const navigate = useNavigate();
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const location = useLocation();
+  const [title, setTitle] = useState(location.state?.title || "");
+  const [content, setContent] = useState(location.state?.story || "");
   const [showEmoji, setShowEmoji] = useState(false);
   const [chatInput, setChatInput] = useState("");
   const [messages, setMessages] = useState([
@@ -290,7 +291,7 @@ export default function StoryCreatorStudio() {
                   <div
                     className={`max-w-[85%] px-4 py-3 text-sm font-nunito leading-6 ${
                       msg.sender === "user"
-                        ? "bg-violet-600 text-white rounded-2xl rounded-tr-sm shadow-sm"
+                        ? "bg-[#213C2D]/80 text-white rounded-2xl rounded-tr-sm shadow-sm"
                         : "bg-slate-200 text-gray-700 rounded-2xl rounded-tl-sm"
                     }`}
                   >
@@ -321,7 +322,7 @@ export default function StoryCreatorStudio() {
             </div>
 
             <div className="p-4 bg-white border-t border-black/5">
-              <div className="flex gap-2 items-center bg-white rounded-2xl outline outline-2 outline-offset-[-2px] outline-black/10 px-2 py-1 focus-within:outline-violet-500/50 transition-all">
+              <div className="flex gap-2 items-center bg-white rounded-2xl outline outline-2 outline-offset-[-2px] outline-black/10 px-2 py-1 focus-within:outline-[#213C2D]/50 transition-all">
                 <input
                   type="text"
                   value={chatInput}
@@ -334,7 +335,7 @@ export default function StoryCreatorStudio() {
                 />
                 <button
                   onClick={() => handleSendMessage(chatInput)}
-                  className="w-10 h-10 flex items-center justify-center bg-violet-600 hover:bg-violet-700 rounded-xl shadow-sm transition-colors"
+                  className="w-10 h-10 flex items-center justify-center bg-[#213C2D] hover:bg-[#213C2D]/80 rounded-xl shadow-sm transition-colors"
                 >
                   <Send size={16} className="text-white" />
                 </button>
@@ -402,21 +403,23 @@ export default function StoryCreatorStudio() {
         </div>
         {/* Card 3 */}
         <div
-          onClick={() => navigate("/myStories")}
-          className="w-full p-6 bg-gradient-to-b from-red-200 to-orange-200 rounded-3xl shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10)] inline-flex flex-col justify-start items-start gap-3 cursor-pointer hover:shadow-lg transition-all hover:brightness-105"
+          className="w-full p-6 bg-white rounded-3xl shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10)] outline outline-4 outline-offset-[-4px] outline-[#FFEAED] inline-flex flex-col justify-start items-start gap-3"
         >
-          <div className="justify-start text-white text-xl font-bold font-nunito leading-7">
+          <div className="w-full flex items-center justify-between">
+            <h1 className="justify-start text-gray-800 text-xl font-bold font-nunito leading-7">
             My Saved Stories
+          </h1>
+          <p className="text-gray-800 text-base font-bold"><a href="/myStories">View All</a></p>
           </div>
           {savedStories.slice(0, 2).map((story) => (
             <div
               key={story.id}
-              className="w-full p-3 bg-white/20 rounded-2xl inline-flex flex-col justify-start items-start"
+              className="w-full p-3 bg-[#4A5565]/5 rounded-2xl inline-flex flex-col justify-start items-start"
             >
-              <p className="self-stretch justify-start text-white text-sm font-bold font-nunito leading-5 truncate">
+              <p className="self-stretch justify-start text-[#4A5565] text-sm font-bold font-nunito leading-5 truncate">
                 {story.title}
               </p>
-              <p className="self-stretch justify-start text-white/90 text-xs font-normal font-nunito leading-4">
+              <p className="self-stretch justify-start text-[#4A5565] text-xs font-normal font-nunito leading-4">
                 Last edited {getTimeAgo(story.timestamp)}
               </p>
             </div>

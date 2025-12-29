@@ -2,22 +2,29 @@
   {
     "id": 1,
     "title": "The Lost Owl",
-    "story": "Once upon a time in a deep forest, an owl was lost...",
+    "story": "Deep inside an ancient forest where sunlight barely touched the ground, there lived a young owl who had never flown beyond the tallest oak tree. One stormy night, strong winds tore through the forest and carried the owl far away from his home. When morning came, everything looked unfamiliar.\n\nThe owl searched tirelessly, flying from tree to tree, calling out for his family, but only echoes replied. Along the way, he met a kind deer who guided him to a river, a wise tortoise who taught him patience, and a playful squirrel who reminded him not to lose hope.\n\nAfter days of searching, the owl climbed higher than he ever had before. From the sky, he finally recognized the shape of his forest. With renewed strength, he followed the familiar path home. When he reunited with his family, the owl realized that getting lost had taught him courage, trust, and the true meaning of home.",
     "date": "12/26/2025",
-    "words": 10
+    "words": 186
   },
   {
     "id": 2,
     "title": "Magic Garden",
-    "story": "In a magical garden, flowers could talk and sing...",
+    "story": "Behind an old wooden gate at the edge of a quiet village, there was a garden unlike any other. Every flower in the garden could talk, sing, and share stories of the past. Roses whispered secrets of love, sunflowers laughed loudly in the sun, and lilies hummed soft melodies at night.\n\nA curious child named Lina discovered the garden one afternoon. At first, she thought she was imagining the voices, but soon the flowers welcomed her warmly. They asked Lina to help protect the garden from being forgotten, as people no longer believed in magic.\n\nLina returned every day, watering the plants and listening to their songs. Slowly, the garden grew brighter and more alive. Years later, when Lina became an adult, the garden still bloomed—silent to others, but forever magical to those who believed.",
     "date": "12/25/2025",
-    "words": 12
+    "words": 201
   },
   {
     "id": 3,
     "title": "Brave Little Fox",
-    "story": "A little fox decided to explore the world beyond...",
+    "story": "At the edge of a quiet meadow lived a small fox who dreamed of seeing the world beyond the hills. While other foxes warned him of danger, curiosity burned stronger than fear. One morning, he decided to leave the safety of his den and begin his journey.\n\nThe fox crossed rivers, climbed rocky paths, and faced storms that tested his strength. When fear crept in, he remembered why he started—to prove to himself that he was capable. Along the way, he learned to trust his instincts and ask for help when needed.\n\nWhen the fox finally returned home, he was no longer just small or curious. He was brave. His story inspired others to explore their own paths, reminding them that courage is not the absence of fear, but the decision to move forward despite it.",
     "date": "12/24/2025",
-    "words": 11
+    "words": 190
+  },
+  {
+    "id": 4,
+    "title": "The Clockmaker of Silent Town",
+    "story": "In a town where no one ever spoke after sunset, there lived an old clockmaker named Elias. Every evening, precisely at six, the streets would fall into a deep, unnatural silence, as if the town itself was holding its breath. No one remembered when the rule began, only that breaking it once had terrible consequences.\n\nElias was different. While others feared the silence, he listened to it. Inside his dimly lit workshop, hundreds of clocks ticked in harmony, filling the quiet with a soft, reassuring rhythm. He believed the clocks were speaking, telling stories trapped in time.\n\nOne night, a young girl named Mira knocked on his door after sunset. Her voice shattered the silence. Elias froze, expecting disaster. But nothing happened. Instead, the clocks stopped ticking, one by one. The silence deepened, heavier than before.\n\nMira explained that her brother had vanished when he followed the silence into the forest beyond the town. She believed the clocks knew where he was. Elias realized the truth he had avoided for years: the silence was not a rule, but a prison, and the clocks were its locks.\n\nTogether, they rewound the oldest clock in the shop, a massive timepiece Elias had never dared to touch. As its hands moved backward, sound returned to the town—footsteps, whispers, wind, and finally, voices filled the streets. The silence broke, and with it, the curse.\n\nAt dawn, the townspeople spoke freely for the first time in generations. Mira's brother returned, confused but alive. Elias closed his workshop that day. The town no longer needed a clockmaker to keep time frozen. It needed people brave enough to let it move forward.",
+    "date": "12/28/2025",
+    "words": 286
   }
 ]
