@@ -14,8 +14,11 @@
     "@emotion/styled": "^11.14.1",
     "@lottiefiles/dotlottie-react": "^0.17.12",
     "@mui/material": "^7.3.6",
+<<<<<<< HEAD
     "emoji-picker-react": "^4.16.1",
     "framer-motion": "^12.23.26",
+=======
+>>>>>>> a9c7669dbc67a19dca08f4c58545601ffce5c8d9
     "lucide-react": "^0.562.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
