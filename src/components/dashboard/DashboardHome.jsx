@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { GiBookshelf } from "react-icons/gi";
 import { IoBookOutline } from "react-icons/io5";
 import { FaBook, FaPenNib, FaTrophy, FaUser } from "react-icons/fa";
 import { Link } from "react-router";
+import { FaArrowRight, FaBell } from "react-icons/fa6";
+import Reusable_Modal from "../reusable_components/Reusable_Modal";
 
 const DashboardHome = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const quickActions = [
     {
       title: "Library",
@@ -30,7 +33,8 @@ const DashboardHome = () => {
       title: "Profile",
       subtitle: "Your info",
       bg: "linear-gradient(90deg, #98D8C8 0%, #87CEEB 100%)",
-      icon: <FaUser size={20} />
+      icon: <FaUser size={20} />,
+      link: "/profile"
     }
   ];
 
@@ -39,19 +43,43 @@ const DashboardHome = () => {
       value: "12",
       label: "Books Read",
       borderColor: "#FFE87C4D",
-      textColor: "#87CEEB"
+      textColor: "#87CEEB",
+      nestedLocation:'bookmarks'
     },
     {
       value: "248",
       label: "New Words",
       borderColor: "#98D8C84D",
-      textColor: "#98D8C8"
+      textColor: "#98D8C8",
+       nestedLocation:'wordCount'
     },
     {
       value: "7",
       label: "Badges Earned",
       borderColor: "#FFB6C14D",
-      textColor: "#FFB6C1"
+      textColor: "#FFB6C1",
+       nestedLocation:'badges'
+    }
+  ];
+
+  const recentStories = [
+    {
+      id: 1,
+      title: "Demo Story",
+      progress: 48,
+      image: "https://plus.unsplash.com/premium_photo-1687428554400-3ebabab7de29?q=80&w=689&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      id: 2,
+      title: "Demo Story",
+      progress: 48,
+      image: "https://plus.unsplash.com/premium_photo-1687428554400-3ebabab7de29?q=80&w=689&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      id: 3,
+      title: "Demo Story",
+      progress: 48,
+      image: "https://plus.unsplash.com/premium_photo-1687428554400-3ebabab7de29?q=80&w=689&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
   ];
 
@@ -59,20 +87,38 @@ const DashboardHome = () => {
     <section className="min-h-screen bg-gradient-to-br from-sky-50 to-white">
       <div className="w-[80vw] mx-auto p-24">
         {/* Header */}
-        <header className="mb-8">
+        <header className="mb-8 flex justify-between w-full ">
           <h2 className="text-2xl font-semibold text-gray-800">
             ☀️ Hi, Emma! <span className="ml-1">👋</span>
           </h2>
+          <FaBell onClick={()=> setIsModalOpen(true)} size={20} />
         </header>
 
         {/* Main Content */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Continue Reading */}
-          <ContinueReadingCard
-            title="The Magical Forest"
-            progress={45}
-            image="https://plus.unsplash.com/premium_photo-1687428554400-3ebabab7de29?q=80&w=689&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          />
+          <div className="lg:col-span-2">
+            <ContinueReadingCard
+              title="The Magical Forest"
+              progress={45}
+              image="https://plus.unsplash.com/premium_photo-1687428554400-3ebabab7de29?q=80&w=689&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            />
+
+            {/* Recent Stories Section */}
+            <div className="mt-6">
+             
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {recentStories.map((story) => (
+                  <RecentStoryCard
+                    key={story.id}
+                    title={story.title}
+                    progress={story.progress}
+                    image={story.image}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
 
           {/* Quick Actions */}
           <div className="grid grid-cols-1 sm:grid-cols-1 gap-4">
@@ -98,10 +144,12 @@ const DashboardHome = () => {
               label={stat.label}
               borderColor={stat.borderColor}
               textColor={stat.textColor}
+              nestedLocation={stat.nestedLocation}
             />
           ))}
         </div>
       </div>
+      <Reusable_Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} nestedLocation={'notification'} location={'notification'} />
     </section>
   );
 };
@@ -109,15 +157,16 @@ const DashboardHome = () => {
 /* ------------------ Internal Components ------------------ */
 
 const ContinueReadingCard = ({ title, progress, image }) => (
-  <div className="lg:col-span-2 bg-white border-[#87CEEB4D]/40 border-4 rounded-2xl shadow-xl p-6 flex flex-col md:flex-row gap-6">
-    <div>
+<div>
+    <div className="lg:col-span-2 bg-white border-[#87CEEB4D]/40 border-4 rounded-2xl shadow-xl p-6 flex flex-col md:flex-row ">
+    <div className="">
       <p className="flex gap-3 mb-3 text-[24px] justify-center font-semibold items-center text-[#1E2939]">
         <IoBookOutline className="text-blue-500 mt-1" size={22} /> Continue Reading
       </p>
       <img
         src={image}
         alt={title}
-        className="w-full md:w-56 h-[200px] object-cover rounded-xl shadow"
+        className="w-full md:w-48 h-[200px] object-cover rounded-xl shadow"
       />
     </div>
 
@@ -132,13 +181,42 @@ const ContinueReadingCard = ({ title, progress, image }) => (
       </div>
 
       <button
-        className="mt-12 inline-flex items-center gap-2 rounded-full px-9 py-3 text-sm font-medium text-white hover:opacity-90 transition"
+        className="mt-9 inline-flex items-center gap-2 rounded-full px-14 py-3 text-sm font-medium text-white hover:opacity-90 transition"
         style={{
           background: 'linear-gradient(90deg, #213C2D 0%, #98D8C8 99.91%)'
         }}
       >
         Continue Reading →
       </button>
+    </div>
+{/*  */}
+
+
+  </div>
+
+  
+</div>
+);
+
+const RecentStoryCard = ({ title, progress, image }) => (
+  <div className="bg-white rounded-xl shadow-sm border-2 border-[#87CEEB4D] p-4 hover:shadow-md transition-shadow">
+    <div className="flex gap-3">
+      <img 
+        className="w-16 h-16 object-cover rounded-lg" 
+        src={image} 
+        alt={title} 
+      />
+      <div className="flex-1">
+        <h3 className="font-semibold text-gray-800">{title}</h3>
+        <p className="text-sm text-gray-500 mt-1">Your Progress {progress}%</p>
+        <button className="mt-2 flex items-center gap-1 text-sm font-medium text-white px-4 py-1 rounded-3xl hover:text-[#98D8C8] transition"
+          style={{
+          background: 'linear-gradient(90deg, #213C2D 0%, #98D8C8 99.91%)'
+        }}
+        >
+          Reading <FaArrowRight size={12} />
+        </button>
+      </div>
     </div>
   </div>
 );
@@ -160,7 +238,7 @@ const ProgressBar = ({ value }) => (
 
 const QuickActionCard = ({ title, subtitle, bg, icon,link }) => (
   <Link
-  to={link}
+    to={link}
     className="rounded-2xl p-5 text-gray-800 cursor-pointer hover:scale-[1.02] transition-transform shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.1),_0px_10px_15px_-3px_rgba(0,0,0,0.1)]"
     style={{ background: bg }}
   >
@@ -176,8 +254,13 @@ const QuickActionCard = ({ title, subtitle, bg, icon,link }) => (
   </Link>
 );
 
-const StatCard = ({ value, label, borderColor, textColor }) => (
+const StatCard = ({ value, label, borderColor, textColor,nestedLocation }) => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+
+  return (
   <div
+  onClick={()=> setIsModalOpen(true)}
     className="rounded-2xl p-6 text-center shadow-sm border-4 bg-white"
     style={{
       borderColor: borderColor,
@@ -186,7 +269,9 @@ const StatCard = ({ value, label, borderColor, textColor }) => (
   >
     <h3 className="text-3xl font-bold">{value}</h3>
     <p className="mt-1 text-sm text-gray-500">{label}</p>
+      <Reusable_Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} nestedLocation={nestedLocation} location={'notification'} />
   </div>
 );
+}
 
 export default DashboardHome;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaStar } from "react-icons/fa6";
 import {
   IoTrophyOutline,
@@ -9,9 +9,14 @@ import {
   IoLanguageOutline,
   IoDiamondOutline,
   IoRocketOutline,
+  IoArrowBack,
 } from "react-icons/io5";
+import Reusable_Modal from "../../../reusable_components/Reusable_Modal";
+import { useNavigate } from "react-router";
 
 const Achievement = () => {
+const navigate = useNavigate()
+
   const statsData = [
     { 
       id: 1, 
@@ -134,11 +139,16 @@ const Achievement = () => {
     <section className="min-h-screen bg-gradient-to-br from-[#EAF6FF]  to-[#FFF6EA] py-12">
       <div className="w-[80vw] mx-auto space-y-8">
         {/* Header */}
-        <header className="flex items-center gap-2">
-          <IoTrophyOutline size={40} className="text-yellow-500" />
-          <h2 className="text-[40px] font-semibold text-gray-800">
+        <header className="flex items-center gap-4">
+                    <button onClick={()=> navigate(-1)} className="p-2 bg-white rounded-full shadow-md">
+            <IoArrowBack />
+          </button>
+     <div className="flex items-center justify-center gap-2">
+           <IoTrophyOutline size={30} className="text-[#FFD700]" />
+          <h2 className="text-[30px] font-semibold text-gray-800">
             My Progress
           </h2>
+     </div>
         </header>
 
         {/* Profile Progress */}
@@ -167,6 +177,7 @@ const Achievement = () => {
           </div>
         </div>
       </div>
+     
     </section>
   );
 };
@@ -219,14 +230,14 @@ const ProfileProgress = () => {
 
 const StatCard = ({ value, label, icon, iconBg, borderColor }) => (
   <div 
-    className="bg-white rounded-xl border-4 p-5 flex flex-col justify-center items-center gap-3 shadow-xl text-center"
+    className="bg-white rounded-2xl border-4 p-5 flex flex-col justify-center items-center gap-3 shadow-xl text-center"
     style={{ borderColor }}
   >
     <div 
       className="w-12 h-12 flex justify-center items-center rounded-full"
       style={{ background: iconBg }}
     >
-      {React.cloneElement(icon, { className: "text-white" })}
+      {React.cloneElement(icon, { className: "text-white text-2xl" })}
     </div>
     <h3 className="text-2xl font-bold text-gray-800">{value}</h3>
     <p className="text-sm text-[#4A5565] mt-1">{label}</p>
@@ -238,7 +249,7 @@ const ReadingLevels = () => {
     { id: 1, title: "Beginning Reader", active: true, date: "Jan 2024" },
     { id: 2, title: "Word Explorer", active: true, date: "Mar 2024" },
     { id: 3, title: "Story Adventurer", active: true, date: "Jun 2024" },
-    { id: 4, title: "Book Champion", progress: 70, highlight: true, date: "Current" },
+    { id: 4, title: "Book Champion", progress: 70, highlight: true, date: "" },
     { id: 5, title: "Reading Master", active: false, date: "Target: Dec 2024" },
   ];
 
@@ -273,8 +284,8 @@ const ReadingLevels = () => {
 
 const TimelineItem = ({ title, active, progress, highlight, date, isFirst, isLast }) => {
   const getStatusColor = () => {
-    if (active) return "bg-gradient-to-br from-blue-400 to-teal-400";
-    if (progress) return "bg-gradient-to-br from-yellow-400 to-orange-400";
+    if (active) return "bg-gradient-to-br from-[#87CEEB] to-[#98D8C8]/100";
+    if (progress) return "bg-gradient-to-br from-[#FFBB00] to-[#CFAF00]/100";
     return "bg-gradient-to-br from-gray-300 to-gray-400";
   };
 
@@ -287,7 +298,7 @@ const TimelineItem = ({ title, active, progress, highlight, date, isFirst, isLas
   return (
     <div className="relative flex items-center gap-4 mb-8 last:mb-0">
       {/* Timeline node */}
-      <div className={`relative z-10 w-8 h-8 rounded-full flex items-center justify-center text-white font-semibold text-sm ${getStatusColor()} ${highlight ? "ring-2 ring-yellow-300 ring-offset-2" : ""}`}>
+      <div className={`relative z-10 w-14 h-14   rounded-full flex items-center justify-center text-white font-semibold text-sm ${getStatusColor()} ${highlight ? "ring-2 ring-yellow-300 ring-offset-2" : ""}`}>
         {getStatusIcon()}
       </div>
       
@@ -298,19 +309,17 @@ const TimelineItem = ({ title, active, progress, highlight, date, isFirst, isLas
             <h4 className={`font-semibold ${highlight ? "text-yellow-800" : "text-gray-800"}`}>
               {title}
             </h4>
+            {
+              progress && (
+                <p className="text-xs">Read 20 books to complete</p>
+              )
+            }
             <p className={`text-sm mt-1 ${highlight ? "text-yellow-600" : "text-gray-600"}`}>
               {date}
             </p>
           </div>
           
-          {/* Status badge */}
-          <span className={`text-xs font-medium px-2 py-1 rounded-full ${
-            active ? "bg-blue-100 text-blue-800" :
-            progress ? "bg-yellow-100 text-yellow-800" :
-            "bg-gray-100 text-gray-800"
-          }`}>
-            {active ? "Completed" : progress ? "In Progress" : "Upcoming"}
-          </span>
+
         </div>
         
         {/* Progress bar for current level */}
@@ -333,45 +342,21 @@ const TimelineItem = ({ title, active, progress, highlight, date, isFirst, isLas
   );
 };
 
-const LevelItem = ({ title, active, progress, highlight }) => (
-  <div
-    className={`flex items-center gap-4 p-4 rounded-xl ${
-      highlight
-        ? "bg-yellow-50 border border-yellow-300"
-        : "bg-gray-50"
-    }`}
-  >
-    <div
-      className="w-8 h-8 rounded-full flex items-center justify-center text-sm"
-      style={{
-        background: active 
-          ? 'linear-gradient(180deg, #87CEEB 0%, #98D8C8 100%)'
-          : progress
-          ? 'linear-gradient(180deg, #FFBB00 0%, #CFAF00 100%)'
-          : 'linear-gradient(180deg, #E5E7EB 0%, #9CA3AF 100%)'
-      }}
-    >
-      {active || progress ? "✓" : ""}
-    </div>
-
-    <div className="flex-1">
-      <p className="font-medium text-gray-800">{title}</p>
-
-      {progress && (
-        <div className="mt-2 h-2 bg-gray-200 rounded-full overflow-hidden">
-          <div
-            className="h-full bg-gray-800 rounded-full"
-            style={{ width: `${progress}%` }}
-          ></div>
-        </div>
-      )}
-    </div>
-  </div>
-);
 
 
-const Badge = ({ icon, title, description, points, iconBg, shadowColor, status }) => (
+
+const Badge = ({ icon, title, description, points, iconBg, shadowColor, status }) => {
+const [isModalOpen, setIsModalOpen] = useState(false);
+
+
+const data = {
+  icon, title, description, points, iconBg, shadowColor, status
+}
+
+  return (
+   
   <div 
+  onClick={()=> setIsModalOpen(true)}
     className="rounded-xl p-4 flex items-center justify-center flex-col gap-4 text-center transition-transform hover:scale-[1.02]"
     style={{ 
       boxShadow: `0 4px 20px ${shadowColor}`,
@@ -411,7 +396,9 @@ const Badge = ({ icon, title, description, points, iconBg, shadowColor, status }
         </span>
       </>
     )}
+     <Reusable_Modal location= {'achivement'} data={data} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
   </div>
-);
+)
+}
 
 export default Achievement;

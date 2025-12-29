@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaBook, FaPen, FaStar } from 'react-icons/fa6';
-import { GoPeople } from 'react-icons/go';
+import { GiSelfLove } from 'react-icons/gi';
+import { GoPeople, GoTrophy } from 'react-icons/go';
 import { IoBookOutline } from 'react-icons/io5';
 
 const DuelCard = ({ data }) => {
@@ -68,6 +69,29 @@ const AchievementCard = () => {
         },
     ];
 
+    const cardData2 = [
+        {
+            icon:<GoPeople size={48} /> ,
+            title:'50,000+',
+            subTitle: 'Happy Readers'
+        },
+        {
+            icon:<IoBookOutline size={48} /> ,
+            title:'1,000+',
+            subTitle: 'Stories'
+        },
+        {
+            icon:<GoTrophy size={48} /> ,
+            title:'100+',
+            subTitle: 'Achievements'
+        },
+        {
+            icon:<GiSelfLove size={48} /> ,
+            title:'100%',
+            subTitle: 'Safe & Fun'
+        },
+    ]
+
     return (
         <div className='bg-[#fff7ec] space-y-24 py-16'>
            <div className='flex gap-16 justify-center items-center'>
@@ -81,23 +105,25 @@ const AchievementCard = () => {
             background: 'linear-gradient(90deg, #FFB6C1 0%, #E6E6FA 47.12%, #46785D 100%)'
            }}
 
-           className='p-5 py-7 grid grid-cols-4 w-[83vw] rounded-xl shadow-xl items-center justify-center mx-auto  gap-6 justify-items-center'
+           className='p-5 py-9 grid grid-cols-4 w-[83vw] rounded-xl shadow-xl items-center justify-center mx-auto  gap-6 justify-items-center'
            >
      {
-        [1,2,3,4].map(items => (
+        cardData2.map(items => (
                    <div className='flex flex-col justify-center items-center gap-3 text-white'>
-                <GoPeople size={48} />
-                <p className='text-[40px]'>
-                    500+
+                <p>
+                    {items.icon}
                 </p>
-                <p className='text-[18px]'>Happy Readers</p>
+                <p className='text-[40px] font-semibold'>
+                    {items.title}
+                </p>
+                <p className='text-[18px]'>{items.subTitle}</p>
             </div>
         ))
      }
            </div>
 
-           <div className='flex flex-col justify-center items-center  gap-7 bg-[#FFFFFF] p-8 w-[83vw] mx-auto rounded-xl shadow-xl'>
-            <h2 className='text-[36px]'>Ready to Start Your Reading Adventure? 🚀</h2>
+           <div className='flex flex-col justify-center items-center py-12 gap-7 bg-[#FFFFFF] p-8 w-[83vw] mx-auto rounded-xl shadow-xl'>
+            <h2 className='text-[36px] font-semibold'>Ready to Start Your Reading Adventure? 🚀</h2>
             <p className='text-[20px] text-[#4A5565]'>Join thousands of kids learning to love reading and writing. Sign up now and get started for FREE!</p>
 
             <button

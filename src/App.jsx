@@ -13,7 +13,7 @@ function App() {
 <div>
 <Hero />
 
-<div className='py-8'
+<div className='py-8 pb-12'
     style={{
         background: 'linear-gradient(180deg, #EBF6FF 0%, #F5FAFF 100%)'
 

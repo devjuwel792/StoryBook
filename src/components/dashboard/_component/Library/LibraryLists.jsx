@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { IoArrowBack, IoBookOutline, IoSearch } from "react-icons/io5";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 const categories = ["All", "Animals", "Space", "Fairy Tales", "Science", "Ocean"];
 
@@ -52,13 +52,14 @@ const stories = [
 
 const LibraryLists = () => {
   const [activeCategory, setActiveCategory] = useState("All");
+  const navigate = useNavigate()
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-[#FFF6EA] to-[#FFFDF9]">
       <div className="w-[80vw] mx-auto p-24 space-y-8">
         {/* Header */}
         <header className="flex items-center gap-4">
-          <button className="p-2 bg-white rounded-full shadow">
+          <button onClick={()=> navigate(-1)} className="p-2 bg-white rounded-full shadow">
             <IoArrowBack />
           </button>
           <h2 className="text-2xl flex items-center justify-center gap-3 font-semibold text-gray-800">

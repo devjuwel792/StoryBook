@@ -5,6 +5,7 @@ import {
   IoSettingsOutline,
   IoVolumeMedium,
 } from "react-icons/io5";
+import { useNavigate } from "react-router";
 
 // Sample book data
 const sampleBookData = {
@@ -28,7 +29,7 @@ const ViewBook = () => {
   const [selectedWord, setSelectedWord] = useState("");
   const [wordDefinition, setWordDefinition] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  
+  const navigate = useNavigate()
   const currentPage = sampleBookData.pages[currentPageIndex];
   
   // Handle word selection
@@ -127,7 +128,7 @@ const ViewBook = () => {
       <div className="w-[80vw] mx-auto py-16 space-y-10">
     
         <header className="flex items-center justify-between">
-          <button className="p-2 bg-white rounded-full shadow-md">
+          <button onClick={()=> navigate(-1)} className="p-2 bg-white rounded-full shadow-md">
             <IoArrowBack />
           </button>
 

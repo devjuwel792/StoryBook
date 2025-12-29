@@ -9,6 +9,7 @@ import DashboardHome from "../components/dashboard/DashboardHome";
 import LibraryLists from "../components/dashboard/_component/Library/LibraryLists";
 import ViewBook from "../components/dashboard/_component/Library/ViewBook";
 import Achievement from "../components/dashboard/_component/Achivement/Achivement";
+import Profile from "../pages/Profile/Profile";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,9 @@ const router = createBrowserRouter([
   },
   {
 path: "/achivement", element: <Achievement />
+  },
+  {
+    path:'/profile', element: <Profile />
   }
 ]);
 
