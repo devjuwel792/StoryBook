@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "The Enchanted Forest",
+    "author": "Sarah Williams",
+    "grade": 3,
+    "pages": 15,
+    "status": "Published",
+    "stars": 2,
+    "image": "card1.png"
+  },
+  {
+    "id": 2,
+    "title": "Lost in the City",
+    "author": "James Lee",
+    "grade": 4,
+    "pages": 12,
+    "status": "Draft",
+    "stars": 3,
+    "image": "card2.png"
+  },
+  {
+    "id": 3,
+    "title": "Magic Mountain",
+    "author": "Priya Patel",
+    "grade": 5,
+    "pages": 18,
+    "status": "Published",
+    "stars": 4,
+    "image": "card3.png"
+  },
+  {
+    "id": 4,
+    "title": "The Secret Lake",
+    "author": "Liam Smith",
+    "grade": 3,
+    "pages": 10,
+    "status": "Published",
+    "stars": 5,
+    "image": "card4.png"
+  },
+  {
+    "id": 5,
+    "title": "Jungle Adventure",
+    "author": "Ava Brown",
+    "grade": 4,
+    "pages": 14,
+    "status": "Draft",
+    "stars": 1,
+    "image": "card5.png"
+  },
+  {
+    "id": 6,
+    "title": "Robot's Day Out",
+    "author": "Noah Wilson",
+    "grade": 5,
+    "pages": 20,
+    "status": "Published",
+    "stars": 3,
+    "image": "card6.png"
+  }
+]
