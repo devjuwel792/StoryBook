@@ -13,6 +13,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import bgImg from "../../assets/bg.png";
+import { useNavigate } from "react-router";
 
 const Signup = () => {
   const [formData, setFormData] = useState({

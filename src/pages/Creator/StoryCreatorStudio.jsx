@@ -21,6 +21,27 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 
 export default function StoryCreatorStudio() {
+  const [uploadedImage, setUploadedImage] = useState(null);
+  const fileInputRef = useRef(null);
+
+  const handleImageDivClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const isValidType = ["image/png", "image/jpeg", "image/jpg"].includes(file.type);
+    if (!isValidType) {
+      alert("Only PNG and JPG files are allowed.");
+      return;
+    }
+    if (file.size > 10 * 1024 * 1024) {
+      alert("File size must be less than 10MB.");
+      return;
+    }
+    setUploadedImage(file);
+  };
   const navigate = useNavigate();
   const location = useLocation();
   const [title, setTitle] = useState(location.state?.title || "");
@@ -357,32 +378,37 @@ export default function StoryCreatorStudio() {
 
       <div className="grid grid-cols-3 gap-6 mt-6">
         {/* Card 1 */}
-      <div className="p-7 bg-white rounded-3xl shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10)] outline outline-4 outline-offset-[-4px] outline-amber-200/40 w-full max-w-md flex flex-col gap-4">
-      
-      {/* Header */}
-      <div className="flex items-center gap-2">
-        <LightbulbIcon size={22} className="text-amber-400" />
-        <h1 className="text-gray-800 text-xl font-bold">
-          Upload image
-        </h1>
-      </div>
-
-      {/* Upload Box */}
-      <div className="w-full py-8 px-4 bg-gradient-to-b from-[#FFF8E6] to-[#FFF0F5] rounded-2xl flex flex-col items-center justify-center gap-2 border border-dashed border-amber-200">
-        <Upload size={28} className="text-gray-400" />
-        <p className="text-gray-700 text-sm font-medium">
-          Upload Story Image
-        </p>
-        <p className="text-gray-400 text-xs">
-          PNG, JPG files (Max 10MB)
-        </p>
-      </div>
-
-      {/* Button */}
-      <button className="w-full h-11 bg-gradient-to-b from-amber-200 to-orange-200 rounded-full shadow-[0px_1px_3px_rgba(0,0,0,0.12)] flex items-center justify-center text-gray-800 font-bold text-base hover:brightness-105 transition-all">
-        Upload
-      </button>
-    </div>
+        <div className="p-7 bg-white rounded-3xl shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10)] outline outline-4 outline-offset-[-4px] outline-amber-200/30 inline-flex flex-col justify-start items-start gap-4">
+          <div className="flex items-center gap-2">
+            <Lightbulb color="#FFD700" />
+            <h1 className="text-gray-800 text-xl font-bold">Upload image</h1>
+          </div>
+          <div
+            className="w-full p-4 bg-gradient-to-b from-[#FFF8E6] to-[#FFF0F5] rounded-2xl inline-flex flex-col justify-start items-center cursor-pointer hover:brightness-95 transition"
+            onClick={handleImageDivClick}
+          >
+            <Upload color="#99A1AF" strokeWidth={3} />
+            <p className="justify-start text-gray-700 text-sm font-normal font-nunito leading-6">
+              Upload Story Image
+            </p>
+            <p className="justify-start text-gray-700 text-xs font-normal font-nunito leading-6">
+              PNG, JPG files (Max 10MB)
+            </p>
+            <input
+              type="file"
+              accept="image/png, image/jpeg, image/jpg"
+              style={{ display: "none" }}
+              ref={fileInputRef}
+              onChange={handleImageChange}
+            />
+            {uploadedImage && (
+              <p className="mt-2 text-green-600 text-xs font-bold">{uploadedImage.name} selected</p>
+            )}
+          </div>
+          <button className="self-stretch h-10 w-full bg-gradient-to-b from-amber-200 to-orange-200 rounded-full shadow-[0px_1px_2px_-1px_rgba(0,0,0,0.10)] flex justify-center items-center text-gray-800 text-base font-bold font-nunito leading-6 hover:brightness-105 transition-all">
+            {uploadedImage ? 'Uploaded' : 'Upload'}
+          </button>
+        </div>
         {/* Card 2 */}
         <div className="p-7 bg-white rounded-3xl shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10)] outline outline-4 outline-offset-[-4px] outline-emerald-200/30  inline-flex flex-col justify-start items-start gap-4">
           <div className="flex items-center gap-2">
@@ -424,14 +450,14 @@ export default function StoryCreatorStudio() {
           </div>
         </div>
         {/* Card 3 */}
-        <div
-          className="w-full p-6 bg-white rounded-3xl shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10)] outline outline-4 outline-offset-[-4px] outline-[#FFEAED] inline-flex flex-col justify-start items-start gap-3"
-        >
+        <div className="w-full p-6 bg-white rounded-3xl shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10)] outline outline-4 outline-offset-[-4px] outline-[#FFEAED] inline-flex flex-col justify-start items-start gap-3">
           <div className="w-full flex items-center justify-between">
             <h1 className="justify-start text-gray-800 text-xl font-bold font-nunito leading-7">
-            My Saved Stories
-          </h1>
-          <p className="text-gray-800 text-base font-bold"><a href="/myStories">View All</a></p>
+              My Saved Stories
+            </h1>
+            <p className="text-gray-800 text-base font-bold">
+              <a href="/myStories">View All</a>
+            </p>
           </div>
           {savedStories.slice(0, 2).map((story) => (
             <div
