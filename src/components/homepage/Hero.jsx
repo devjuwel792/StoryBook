@@ -3,8 +3,10 @@ import { FaBookBible } from 'react-icons/fa6';
 import { IoBookOutline } from 'react-icons/io5';
 import { MdMenuBook } from 'react-icons/md';
 import { SlMagicWand } from 'react-icons/sl';
+import { useNavigate } from 'react-router';
 
 const Hero = () => {
+  const navigate = useNavigate()
   return (
     <div
       style={{
@@ -22,8 +24,9 @@ const Hero = () => {
     <p className='text-[30px] font-semibold text-white'>StoryTime</p>
 </div>
 <div className='flex gap-6'>
-    <button className='bg-white px-8 font-semibold rounded-3xl'>Sign In</button>
+    <button onClick={()=> navigate('/login')} className='bg-white px-8 font-semibold rounded-3xl'>Sign In</button>
     <button 
+    onClick={()=> navigate('/signup')}
     style={{
         background: 'linear-gradient(90deg, #FFB6C1 0.13%, #FFE87C 100.19%)'
 

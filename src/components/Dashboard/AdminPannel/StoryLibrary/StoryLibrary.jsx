@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import statsData from "../../../../assets/storyLibraryStats.json";
 import { ChevronDown, Trash2, Upload } from "lucide-react";
 import card1 from "../../../../assets/story-library/card1.png";
@@ -10,8 +10,11 @@ import card6 from "../../../../assets/story-library/card6.png";
 import star from "../../../../assets/story-library/star.svg";
 import star2 from "../../../../assets/story-library/star2.svg";
 import { useNavigate } from "react-router";
+import { IoBookOutline, IoSearchOutline } from "react-icons/io5";
+import Reusable_Modal from "../../../reusable_components/Reusable_Modal";
 
 export const StoryLibrary = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
   const stories = [
     {
       id: 1,
@@ -76,7 +79,7 @@ export const StoryLibrary = () => {
   ];
   const navigate = useNavigate();
   return (
-    <div className="flex flex-col justify-center px-6 py-7 bg-[#FBFBFB] gap-10">
+    <div className="flex w-[80vw] mx-auto flex-col justify-center  py-7 bg-[#FBFBFB] gap-10">
       <div className="">
         <h1 className="text-stone-900 text-3xl font-semibold">Story Library</h1>
         <p className="text-stone-900 text-xl font-normal mt-1">
@@ -100,11 +103,14 @@ export const StoryLibrary = () => {
       </div>
       <div className="w-full flex items-center gap-3">
         {/* Search Bar */}
-        <input
+<div className="relative w-full">
+          <input
           type="text"
           placeholder="Search stories..."
-          className="w-2/4 h-11 pl-4 pr-3 py-1 bg-zinc-100 rounded-lg outline outline-[0.80px] outline-offset-[-0.80px] outline-black/0 text-gray-700 text-sm font-normal font-nunito focus:outline-blue-300"
+          className="w-full h-11 pl-10 pr-3 py-1 relative bg-zinc-100 rounded-lg outline outline-[0.80px] outline-offset-[-0.80px] outline-black/0 text-gray-700 text-sm font-normal font-nunito focus:outline-blue-300"
         />
+        <IoSearchOutline className="absolute top-1/3 left-3 " />
+</div>
         {/* Grade Filter */}
         <select
           className="w-1/4 h-11 px-3 bg-zinc-100 rounded-lg outline outline-[0.80px] outline-offset-[-0.80px] outline-black/0 text-neutral-950 text-sm font-normal font-nunito leading-5 focus:outline-blue-300"
@@ -125,11 +131,11 @@ export const StoryLibrary = () => {
         </button>
       </div>
 
-      <div className="w-full flex flex-wrap gap-6">
+      <div className="w-full grid grid-cols-4 gap-6">
         {stories.map((story) => (
           <div
             key={story.id}
-            className="max-w-[33%] bg-white rounded-2xl outline outline-2 outline-offset-[-1.83px] outline-black/10 overflow-hidden flex flex-col"
+            className=" bg-white rounded-2xl outline outline-2 outline-offset-[-1.83px] outline-black/10 overflow-hidden flex flex-col"
           >
             <img
               className="w-full h-48 object-cover"
@@ -154,12 +160,14 @@ export const StoryLibrary = () => {
               <p className="text-gray-600 text-sm font-normal font-nunito">
                 by {story.author}
               </p>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center justify-between gap-3">
+
+                          <span className="text-gray-600 text-sm font-normal flex items-center gap-2 font-nunito">
+                  {story.pages} Pages <IoBookOutline />
+                </span>
+
                 <span className="rounded-lg px-2 py-0.5 bg-gray-100 text-gray-600 text-sm font-normal font-nunito">
                   Grade: {story.grade}
-                </span>
-                <span className="text-gray-600 text-sm font-normal font-nunito">
-                  {story.pages} Pages
                 </span>
                 <span className="flex items-center gap-1">
                   {[...Array(story.stars)].map((_, i) => (
@@ -171,7 +179,7 @@ export const StoryLibrary = () => {
                 </span>
               </div>
               <div className="flex gap-2 mt-4 border-t pt-4">
-                <button className="flex-1 h-8 bg-white rounded-lg outline outline-[0.80px] outline-offset-[-0.80px] outline-black/10 flex items-center justify-center text-neutral-950 text-sm font-normal font-nunito">
+                <button onClick={()=> setIsModalOpen(true)} className="flex-1 h-8 bg-white rounded-lg outline outline-[0.80px] outline-offset-[-0.80px] outline-black/10 flex items-center justify-center text-neutral-950 text-sm font-normal font-nunito">
                   View
                 </button>
                 <button
@@ -190,6 +198,7 @@ export const StoryLibrary = () => {
           </div>
         ))}
       </div>
+        <Reusable_Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}  location={'storyView'} />
     </div>
   );
 };

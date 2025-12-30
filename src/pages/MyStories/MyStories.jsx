@@ -52,7 +52,8 @@ export const MyStories = () => {
     );
   };
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-[#FFF0F5] to-white p-20">
+<div className="min-h-screen bg-gradient-to-br from-[#FFF0F5] to-white p-10">
+      <div className=" w-[80vw] mx-auto ">
       {/* Header */}
       <div className="flex items-center justify-between mb-12">
         <div className="flex items-center gap-2">
@@ -86,10 +87,15 @@ export const MyStories = () => {
         <div className="flex flex-col items-center justify-center gap-8 px-16 py-14">
           <div className="grid grid-cols-3 gap-4">
             {statsData.map((card) => (
-              <div
-                key={card.id}
-                className="w-96 h-24 p-5 bg-white rounded-2xl shadow-[0px_1px_2px_-1px_rgba(0,0,0,0.10)] outline outline-1 outline-offset-[-1px] outline-gray-100 inline-flex flex-col justify-start items-start gap-1"
-              >
+<div
+  key={card.id}
+ 
+  className="w-96 h-24 p-5 bg-white rounded-2xl
+  shadow-xl
+  outline outline-1 outline-offset-[-1px] outline-gray-100
+  inline-flex flex-col justify-start items-start gap-1"
+>
+
                 <p className="justify-start text-[#767676] text-3xl font-semibold font-nunito">
                   {card.value}
                 </p>
@@ -101,10 +107,17 @@ export const MyStories = () => {
           </div>
           <div className="grid grid-cols-3 gap-6">
             {stories.map((story) => (
-              <div
-                key={story.id}
-                className="p-6 bg-gradient-to-l from-[#97D7CA] to-[#87CEEB] rounded-2xl shadow-[0px_1px_2px_-1px_rgba(0,0,0,0.10)] outline outline-1 outline-offset-[-1px] outline-gray-100 inline-flex flex-col justify-start items-start gap-4"
-              >
+<div
+  style={{
+    background:
+      'linear-gradient(90deg, #87CEEB 0%, #98D8C8 100%) padding-box, linear-gradient(90deg, #213C2D 0%, #FCE67B 100%) border-box',
+    border: '2px solid transparent',
+    borderRadius: '16px',
+    
+  }}
+  className="p-6 rounded-2xl shadow-[0px_1px_2px_-1px_rgba(0,0,0,0.10)] inline-flex flex-col gap-4"
+>
+
                 <h1 className="justify-start text-gray-900 text-lg font-semibold font-nunito">
                   {story.title}
                 </h1>
@@ -178,5 +191,6 @@ export const MyStories = () => {
         setPage={setModalPage}
       />
     </div>
+</div>
   );
 };

@@ -6,16 +6,19 @@ import {
   Check,
   Copy,
   Lightbulb,
+  LightbulbIcon,
   RotateCcw,
   Save,
   Send,
   Share2,
   Sparkles,
+  Upload,
   WandSparkles,
   X,
 } from "lucide-react";
 import owlAnimation from "../../assets/owl2.json";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 
 export default function StoryCreatorStudio() {
   const navigate = useNavigate();
@@ -166,24 +169,31 @@ export default function StoryCreatorStudio() {
             Story Creator Studio
           </h1>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-4 justify-between">
           <button
             onClick={handleClear}
-            className="px-4 py-2 bg-white rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] outline outline-2 outline-offset-[-2px] outline-sky-300 transition-colors hover:bg-sky-50 flex items-center gap-2 text-gray-800 text-base font-bold"
+            className="px-7 py-2 bg-white rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] outline outline-2 outline-offset-[-2px] outline-sky-300 transition-colors hover:bg-sky-50 flex items-center gap-2 text-gray-800 text-base font-bold"
           >
             <RotateCcw size={16} color="#2D3748" />
             Clear
           </button>
           <button
+          style={{
+            background: 'linear-gradient(90.49deg, #FFB6C1 0.57%, #FFDAB9 99.28%)'
+
+          }}
             onClick={handleSave}
-            className="px-4 py-2 bg-gradient-to-br from-[#FFE87C] to-[#FFDAB9] rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] transition-all hover:shadow-md hover:brightness-105 flex items-center gap-2 text-gray-800 text-base font-bold"
+            className="px-7 py-2 bg-gradient-to-br from-[#FFE87C] to-[#FFDAB9] rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] transition-all hover:shadow-md hover:brightness-105 flex items-center gap-2 text-gray-800 text-base font-bold"
           >
             <Save size={16} color="#2D3748" />
             Save
           </button>
           <button
+          style={{
+            background: 'linear-gradient(90deg, #213C2D -0.36%, #98D8C8 100%)'
+          }}
             onClick={handlePublish}
-            className="px-4 py-2 bg-gradient-to-br from-[#87CEEB] to-[#98D8C8] rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] transition-all hover:shadow-md hover:brightness-105 flex items-center gap-2 text-white text-base font-bold"
+            className="px-7 py-2 bg-gradient-to-br from-[#87CEEB] to-[#98D8C8] rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] transition-all hover:shadow-md hover:brightness-105 flex items-center gap-2 text-white text-base font-bold"
           >
             <Share2 size={16} color="#ffffff" />
             Publish
@@ -225,7 +235,7 @@ export default function StoryCreatorStudio() {
                   className="text-sm text-gray-600 font-bold hover:bg-gray-100 px-3 py-2 rounded-md flex items-center gap-2"
                   onClick={() => setShowEmoji(!showEmoji)}
                 >
-                  <Sparkles size={16} color="#4A5565" /> Add Stickers & Emojis
+                  <Sparkles size={16} color="#4A5565" /> Add Stickers & Emojis {showEmoji? <IoMdArrowDropdown size={20} />:<IoMdArrowDropup size={20} />}
                 </button>
 
                 {showEmoji && (
@@ -238,7 +248,7 @@ export default function StoryCreatorStudio() {
               </div>
 
               <div className="text-right text-base font-normal font-nunito text-gray-500 mt-2">
-                {getWordCount(content)} words
+                {getWordCount(content)} lines
               </div>
             </div>
           </div>
@@ -279,7 +289,7 @@ export default function StoryCreatorStudio() {
             <p className="text-gray-700 text-base font-normal">Story Helper</p>
           </div>
           {/* Chatbox */}
-          <div className="w-full h-[540px] bg-white rounded-[20px] shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] outline outline-2 outline-offset-[-2px] outline-black/10 flex flex-col overflow-hidden">
+          <div className="w-full h-[340px] bg-white rounded-[20px] shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] outline outline-2 outline-offset-[-2px] outline-black/10 flex flex-col overflow-hidden">
             <div className="flex-1 overflow-y-auto p-4 space-y-4">
               {messages.map((msg) => (
                 <div
@@ -347,20 +357,32 @@ export default function StoryCreatorStudio() {
 
       <div className="grid grid-cols-3 gap-6 mt-6">
         {/* Card 1 */}
-        <div className="p-7 bg-white rounded-3xl shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10)] outline outline-4 outline-offset-[-4px] outline-amber-200/30 inline-flex flex-col justify-start items-start gap-4">
-          <div className="flex items-center gap-2">
-            <Lightbulb color="#FFD700" />
-            <h1 className="text-gray-800 text-xl font-bold">Writing Prompt</h1>
-          </div>
-          <div className="w-full p-4 bg-gradient-to-b from-[#FFF8E6] to-[#FFF0F5] rounded-2xl inline-flex flex-col justify-start items-start">
-            <p className="justify-start text-gray-700 text-base font-normal font-nunito leading-6">
-              What if you could fly for one day?
-            </p>
-          </div>
-          <button className="self-stretch h-10 w-full bg-gradient-to-b from-amber-200 to-orange-200 rounded-full shadow-[0px_1px_2px_-1px_rgba(0,0,0,0.10)] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.10)] flex justify-center items-center text-gray-800 text-base font-bold font-nunito leading-6 hover:brightness-105 transition-all">
-            Get New Idea ✨
-          </button>
-        </div>
+      <div className="p-7 bg-white rounded-3xl shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10)] outline outline-4 outline-offset-[-4px] outline-amber-200/40 w-full max-w-md flex flex-col gap-4">
+      
+      {/* Header */}
+      <div className="flex items-center gap-2">
+        <LightbulbIcon size={22} className="text-amber-400" />
+        <h1 className="text-gray-800 text-xl font-bold">
+          Upload image
+        </h1>
+      </div>
+
+      {/* Upload Box */}
+      <div className="w-full py-8 px-4 bg-gradient-to-b from-[#FFF8E6] to-[#FFF0F5] rounded-2xl flex flex-col items-center justify-center gap-2 border border-dashed border-amber-200">
+        <Upload size={28} className="text-gray-400" />
+        <p className="text-gray-700 text-sm font-medium">
+          Upload Story Image
+        </p>
+        <p className="text-gray-400 text-xs">
+          PNG, JPG files (Max 10MB)
+        </p>
+      </div>
+
+      {/* Button */}
+      <button className="w-full h-11 bg-gradient-to-b from-amber-200 to-orange-200 rounded-full shadow-[0px_1px_3px_rgba(0,0,0,0.12)] flex items-center justify-center text-gray-800 font-bold text-base hover:brightness-105 transition-all">
+        Upload
+      </button>
+    </div>
         {/* Card 2 */}
         <div className="p-7 bg-white rounded-3xl shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10)] outline outline-4 outline-offset-[-4px] outline-emerald-200/30  inline-flex flex-col justify-start items-start gap-4">
           <div className="flex items-center gap-2">

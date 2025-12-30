@@ -4,6 +4,13 @@ import Signup from "../pages/Auth/Signup";
 import Login from "../pages/Auth/Login";
 import ForgotPassword from "../pages/Auth/Forgot";
 import Otp from "../pages/Auth/OTP";
+
+
+import DashboardHome from "../components/dashboard/DashboardHome";
+import LibraryLists from "../components/dashboard/_component/Library/LibraryLists";
+import ViewBook from "../components/dashboard/_component/Library/ViewBook";
+import Achievement from "../components/dashboard/_component/Achivement/Achivement";
+import Profile from "../pages/Profile/Profile";
 import StoryCreatorStudio from "../pages/Creator/StoryCreatorStudio";
 import { MyStories } from "../pages/MyStories/MyStories";
 import Root from "../components/Dashboard/Root";
@@ -17,6 +24,10 @@ import Students from "../components/Dashboard/TeacherPannel/Students/Students";
 import StudentDetail from "../components/Dashboard/TeacherPannel/Students/StudentDetail";
 import { StoryLibrary } from "../components/Dashboard/AdminPannel/StoryLibrary/StoryLibrary";
 import AdminStoryCreatorStudio from "../components/Dashboard/AdminPannel/StoryLibrary/StoryCreatorStudio";
+import UserManagement from "../components/dashboard/AdminPannel/users/UserManagement";
+import Chatbots from "../components/dashboard/AdminPannel/chatbots/Chatbots";
+import Settings from "../components/dashboard/AdminPannel/settings/Settings";
+
 
 const router = createBrowserRouter([
   {
@@ -34,6 +45,24 @@ const router = createBrowserRouter([
   { path: "/signup", element: <Signup /> },
   { path: "/forgot", element: <ForgotPassword /> },
   { path: "/otp", element: <Otp /> },
+
+
+  {
+    path: "/student-dashboard", element: <DashboardHome />
+  },
+  {
+    path: "/library", element: <LibraryLists />
+  },
+  {
+    path: "/:read-book", element: <ViewBook />
+  },
+  {
+path: "/achivement", element: <Achievement />
+  },
+  {
+    path:'/profile', element: <Profile />
+  },
+
   { path: "/story-creator", element: <StoryCreatorStudio /> },
   { path: "/myStories", element: <MyStories /> },
   // Dashbaord
@@ -48,6 +77,18 @@ const router = createBrowserRouter([
       {
         path: "admin",
         element: <AdminDashboard />,
+      },
+      {
+        path: 'user-management',
+        element: <UserManagement />
+      },
+      {
+        path:'ai-bot',
+        element: <Chatbots />
+      },
+      {
+        path:'settings',
+        element: <Settings />
       },
       {
         path: "storyLibrary",
@@ -76,6 +117,7 @@ const router = createBrowserRouter([
       },
     ],
   },
+
 ]);
 
 export default router;
