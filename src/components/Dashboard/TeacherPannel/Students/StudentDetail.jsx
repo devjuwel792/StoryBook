@@ -29,7 +29,7 @@ const fakeStudent = {
       grade: 3,
       rating: 2,
       published: true,
-      img: "https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=500&q=60",
+      img: "https://res.cloudinary.com/dwycwft99/image/upload/v1767092695/image_65_e3axbs.png",
     },
     {
       title: "The Enchanted Forest",
@@ -38,7 +38,7 @@ const fakeStudent = {
       grade: 3,
       rating: 2,
       published: true,
-      img: "https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=500&q=60",
+      img: "https://res.cloudinary.com/dwycwft99/image/upload/v1767092705/image_66_ggmyt2.png",
     },
   ],
 };
