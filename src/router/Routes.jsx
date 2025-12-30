@@ -16,6 +16,7 @@ import TeacherSettings from "../components/Dashboard/TeacherPannel/TeacherSettin
 import { StoryLibrary } from "../components/Dashboard/AdminPannel/StoryLibrary/StoryLibrary";
 import AdminStoryCreatorStudio from "../components/Dashboard/AdminPannel/StoryLibrary/StoryCreatorStudio";
 import Congratulations from "../pages/Auth/Congratulation";
+import { UserManagement } from "../components/Dashboard/AdminPannel/User/User-Management";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       {
         path: "admin-story-create",
         element: <AdminStoryCreatorStudio/>,
+      },
+      {
+        path: "user",
+        element: <UserManagement/>,
       },
       // Teacher Dashboard
       {
