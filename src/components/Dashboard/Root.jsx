@@ -13,7 +13,7 @@ import TeacherSidebar from "./Sidebar/TeacherSidebar";
 const Root = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const role = localStorage.getItem("role");
+  const role = 'ADMIN'
   // const dispatch = useDispatch();
   // const { data: profile, refetch } = useGetProfileQuery();
 
@@ -118,6 +118,7 @@ const Root = () => {
       <div
         className={`flex-1 flex flex-col transition-all duration-300 ${mainContentClass}`}
       >
+        <Header />
         <main className="flex-1 overflow-y-auto bg-white">
           {location.pathname === "/dashboard" ? (
             renderDefaultDashboard()

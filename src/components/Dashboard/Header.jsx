@@ -22,6 +22,7 @@ const Header = () => {
         <NavLink to="/notification">
           <div className="relative cursor-pointer">
             <IoIosLogOut className="text-xl font-bold text-red-600" />
+         
 
             {/* Optional: Notification badge */}
           </div>

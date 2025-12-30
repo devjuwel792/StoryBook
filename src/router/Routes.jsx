@@ -22,6 +22,9 @@ import StudentManagement from "../components/Dashboard/TeacherPannel/Students/St
 import TeacherSettings from "../components/Dashboard/TeacherPannel/TeacherSettings/TeacherSettings";
 import { StoryLibrary } from "../components/Dashboard/AdminPannel/StoryLibrary/StoryLibrary";
 import AdminStoryCreatorStudio from "../components/Dashboard/AdminPannel/StoryLibrary/StoryCreatorStudio";
+import UserManagement from "../components/dashboard/AdminPannel/users/UserManagement";
+import Chatbots from "../components/dashboard/AdminPannel/chatbots/Chatbots";
+import Settings from "../components/dashboard/AdminPannel/settings/Settings";
 
 
 const router = createBrowserRouter([
@@ -72,6 +75,18 @@ path: "/achivement", element: <Achievement />
       {
         path: "admin",
         element: <AdminDashboard />,
+      },
+      {
+        path: 'user-management',
+        element: <UserManagement />
+      },
+      {
+        path:'ai-bot',
+        element: <Chatbots />
+      },
+      {
+        path:'settings',
+        element: <Settings />
       },
       {
         path: "storyLibrary",

@@ -3,6 +3,7 @@ import React from 'react';
 import { FaStar } from 'react-icons/fa6';
 import AchivementModalPage from './StudentModalComponents/AchivementModalPage';
 import DashboardModalPage from './StudentModalComponents/DashboardModalPage';
+import StoryViewModal from './adminDashboardModal/StoryViewModal';
 
 const Reusable_Modal = ({ setIsModalOpen, isModalOpen, data, location, title, nestedLocation }) => {
   
@@ -12,6 +13,8 @@ const Reusable_Modal = ({ setIsModalOpen, isModalOpen, data, location, title, ne
         return <AchivementModalPage data={data} />;
       case 'notification':
         return <DashboardModalPage nestedLocation={nestedLocation} />;
+        case 'storyView':
+        return <StoryViewModal story={data} />
       default:
         return null;
     }
@@ -19,8 +22,11 @@ const Reusable_Modal = ({ setIsModalOpen, isModalOpen, data, location, title, ne
 
 
   const getModalWidth = () => {
-    if (location === 'notification' && nestedLocation === 'badges') {
+    if (location === 'notification' && nestedLocation === 'badges' ) {
       return '80%';
+    }
+    if(location === 'storyView'){
+      return '40%'
     }
     return 400;
   };
@@ -30,6 +36,9 @@ const Reusable_Modal = ({ setIsModalOpen, isModalOpen, data, location, title, ne
     }
     if(location ==='achivement'){
       return 300
+    }
+    if(location ==='storyView'){
+      return '80vh'
     }
     return 500;
   };

@@ -86,7 +86,7 @@ const AdminSidebar = ({ collapsed }) => {
 
           {/* User Management */}
           <NavLink
-            to="/dashboard/user"
+            to="/dashboard/user-management"
             className="flex items-center justify-between"
           >
             <div
@@ -144,7 +144,7 @@ const AdminSidebar = ({ collapsed }) => {
 
           {/* AI Chatbot */}
           <NavLink
-            to="/dashboard/chatbot"
+            to="/dashboard/ai-bot"
             className="flex items-center justify-between "
           >
             <div
