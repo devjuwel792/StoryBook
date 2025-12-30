@@ -7,15 +7,21 @@ import {
   User,
   Shield,
   Sparkles,
+  EyeOff,
+  Eye,
 } from "lucide-react";
 import bgImg from "../../assets/bg.png";
+import { useNavigate } from "react-router";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [grade, setGrade] = useState(null);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,7 +42,7 @@ const Signup = () => {
       <div className="py-20 px-24 flex items-center justify-center gap-10 relative z-20">
         <div className="bg-white rounded-3xl shadow-2xl w-full max-w-2xl overflow-hidden">
           {/* Back Button */}
-          <button className="flex items-center gap-2 text-gray-600 text-sm px-6 pt-6 hover:text-gray-800 transition">
+          <button onClick={() => navigate(-1)} className="flex items-center gap-2 text-gray-600 text-sm px-6 pt-6 hover:text-gray-800 transition">
             <ArrowLeft size={16} />
             <p className="font-semibold text-base">Back to Home</p>
           </button>
@@ -124,14 +130,22 @@ const Signup = () => {
                   Create a Password
                 </label>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="At least 6 characters..."
-                  className="w-full px-6 py-4 border border-gray-300 rounded-2xl text-lg font-normal focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition"
+                  className="w-full px-6 py-4 border border-gray-300 rounded-2xl text-lg font-normal focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition pr-12"
                   required
                   minLength={6}
                 />
+                <button
+                  type="button"
+                  className="absolute right-4 top-16 -translate-y-1/2 text-gray-400 hover:text-teal-600"
+                  onClick={() => setShowPassword((prev) => !prev)}
+                  tabIndex={-1}
+                >
+                  {showPassword ? <EyeOff color="#99A1AF" /> : <Eye color="#99A1AF" />}
+                </button>
               </div>
 
               {/* Confirm Password */}
@@ -141,14 +155,22 @@ const Signup = () => {
                   Confirm Password
                 </label>
                 <input
-                  type="password"
+                  type={showConfirmPassword ? "text" : "password"}
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   placeholder="Type your password again..."
-                  className="w-full px-6 py-4 border border-gray-300 rounded-2xl text-lg font-normal focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition"
+                  className="w-full px-6 py-4 border border-gray-300 rounded-2xl text-lg font-normal focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition pr-12"
                   required
                   minLength={6}
                 />
+                <button
+                  type="button"
+                  className="absolute right-4 top-16 -translate-y-1/2 text-gray-400 hover:text-teal-600"
+                  onClick={() => setShowConfirmPassword((prev) => !prev)}
+                  tabIndex={-1}
+                >
+                  {showConfirmPassword ? <EyeOff color="#99A1AF" /> : <Eye color="#99A1AF" />}
+                </button>
               </div>
 
               {/* Submit Button */}

@@ -15,6 +15,7 @@ import StudentManagement from "../components/Dashboard/TeacherPannel/Students/St
 import TeacherSettings from "../components/Dashboard/TeacherPannel/TeacherSettings/TeacherSettings";
 import { StoryLibrary } from "../components/Dashboard/AdminPannel/StoryLibrary/StoryLibrary";
 import AdminStoryCreatorStudio from "../components/Dashboard/AdminPannel/StoryLibrary/StoryCreatorStudio";
+import Congratulations from "../pages/Auth/Congratulation";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
   { path: "/signup", element: <Signup /> },
   { path: "/forgot", element: <ForgotPassword /> },
   { path: "/otp", element: <Otp /> },
+  { path: "/congratulations", element: <Congratulations /> },
   { path: "/story-creator", element: <StoryCreatorStudio /> },
   { path: "/myStories", element: <MyStories /> },
   // Dashbaord
