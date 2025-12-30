@@ -184,11 +184,11 @@ export const MyStories = () => {
               </div>
             ))}
           </div>
-          <div className="w-full flex flex-wrap gap-6">
+          <div className="w-full grid grid-cols-4 gap-6">
             {stories.map((story) => (
               <div
                 key={story.id}
-                className="max-w-[33%] bg-white rounded-2xl outline outline-2 outline-offset-[-1.83px] outline-black/10 overflow-hidden flex flex-col"
+                className=" bg-white rounded-2xl outline outline-2 outline-offset-[-1.83px] outline-black/10 overflow-hidden flex flex-col"
               >
                 <img
                   className="w-full h-48 object-cover"
