@@ -181,7 +181,9 @@ const ContinueReadingCard = ({ title, progress, image }) => (
         <ProgressBar value={progress} />
       </div>
 
+<Link to='/34'>
       <button
+      
         className="mt-9 inline-flex items-center gap-2 rounded-full px-14 py-3 text-sm font-medium text-white hover:opacity-90 transition"
         style={{
           background: 'linear-gradient(90deg, #213C2D 0%, #98D8C8 99.91%)'
@@ -189,6 +191,7 @@ const ContinueReadingCard = ({ title, progress, image }) => (
       >
         Continue Reading →
       </button>
+</Link>
     </div>
 {/*  */}
 
@@ -210,13 +213,15 @@ const RecentStoryCard = ({ title, progress, image }) => (
       <div className="flex-1">
         <h3 className="font-semibold text-gray-800">{title}</h3>
         <p className="text-sm text-gray-500 mt-1">Your Progress {progress}%</p>
+<Link to='/33'>
         <button className="mt-2 flex items-center gap-1 text-sm font-medium text-white px-4 py-1 rounded-3xl hover:text-[#98D8C8] transition"
           style={{
           background: 'linear-gradient(90deg, #213C2D 0%, #98D8C8 99.91%)'
         }}
         >
-          Reading <FaArrowRight size={12} />
+          Read <FaArrowRight size={12} />
         </button>
+</Link>
       </div>
     </div>
   </div>
