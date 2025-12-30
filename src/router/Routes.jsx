@@ -4,7 +4,8 @@ import Signup from "../pages/Auth/Signup";
 import Login from "../pages/Auth/Login";
 import ForgotPassword from "../pages/Auth/Forgot";
 import Otp from "../pages/Auth/OTP";
-import { Progress } from "../pages/Progress/Progress";
+import StoryCreatorStudio from "../pages/Creator/StoryCreatorStudio";
+import { MyStories } from "../pages/MyStories/MyStories";
 import Root from "../components/Dashboard/Root";
 import TeacherSidebar from "../components/Dashboard/Sidebar/TeacherSidebar";
 import TeacherDashboard from "../components/Dashboard/TeacherPannel/TeacherDashboard";
@@ -14,6 +15,8 @@ import StudentManagement from "../components/Dashboard/TeacherPannel/Students/St
 import TeacherSettings from "../components/Dashboard/TeacherPannel/TeacherSettings/TeacherSettings";
 import Students from "../components/Dashboard/TeacherPannel/Students/Students";
 import StudentDetail from "../components/Dashboard/TeacherPannel/Students/StudentDetail";
+import { StoryLibrary } from "../components/Dashboard/AdminPannel/StoryLibrary/StoryLibrary";
+import AdminStoryCreatorStudio from "../components/Dashboard/AdminPannel/StoryLibrary/StoryCreatorStudio";
 
 const router = createBrowserRouter([
   {
@@ -31,9 +34,9 @@ const router = createBrowserRouter([
   { path: "/signup", element: <Signup /> },
   { path: "/forgot", element: <ForgotPassword /> },
   { path: "/otp", element: <Otp /> },
-  { path: "/progress", element: <Progress /> },
+  { path: "/story-creator", element: <StoryCreatorStudio /> },
+  { path: "/myStories", element: <MyStories /> },
   // Dashbaord
-
   {
     path: "/dashboard",
     element: <Root></Root>,
@@ -45,6 +48,14 @@ const router = createBrowserRouter([
       {
         path: "admin",
         element: <AdminDashboard />,
+      },
+      {
+        path: "storyLibrary",
+        element: <StoryLibrary />,
+      },
+      {
+        path: "admin-story-create",
+        element: <AdminStoryCreatorStudio/>,
       },
       // Teacher Dashboard
       {
