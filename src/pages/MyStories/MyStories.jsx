@@ -136,7 +136,8 @@ export const MyStories = () => {
     );
   };
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-[#FFF0F5] to-white p-20">
+<div className="min-h-screen bg-gradient-to-br from-[#FFF0F5] to-white p-10">
+      <div className=" w-[80vw] mx-auto ">
       {/* Header */}
       <div className="flex items-center justify-between mb-12">
         <div className="flex items-center gap-2">
@@ -273,5 +274,6 @@ export const MyStories = () => {
         setPage={setModalPage}
       />
     </div>
+</div>
   );
 };

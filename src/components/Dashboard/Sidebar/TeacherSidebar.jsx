@@ -1,4 +1,4 @@
-import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
+import { Link, NavLink,  useLocation } from "react-router-dom";
 import { MdOutlineDashboard } from "react-icons/md";
 import { IoSettingsOutline } from "react-icons/io5";
 import { LuUsers } from "react-icons/lu";
@@ -22,14 +22,16 @@ const TeacherSidebar = ({ collapsed }) => {
     <div className="green border-r-2 border-r-[#E8E8E8] min-h-screen flex flex-col justify-between inter">
       {/* Logo */}
       <div className="flex flex-col py-4">
-        <Link to="/">
+     
           <div
             className={`flex items-center gap-2  pt-2 pb-4 cursor-pointer ${
               collapsed ? "px-0" : "px-6 "
             }`}
           >
             {/* <img src={logo} alt="Logo" className="h-[63px] w-[63px] mb-2" /> */}
+               <Link to="/">
             {!collapsed && (
+              
               <div>
                 <h1 className="text-xl font-medium text-color whitespace-nowrap">
                   Teacher Pannel
@@ -39,11 +41,12 @@ const TeacherSidebar = ({ collapsed }) => {
                 </p>
               </div>
             )}
+              </Link>
           </div>
-        </Link>
+      
 
         {/* Menu Items */}
-        <nav className="flex flex-col border-t-2 border-[#384f37b3] text-color">
+        <nav className={`flex flex-col  text-color ${!collapsed ? 'border-t-2  border-[#384f37b3]' : 'mt-0' }`}>
           {/* Lesson Plan */}
           <NavLink
             to="/dashboard/teacher"

@@ -6,6 +6,7 @@ import {
   Check,
   Copy,
   Lightbulb,
+  LightbulbIcon,
   RotateCcw,
   Save,
   Send,
@@ -17,6 +18,7 @@ import {
 } from "lucide-react";
 import owlAnimation from "../../assets/owl2.json";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 
 export default function StoryCreatorStudio() {
   const [uploadedImage, setUploadedImage] = useState(null);
@@ -188,24 +190,31 @@ export default function StoryCreatorStudio() {
             Story Creator Studio
           </h1>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-4 justify-between">
           <button
             onClick={handleClear}
-            className="px-4 py-2 bg-white rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] outline outline-2 outline-offset-[-2px] outline-sky-300 transition-colors hover:bg-sky-50 flex items-center gap-2 text-gray-800 text-base font-bold"
+            className="px-7 py-2 bg-white rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] outline outline-2 outline-offset-[-2px] outline-sky-300 transition-colors hover:bg-sky-50 flex items-center gap-2 text-gray-800 text-base font-bold"
           >
             <RotateCcw size={16} color="#2D3748" />
             Clear
           </button>
           <button
+          style={{
+            background: 'linear-gradient(90.49deg, #FFB6C1 0.57%, #FFDAB9 99.28%)'
+
+          }}
             onClick={handleSave}
-            className="px-4 py-2 bg-gradient-to-br from-[#FFE87C] to-[#FFDAB9] rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] transition-all hover:shadow-md hover:brightness-105 flex items-center gap-2 text-gray-800 text-base font-bold"
+            className="px-7 py-2 bg-gradient-to-br from-[#FFE87C] to-[#FFDAB9] rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] transition-all hover:shadow-md hover:brightness-105 flex items-center gap-2 text-gray-800 text-base font-bold"
           >
             <Save size={16} color="#2D3748" />
             Save
           </button>
           <button
+          style={{
+            background: 'linear-gradient(90deg, #213C2D -0.36%, #98D8C8 100%)'
+          }}
             onClick={handlePublish}
-            className="px-4 py-2 bg-gradient-to-br from-[#87CEEB] to-[#98D8C8] rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] transition-all hover:shadow-md hover:brightness-105 flex items-center gap-2 text-white text-base font-bold"
+            className="px-7 py-2 bg-gradient-to-br from-[#87CEEB] to-[#98D8C8] rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] transition-all hover:shadow-md hover:brightness-105 flex items-center gap-2 text-white text-base font-bold"
           >
             <Share2 size={16} color="#ffffff" />
             Publish
@@ -247,7 +256,7 @@ export default function StoryCreatorStudio() {
                   className="text-sm text-gray-600 font-bold hover:bg-gray-100 px-3 py-2 rounded-md flex items-center gap-2"
                   onClick={() => setShowEmoji(!showEmoji)}
                 >
-                  <Sparkles size={16} color="#4A5565" /> Add Stickers & Emojis
+                  <Sparkles size={16} color="#4A5565" /> Add Stickers & Emojis {showEmoji? <IoMdArrowDropdown size={20} />:<IoMdArrowDropup size={20} />}
                 </button>
 
                 {showEmoji && (
@@ -260,7 +269,7 @@ export default function StoryCreatorStudio() {
               </div>
 
               <div className="text-right text-base font-normal font-nunito text-gray-500 mt-2">
-                {getWordCount(content)} words
+                {getWordCount(content)} lines
               </div>
             </div>
           </div>
@@ -301,7 +310,7 @@ export default function StoryCreatorStudio() {
             <p className="text-gray-700 text-base font-normal">Story Helper</p>
           </div>
           {/* Chatbox */}
-          <div className="w-full h-[540px] bg-white rounded-[20px] shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] outline outline-2 outline-offset-[-2px] outline-black/10 flex flex-col overflow-hidden">
+          <div className="w-full h-[340px] bg-white rounded-[20px] shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] outline outline-2 outline-offset-[-2px] outline-black/10 flex flex-col overflow-hidden">
             <div className="flex-1 overflow-y-auto p-4 space-y-4">
               {messages.map((msg) => (
                 <div

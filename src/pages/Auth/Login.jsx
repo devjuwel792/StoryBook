@@ -28,13 +28,19 @@ const Login = () => {
       navigate("/dashboard");
       return;
     }
+    if (email === "student@gmail.com" && password === "student@gmail.com") {
+      localStorage.setItem("role", "student");
+      toast.success("Admin login successful");
+      navigate("/student-dashboard");
+      return;
+    }
 
     // ❌ Invalid credentials
     toast.error("Invalid email or password");
   };
 
   return (
-    <div className="relative w-full min-h-screen overflow-hidden">
+    <div className="relative w-full h-screen overflow-hidden">
       {/* Background Image */}
       <img
         src={bgImg}
@@ -45,7 +51,7 @@ const Login = () => {
       {/* Overlay for opacity-50 */}
       <div className="absolute inset-0 bg-black opacity-50 z-10" />
       <div className="flex items-center justify-center gap-10 px-24 py-20 relative z-20">
-        <div className="bg-white rounded-3xl shadow-2xl w-full max-w-[524px] h-[888px] overflow-hidden">
+        <div className="bg-white rounded-3xl shadow-2xl w-full max-w-[524px]  overflow-hidden">
           <div className="p-14">
             {/* Logo */}
             <div className="flex flex-col items-center justify-center gap-3 mb-8">
