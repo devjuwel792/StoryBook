@@ -23,7 +23,7 @@ const Chatbots = () => {
   return (
     <div className="max-w-8xl mx-auto p-6">
       {/* Header Section */}
-      <header className="mb-8">
+      <header className="mb-8 mx-12">
         <h1 className="text-[28px] font-semibold text-[#1F1F1F] mb-2">
           AI Assistant Configuration
         </h1>

@@ -9,7 +9,8 @@ import card5 from "../../../../assets/story-library/card5.png";
 import card6 from "../../../../assets/story-library/card6.png";
 import star from "../../../../assets/story-library/star.svg";
 import star2 from "../../../../assets/story-library/star2.svg";
-
+import { IoSearchOutline } from "react-icons/io5";
+import { IoBookOutline } from "react-icons/io5";
 import { useNavigate } from "react-router";
 import StoryModal from "./StoryModal";
 
@@ -95,7 +96,7 @@ export const StoryLibrary = () => {
   const [modalStory, setModalStory] = useState(null);
   const [modalPage, setModalPage] = useState(1);
   return (
-    <div className="flex w-[80vw] mx-auto flex-col justify-center  py-7 bg-[#FBFBFB] gap-10">
+    <div className="flex w-[80vw] mx-auto flex-col justify-center  py-7 gap-10">
       <div className="">
         <h1 className="text-stone-900 text-3xl font-semibold">Story Library</h1>
         <p className="text-stone-900 text-xl font-normal mt-1">

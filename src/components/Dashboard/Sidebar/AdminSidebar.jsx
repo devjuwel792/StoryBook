@@ -15,7 +15,7 @@ const AdminSidebar = ({ collapsed }) => {
   const isActiveDashboard = location.pathname.startsWith("/dashboard/admin");
   const isActiveUsers = location.pathname.startsWith("/dashboard/user");
   const isActiveAdmin = location.pathname.startsWith("/dashboard/storyLibrary");
-  const isActiveSubs = location.pathname.startsWith("/dashboard/chatbot");
+  const isActiveSubs = location.pathname.startsWith("/dashboard/ai-bot");
   const isActiveSettings = location.pathname.startsWith("/dashboard/settings");
 
   const handleLogOut = () => {
