@@ -48,11 +48,11 @@ const router = createBrowserRouter([
         element: <AdminDashboard />,
       },
       {
-        path: "admin/story-library",
+        path: "storyLibrary",
         element: <StoryLibrary />,
       },
       {
-        path: "admin/story-create",
+        path: "admin-story-create",
         element: <AdminStoryCreatorStudio/>,
       },
       // Teacher Dashboard

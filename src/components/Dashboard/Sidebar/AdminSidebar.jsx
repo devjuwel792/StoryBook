@@ -14,8 +14,8 @@ const AdminSidebar = ({ collapsed }) => {
 
   const isActiveDashboard = location.pathname.startsWith("/dashboard/admin");
   const isActiveUsers = location.pathname.startsWith("/dashboard/user");
-  const isActiveAdmin = location.pathname.startsWith("/dashboard/makeAdmin");
-  const isActiveSubs = location.pathname.startsWith("/dashboard/subscription");
+  const isActiveAdmin = location.pathname.startsWith("/dashboard/storyLibrary");
+  const isActiveSubs = location.pathname.startsWith("/dashboard/chatbot");
   const isActiveSettings = location.pathname.startsWith("/dashboard/settings");
 
   const handleLogOut = () => {
@@ -113,9 +113,9 @@ const AdminSidebar = ({ collapsed }) => {
             </div>
           </NavLink>
 
-          {/* School Admin */}
+          {/* Story Library */}
           <NavLink
-            to="admin/story-library"
+            to="/dashboard/storyLibrary"
             className="flex items-center justify-between "
           >
             <div
@@ -142,9 +142,9 @@ const AdminSidebar = ({ collapsed }) => {
             </div>
           </NavLink>
 
-          {/* Subscription */}
+          {/* AI Chatbot */}
           <NavLink
-            to="/dashboard/subscription"
+            to="/dashboard/chatbot"
             className="flex items-center justify-between "
           >
             <div

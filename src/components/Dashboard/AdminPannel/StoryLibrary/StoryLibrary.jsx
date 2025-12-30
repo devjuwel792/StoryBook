@@ -176,7 +176,7 @@ export const StoryLibrary = () => {
                 </button>
                 <button
                   onClick={() =>
-                    navigate("/dashboard/admin/story-create")
+                    navigate("/dashboard/admin-story-create")
                   }
                   className="flex-1 h-8 bg-white rounded-lg outline outline-[0.80px] outline-offset-[-0.80px] outline-black/10 flex items-center justify-center text-neutral-950 text-sm font-normal font-nunito"
                 >
