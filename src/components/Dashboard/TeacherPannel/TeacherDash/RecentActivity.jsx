@@ -10,23 +10,27 @@ const ActivityRow = ({ name, lastActive, dict, stories, image }) => {
           <img
             src={image}
             alt={name}
-            className="object-cover w-8 h-8 rounded-full"
+            className="object-cover w-10 h-10 rounded-full"
           />
         ) : (
-          <div className="flex items-center justify-center w-8 h-8 font-medium text-white bg-gray-300 rounded-full">
+          <div className="flex items-center justify-center w-10 h-10 font-medium text-white bg-gray-300 rounded-full">
             {firstLetter}
           </div>
         )}
         <div>
-          <p className="text-sm font-semibold">{name}</p>
-          <p className="mt-1 text-xs text-gray-400 inter">
+          <p className="text-lg font-semibold">{name}</p>
+          <p className="text-base text-gray-400 inter">
             Last active: {lastActive}
           </p>
         </div>
       </div>
-      <div className="flex gap-6 text-sm text-gray-600">
-        <span>{dict} dict. click</span>
-        <span>{stories} stories</span>
+      <div className="flex gap-6 text-base text-[#2E2E2E]">
+        <div className="flex flex-col items-center justify-center inter">
+          {dict} <span> dict. click</span>
+        </div>
+        <div className="flex flex-col items-center justify-center inter">
+          {stories} <span> stories</span>
+        </div>
       </div>
     </div>
   );

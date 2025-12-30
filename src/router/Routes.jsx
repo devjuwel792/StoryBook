@@ -13,6 +13,8 @@ import DashboardContent from "../utils/DashboardContent";
 import AdminDashboard from "../components/Dashboard/AdminPannel/AdminDashboard";
 import StudentManagement from "../components/Dashboard/TeacherPannel/Students/StudentManagement";
 import TeacherSettings from "../components/Dashboard/TeacherPannel/TeacherSettings/TeacherSettings";
+import Students from "../components/Dashboard/TeacherPannel/Students/Students";
+import StudentDetail from "../components/Dashboard/TeacherPannel/Students/StudentDetail";
 import { StoryLibrary } from "../components/Dashboard/AdminPannel/StoryLibrary/StoryLibrary";
 import AdminStoryCreatorStudio from "../components/Dashboard/AdminPannel/StoryLibrary/StoryCreatorStudio";
 
@@ -62,9 +64,13 @@ const router = createBrowserRouter([
       },
       {
         path: "students",
-        element: <StudentManagement />,
+        element: <Students />,
       },
-       {
+      {
+        path: "students/details",
+        element: <StudentDetail></StudentDetail>,
+      },
+      {
         path: "settings",
         element: <TeacherSettings />,
       },
