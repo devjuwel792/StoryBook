@@ -5,7 +5,7 @@ const Header = () => {
   const role = localStorage.getItem("role");
   console.log(role, "role in header");
   return (
-    <div className="flex items-center justify-end px-6 py-6 bg-white ">
+    <div className="flex items-center justify-end px-6 pt-6 bg-white ">
       {/* Time + Date + Notification */}
       <div className="flex items-center gap-6">
         {/* Time & Date */}
