@@ -118,8 +118,7 @@ const Root = () => {
       <div
         className={`flex-1 flex flex-col transition-all duration-300 ${mainContentClass}`}
       >
-        <Header />
-        <main className="flex-1 p-4 overflow-y-auto bg-white">
+        <main className="flex-1 overflow-y-auto bg-white">
           {location.pathname === "/dashboard" ? (
             renderDefaultDashboard()
           ) : (

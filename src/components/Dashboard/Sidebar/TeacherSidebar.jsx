@@ -1,4 +1,3 @@
-
 import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 import { MdOutlineDashboard } from "react-icons/md";
 import { IoSettingsOutline } from "react-icons/io5";
@@ -48,9 +47,9 @@ const TeacherSidebar = ({ collapsed }) => {
           {/* Lesson Plan */}
           <NavLink
             to="/dashboard/teacher"
-            className="flex items-center justify-between w-[280px]"
+            className="flex items-center justify-between "
           >
-            <div className="flex items-center justify-between w-[280px] font-medium p-2 pt-7">
+            <div className="flex items-center justify-between p-2 font-medium pt-7">
               <div
                 className={`flex items-center space-x-2 justify-start gap-2  p-5 text-center ${
                   collapsed ? "w-[63px] h-[40px]" : "w-[250px] h-[50px] "
@@ -58,7 +57,7 @@ const TeacherSidebar = ({ collapsed }) => {
               >
                 <MdOutlineDashboard className="w-[24px] h-[24px] " />
                 {!collapsed && (
-                  <h1 className="text-base font-medium montserrat">
+                  <h1 className="text-base font-medium font-[Montserrat]">
                     Dashboard
                   </h1>
                 )}
@@ -69,9 +68,9 @@ const TeacherSidebar = ({ collapsed }) => {
           {/* All Lesson Plan */}
           <NavLink
             to="/dashboard/students"
-            className="flex items-center justify-between w-[280px]"
+            className="flex items-center justify-between "
           >
-            <div className="flex items-center justify-between w-[280px] font-medium p-2">
+            <div className="flex items-center justify-between p-2 font-medium">
               <div
                 className={`flex items-center space-x-2 justify-start gap-2  p-5 text-center ${
                   collapsed ? "w-[63px] h-[40px]" : "w-[250px] h-[50px] "
@@ -79,7 +78,9 @@ const TeacherSidebar = ({ collapsed }) => {
               >
                 <LuUsers className="w-[24px] h-[24px]" />
                 {!collapsed && (
-                  <h1 className="text-base font-medium montserrat">Student</h1>
+                  <h1 className="text-base font-medium font-[Montserrat]">
+                    Student
+                  </h1>
                 )}
               </div>
             </div>
