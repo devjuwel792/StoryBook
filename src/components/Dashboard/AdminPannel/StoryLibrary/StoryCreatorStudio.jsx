@@ -11,6 +11,7 @@ import {
   Send,
   Share2,
   Sparkles,
+  Upload,
   WandSparkles,
   X,
 } from "lucide-react";
@@ -18,6 +19,29 @@ import owlAnimation from "../../../../assets/owl2.json";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function AdminStoryCreatorStudio() {
+  const [uploadedImage, setUploadedImage] = useState(null);
+  const fileInputRef = useRef(null);
+
+  const handleImageDivClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const isValidType = ["image/png", "image/jpeg", "image/jpg"].includes(
+      file.type
+    );
+    if (!isValidType) {
+      alert("Only PNG and JPG files are allowed.");
+      return;
+    }
+    if (file.size > 10 * 1024 * 1024) {
+      alert("File size must be less than 10MB.");
+      return;
+    }
+    setUploadedImage(file);
+  };
   const navigate = useNavigate();
   const location = useLocation();
   const [title, setTitle] = useState(location.state?.title || "");
@@ -350,15 +374,34 @@ export default function AdminStoryCreatorStudio() {
         <div className="p-7 bg-white rounded-3xl shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10)] outline outline-4 outline-offset-[-4px] outline-amber-200/30 inline-flex flex-col justify-start items-start gap-4">
           <div className="flex items-center gap-2">
             <Lightbulb color="#FFD700" />
-            <h1 className="text-gray-800 text-xl font-bold">Writing Prompt</h1>
+            <h1 className="text-gray-800 text-xl font-bold">Upload image</h1>
           </div>
-          <div className="w-full p-4 bg-gradient-to-b from-[#FFF8E6] to-[#FFF0F5] rounded-2xl inline-flex flex-col justify-start items-start">
-            <p className="justify-start text-gray-700 text-base font-normal font-nunito leading-6">
-              What if you could fly for one day?
+          <div
+            className="w-full p-4 bg-gradient-to-b from-[#FFF8E6] to-[#FFF0F5] rounded-2xl inline-flex flex-col justify-start items-center cursor-pointer hover:brightness-95 transition"
+            onClick={handleImageDivClick}
+          >
+            <Upload color="#99A1AF" strokeWidth={3} />
+            <p className="justify-start text-gray-700 text-sm font-normal font-nunito leading-6">
+              Upload Story Image
             </p>
+            <p className="justify-start text-gray-700 text-xs font-normal font-nunito leading-6">
+              PNG, JPG files (Max 10MB)
+            </p>
+            <input
+              type="file"
+              accept="image/png, image/jpeg, image/jpg"
+              style={{ display: "none" }}
+              ref={fileInputRef}
+              onChange={handleImageChange}
+            />
+            {uploadedImage && (
+              <p className="mt-2 text-green-600 text-xs font-bold">
+                {uploadedImage.name} selected
+              </p>
+            )}
           </div>
-          <button className="self-stretch h-10 w-full bg-gradient-to-b from-amber-200 to-orange-200 rounded-full shadow-[0px_1px_2px_-1px_rgba(0,0,0,0.10)] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.10)] flex justify-center items-center text-gray-800 text-base font-bold font-nunito leading-6 hover:brightness-105 transition-all">
-            Get New Idea ✨
+          <button className="self-stretch h-10 w-full bg-gradient-to-b from-amber-200 to-orange-200 rounded-full shadow-[0px_1px_2px_-1px_rgba(0,0,0,0.10)] flex justify-center items-center text-gray-800 text-base font-bold font-nunito leading-6 hover:brightness-105 transition-all">
+            {uploadedImage ? "Uploaded" : "Upload"}
           </button>
         </div>
         {/* Card 2 */}
