@@ -19,7 +19,7 @@ const Header = () => {
         </div> */}
 
         {/* Notification Icon */}
-        <NavLink to="/notification">
+        <NavLink to="/login">
           <div className="relative cursor-pointer">
             <IoIosLogOut className="text-xl font-bold text-red-600" />
          

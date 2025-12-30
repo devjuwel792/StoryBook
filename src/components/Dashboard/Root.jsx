@@ -72,7 +72,7 @@ const Root = () => {
 
       {/* Desktop Sidebar */}
       <div
-        className={`transition-all duration-300 h-screen bg-white border border-[#E8E8E8] fixed top-0 left-0 z-40
+        className={`transition-all duration-300 h-screen bg-white  fixed top-0 left-0 z-40
         ${collapsed ? "w-[80px]" : "w-[270px]"} hidden lg:block`}
       >
         {/* Arrow Toggle */}
@@ -119,7 +119,7 @@ const Root = () => {
         className={`flex-1 flex flex-col transition-all duration-300 ${mainContentClass}`}
       >
         <Header />
-        <main className="flex-1 overflow-y-auto bg-white">
+        <main className="flex-1 p-4 overflow-y-auto bg-white">
           {location.pathname === "/dashboard" ? (
             renderDefaultDashboard()
           ) : (
