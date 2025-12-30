@@ -10,7 +10,7 @@ const fakeStories = [
     grade: 3,
     rating: 4,
     status: "published",
-    img: "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=600&q=80",
+    img: "https://res.cloudinary.com/dwycwft99/image/upload/v1767092695/image_65_e3axbs.png",
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const fakeStories = [
     grade: 3,
     rating: 4,
     status: "published",
-    img: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80",
+    img: "https://res.cloudinary.com/dwycwft99/image/upload/v1767092705/image_66_ggmyt2.png",
   },
   {
     id: 3,
