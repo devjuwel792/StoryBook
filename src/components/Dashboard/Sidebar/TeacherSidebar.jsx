@@ -47,9 +47,9 @@ const TeacherSidebar = ({ collapsed }) => {
           {/* Lesson Plan */}
           <NavLink
             to="/dashboard/teacher"
-            className="flex items-center justify-between w-[280px]"
+            className="flex items-center justify-between "
           >
-            <div className="flex items-center justify-between w-[280px] font-medium p-2 pt-7">
+            <div className="flex items-center justify-between p-2 font-medium pt-7">
               <div
                 className={`flex items-center space-x-2 justify-start gap-2  p-5 text-center ${
                   collapsed ? "w-[63px] h-[40px]" : "w-[250px] h-[50px] "
@@ -68,9 +68,9 @@ const TeacherSidebar = ({ collapsed }) => {
           {/* All Lesson Plan */}
           <NavLink
             to="/dashboard/students"
-            className="flex items-center justify-between w-[280px]"
+            className="flex items-center justify-between "
           >
-            <div className="flex items-center justify-between w-[280px] font-medium p-2">
+            <div className="flex items-center justify-between p-2 font-medium">
               <div
                 className={`flex items-center space-x-2 justify-start gap-2  p-5 text-center ${
                   collapsed ? "w-[63px] h-[40px]" : "w-[250px] h-[50px] "
