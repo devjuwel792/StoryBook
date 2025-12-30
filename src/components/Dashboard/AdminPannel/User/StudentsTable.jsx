@@ -1,5 +1,6 @@
 import { Check, Eye, Pencil, X } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const initialData = [
   {
@@ -39,6 +40,7 @@ const initialData = [
 
 export default function StudentsTable({ searchQuery = "", selectedGrade = "all" }) {
   const [data, setData] = useState(initialData);
+  const navigate = useNavigate();
 
   const handleDecision = (id, value) => {
     setData((prev) =>
@@ -104,7 +106,10 @@ export default function StudentsTable({ searchQuery = "", selectedGrade = "all" 
               <td className="px-6 py-4 text-center">{item.readingLevel}</td>
 
               <td className="px-6 py-4 flex items-center justify-center gap-3">
-                <Eye className="cursor-pointer text-gray-600" />
+                <Eye
+                  onClick={() => navigate("/dashboard/user-details")}
+                  className="cursor-pointer text-gray-600"
+                />
                 <Pencil className="cursor-pointer text-gray-600" />
 
                 {/* decision logic */}
