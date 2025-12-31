@@ -1,6 +1,7 @@
 import { Pencil, Trash2 } from "lucide-react";
 import EditUserModal from "./EditUserModal";
 import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const students = [
   {
@@ -49,7 +50,9 @@ export default function TeachersTable({
   searchQuery = "",
   selectedGrade = "all",
 }) {
-  const filteredData = students.filter((item) => {
+  const [tableData, setTableData] = useState(students);
+
+  const filteredData = tableData.filter((item) => {
     const matchesSearch = item.name
       .toLowerCase()
       .includes(searchQuery.toLowerCase());
@@ -60,8 +63,40 @@ export default function TeachersTable({
   const [open, setOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
 
+  const handleDelete = (id) => {
+    toast(
+      (t) => (
+        <div className="flex flex-col gap-2">
+          <p className="text-sm font-medium text-gray-800">
+            Are you sure you want to delete?
+          </p>
+          <div className="flex gap-2 justify-center">
+            <button
+              onClick={() => toast.dismiss(t.id)}
+              className="px-3 py-1 text-xs font-medium text-gray-600 bg-gray-100 rounded hover:bg-gray-200"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={() => {
+                setTableData((prev) => prev.filter((item) => item.id !== id));
+                toast.dismiss(t.id);
+                toast.success("Deleted successfully");
+              }}
+              className="px-3 py-1 text-xs font-medium text-white bg-red-500 rounded hover:bg-red-600"
+            >
+              Confirm
+            </button>
+          </div>
+        </div>
+      ),
+      { duration: 4000 }
+    );
+  };
+
   return (
     <div className="overflow-x-auto bg-white rounded-xl border">
+      <Toaster />
       <table className="w-full text-sm">
         <thead className="border-b bg-gray-50 text-gray-600">
           <tr className="text-center">
@@ -132,6 +167,7 @@ export default function TeachersTable({
                 />
                 <Trash2
                   size={16}
+                  onClick={() => handleDelete(item.id)}
                   className="cursor-pointer text-red-500 hover:text-red-700"
                 />
               </td>
