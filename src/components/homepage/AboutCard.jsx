@@ -16,7 +16,7 @@ const Header = ({ heading, subheading }) => {
   );
 };
 
-const Card = ({ cardData, position }) => {
+const Card = ({ cardData, position,image }) => {
   return (
     <div className={`flex justify-center ${position==='left'? 'flex-row-reverse': ''}  items-start mt-20 gap-9`}>
       <div className="grid grid-cols-1 gap-4 w-[40vw]">
@@ -51,7 +51,7 @@ const Card = ({ cardData, position }) => {
       <div className="w-[40vw] h-full">
         <img 
           className='w-full h-full object-cover rounded-xl shadow-md' 
-          src="/images/homepage/img1.png" 
+          src={image} 
           alt="Children reading books" 
         />
       </div>
@@ -129,7 +129,7 @@ const AboutCard = () => {
         heading={'Support Your Reading Journey 📚'} 
         subheading={'We provide personalized tools and features to help every child become a confident, lifelong reader!'} 
       />
-      <Card  cardData={cards1} />
+      <Card image={'/images/homepage/img1.png'}  cardData={cards1} />
     </div>
 {/* section 2 */}
 
@@ -143,7 +143,7 @@ const AboutCard = () => {
         heading={'Support Your Reading Journey 📚'} 
         subheading={'We provide personalized tools and features to help every child become a confident, lifelong reader!'} 
       />
-      <Card position={'left'} cardData={cards2} />
+      <Card image={'/images/homepage/img2.png'} position={'left'} cardData={cards2} />
 </div>
 
     </div>
