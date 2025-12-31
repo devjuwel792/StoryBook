@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import statsData from "../../../../assets/storyLibraryStats.json";
-import { ChevronDown, Trash2, Upload } from "lucide-react";
+import { Trash2, Upload } from "lucide-react";
 import card1 from "../../../../assets/story-library/card1.png";
 import card2 from "../../../../assets/story-library/card2.png";
 import card3 from "../../../../assets/story-library/card3.png";
@@ -13,10 +13,10 @@ import { IoSearchOutline } from "react-icons/io5";
 import { IoBookOutline } from "react-icons/io5";
 import { useNavigate } from "react-router";
 import StoryModal from "./StoryModal";
+import toast, { Toaster } from "react-hot-toast";
 
 export const StoryLibrary = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-  const stories = [
+  const [stories, setStories] = useState([
     {
       id: 1,
       title: "The Enchanted Forest",
@@ -90,13 +90,46 @@ export const StoryLibrary = () => {
       stars: 3,
       image: card6,
     },
-  ];
+  ]);
   const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
   const [modalStory, setModalStory] = useState(null);
   const [modalPage, setModalPage] = useState(1);
+
+  const handleDelete = (id) => {
+    toast(
+      (t) => (
+        <div className="flex flex-col gap-2">
+          <p className="text-sm font-medium text-gray-800">
+            Are you sure you want to delete?
+          </p>
+          <div className="flex gap-2 justify-center">
+            <button
+              onClick={() => toast.dismiss(t.id)}
+              className="px-3 py-1 text-xs font-medium text-gray-600 bg-gray-100 rounded hover:bg-gray-200"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={() => {
+                setStories((prev) => prev.filter((item) => item.id !== id));
+                toast.dismiss(t.id);
+                toast.success("Deleted successfully");
+              }}
+              className="px-3 py-1 text-xs font-medium text-white bg-red-500 rounded hover:bg-red-600"
+            >
+              Confirm
+            </button>
+          </div>
+        </div>
+      ),
+      { duration: 4000 }
+    );
+  };
+
   return (
     <div className="flex w-[80vw] mx-auto flex-col justify-center  py-7 gap-10">
+      <Toaster />
       <div className="">
         <h1 className="text-stone-900 text-3xl font-semibold">Story Library</h1>
         <p className="text-stone-900 text-xl font-normal mt-1">
@@ -221,7 +254,9 @@ export const StoryLibrary = () => {
                 >
                   Edit
                 </button>
-                <button className="w-9 h-8 bg-white rounded-lg outline outline-[0.80px] outline-offset-[-0.80px] outline-black/10 flex items-center justify-center">
+                <button 
+                  onClick={() => handleDelete(story.id)}
+                  className="w-9 h-8 bg-white rounded-lg outline outline-[0.80px] outline-offset-[-0.80px] outline-black/10 flex items-center justify-center">
                   <Trash2 size={16} color="#E7000B" strokeWidth={1.5} />
                 </button>
               </div>
