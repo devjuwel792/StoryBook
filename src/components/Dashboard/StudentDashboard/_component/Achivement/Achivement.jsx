@@ -11,8 +11,9 @@ import {
   IoRocketOutline,
   IoArrowBack,
 } from "react-icons/io5";
-import Reusable_Modal from "../../../reusable_components/Reusable_Modal";
+
 import { useNavigate } from "react-router";
+import Reusable_Modal from "../../../../reusable_components/Reusable_Modal";
 
 const Achievement = () => {
 const navigate = useNavigate()

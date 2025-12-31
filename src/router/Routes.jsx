@@ -6,10 +6,10 @@ import ForgotPassword from "../pages/Auth/Forgot";
 import Otp from "../pages/Auth/OTP";
 
 
-import DashboardHome from "../components/dashboard/DashboardHome";
-import LibraryLists from "../components/dashboard/_component/Library/LibraryLists";
-import ViewBook from "../components/dashboard/_component/Library/ViewBook";
-import Achievement from "../components/dashboard/_component/Achivement/Achivement";
+import DashboardHome from "../components/dashboard/StudentDashboard/DashboardHome";
+import LibraryLists from "../components/dashboard/StudentDashboard/_component/Library/LibraryLists";
+import ViewBook from "../components/dashboard/StudentDashboard/_component/Library/ViewBook";
+import Achievement from "../components/dashboard/StudentDashboard/_component/Achivement/Achivement";
 import Profile from "../pages/Profile/Profile";
 import StoryCreatorStudio from "../pages/Creator/StoryCreatorStudio";
 import { MyStories } from "../pages/MyStories/MyStories";

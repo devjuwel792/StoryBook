@@ -4,6 +4,7 @@ import Carousel from "./components/homepage/Carousel/Carousel";
 import AboutCard from "./components/homepage/AboutCard";
 import AchivementCard from "./components/homepage/AchivementCard";
 import { Toaster } from "react-hot-toast";
+import Footer from "./pages/Footer";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
       </div>
       <AboutCard />
       <AchivementCard />
+      <Footer />
     </div>
   );
 }

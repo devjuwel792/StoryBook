@@ -1,3 +1,4 @@
+import { Pagination } from "antd";
 import React, { useEffect, useRef, useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoArrowBack, IoBookOutline, IoSearch } from "react-icons/io5";
@@ -10,7 +11,7 @@ const recommendedStories = [
     grade: "Grade 3",
     pages: 18,
     rating: 5,
-    image: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=600&q=80&auto=format&fit=crop", // Magical forest with glowing mushrooms
+    image: "https://covers.openlibrary.org/b/id/14384469-L.jpg", // Magical forest cover
   },
   {
     title: "Space Adventures with Zog",
@@ -18,7 +19,7 @@ const recommendedStories = [
     grade: "Grade 3",
     pages: 22,
     rating: 5,
-    image: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=600&q=80&auto=format&fit=crop", // Colorful galaxy scene
+    image: "https://covers.openlibrary.org/b/id/13293614-L.jpg", // Space adventure cover
   },
   {
     title: "Underwater Treasure",
@@ -26,7 +27,7 @@ const recommendedStories = [
     grade: "Grade 3",
     pages: 16,
     rating: 4,
-    image: "https://images.unsplash.com/photo-1536152471326-642d7bb5e0b1?w=600&q=80&auto=format&fit=crop", // Underwater castle
+    image: "https://covers.openlibrary.org/b/id/13725757-L.jpg", // Underwater adventure
   },
   {
     title: "Dragon's Best Friend",
@@ -34,7 +35,7 @@ const recommendedStories = [
     grade: "Grade 3",
     pages: 20,
     rating: 4,
-    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&q=80&auto=format&fit=crop", // Friendly dragon illustration
+    image: "https://covers.openlibrary.org/b/id/14504153-L.jpg", // Dragon story cover
   },
   {
     title: "The Little Robot Who Could",
@@ -42,7 +43,7 @@ const recommendedStories = [
     grade: "Grade 3",
     pages: 14,
     rating: 4,
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80&auto=format&fit=crop", // Cute robot friends
+    image: "https://covers.openlibrary.org/b/id/14729274-L.jpg", // Robot adventure cover
   },
 ];
 
@@ -53,7 +54,7 @@ const yourStories = [
     grade: "Grade 3",
     pages: 24,
     rating: 5,
-    image: "https://images.unsplash.com/photo-1560851248-7a2a48efb433?w=600&q=80&auto=format&fit=crop", // Crystal castle
+    image: "https://covers.openlibrary.org/b/id/14220986-L.jpg", // Princess/castle cover
   },
   {
     title: "Adventures in Dinosaur Land",
@@ -61,7 +62,7 @@ const yourStories = [
     grade: "Grade 3",
     pages: 19,
     rating: 4,
-    image: "https://images.unsplash.com/photo-1518358246973-95637f1df901?w=600&q=80&auto=format&fit=crop", // Dinosaur jungle
+    image: "https://covers.openlibrary.org/b/id/14697432-L.jpg", // Dinosaur adventure
   },
   {
     title: "The Magic Paintbrush",
@@ -69,7 +70,7 @@ const yourStories = [
     grade: "Grade 3",
     pages: 17,
     rating: 4,
-    image: "https://images.unsplash.com/photo-1544931170-3ca1337cce88?w=600&q=80&auto=format&fit=crop", // Colorful paintbrush magic
+    image: "https://covers.openlibrary.org/b/id/14456789-L.jpg", // Art/magic theme
   },
   {
     title: "Pirate Island Mystery",
@@ -77,7 +78,7 @@ const yourStories = [
     grade: "Grade 3",
     pages: 21,
     rating: 5,
-    image: "https://images.unsplash.com/photo-1559825481-12a05cc00344?w=600&q=80&auto=format&fit=crop", // Pirate treasure map
+    image: "https://covers.openlibrary.org/b/id/8479570-L.jpg", // Pirate adventure
   },
   {
     title: "Cloud Castle Adventures",
@@ -85,7 +86,7 @@ const yourStories = [
     grade: "Grade 3",
     pages: 15,
     rating: 4,
-    image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=600&q=80&auto=format&fit=crop", // Castle in the clouds
+    image: "https://covers.openlibrary.org/b/id/14577688-L.jpg", // Cloud/fantasy castle
   },
   {
     title: "The Talking Animals of Berry Wood",
@@ -93,7 +94,7 @@ const yourStories = [
     grade: "Grade 3",
     pages: 18,
     rating: 4,
-    image: "https://images.unsplash.com/photo-1550358864-518f202c02ba?w=600&q=80&auto=format&fit=crop", // Forest animals party
+    image: "https://covers.openlibrary.org/b/id/14309925-L.jpg", // Animal friends story
   },
   {
     title: "Super Science Squad",
@@ -101,7 +102,7 @@ const yourStories = [
     grade: "Grade 3",
     pages: 16,
     rating: 3,
-    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&q=80&auto=format&fit=crop", // Science lab fun
+    image: "https://covers.openlibrary.org/b/id/14169531-L.jpg", // Science adventure
   },
   {
     title: "Mermaid's Secret Garden",
@@ -109,7 +110,7 @@ const yourStories = [
     grade: "Grade 3",
     pages: 20,
     rating: 5,
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=80&auto=format&fit=crop", // Underwater garden
+    image: "https://covers.openlibrary.org/b/id/14082144-L.jpg", // Mermaid/underwater
   },
   {
     title: "The Brave Little Knight",
@@ -117,7 +118,7 @@ const yourStories = [
     grade: "Grade 3",
     pages: 14,
     rating: 4,
-    image: "https://images.unsplash.com/photo-1528164344705-47542687000d?w=600&q=80&auto=format&fit=crop", // Knight and dragon
+    image: "https://covers.openlibrary.org/b/id/14288234-L.jpg", // Knight adventure
   },
   {
     title: "Rainbow Bridge to Tomorrow",
@@ -125,7 +126,7 @@ const yourStories = [
     grade: "Grade 3",
     pages: 12,
     rating: 4,
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80&auto=format&fit=crop", // Futuristic rainbow bridge
+    image: "https://covers.openlibrary.org/b/id/13984567-L.jpg", // Colorful fantasy
   },
   {
     title: "Cookie Castle Chaos",
@@ -133,7 +134,7 @@ const yourStories = [
     grade: "Grade 3",
     pages: 13,
     rating: 3,
-    image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600&q=80&auto=format&fit=crop", // Candy land illustration
+    image: "https://covers.openlibrary.org/b/id/13823390-L.jpg", // Sweet/fun theme
   },
   {
     title: "Alien Sleepover",
@@ -141,7 +142,7 @@ const yourStories = [
     grade: "Grade 3",
     pages: 17,
     rating: 5,
-    image: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=600&q=80&auto=format&fit=crop", // Friendly aliens scene
+    image: "https://covers.openlibrary.org/b/id/14122548-L.jpg", // Alien/friendship
   },
 ];
 
@@ -195,6 +196,7 @@ const LibraryLists = () => {
           {recommendedStories.map((story, i) => (
             <StoryCard key={i} {...story} />
           ))}
+           
         </Section>
 
         {/* Your Story */}
@@ -212,10 +214,11 @@ const LibraryLists = () => {
 
 const Section = ({ title, children }) => (
   <div className="space-y-4">
-    <h3 className="text-2xl font-semibold font-semibold text-gray-700">{title}</h3>
+    <h3 className="text-2xl font-semibold  text-gray-700">{title}</h3>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {children}
     </div>
+      <Pagination align="center" defaultCurrent={1} total={50} />
   </div>
 );
 

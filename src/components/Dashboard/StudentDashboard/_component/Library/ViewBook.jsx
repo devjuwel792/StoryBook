@@ -5,7 +5,7 @@ import {
   IoSettingsOutline,
   IoVolumeMedium,
 } from "react-icons/io5";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 // Sample book data
 const sampleBookData = {
@@ -31,6 +31,10 @@ const ViewBook = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate()
   const currentPage = sampleBookData.pages[currentPageIndex];
+  const location = useLocation()
+
+
+  console.log(location.state,'this is state')
   
   // Handle word selection
   const handleWordClick = async (word) => {

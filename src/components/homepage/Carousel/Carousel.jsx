@@ -9,67 +9,68 @@ import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules';
 
 const SwiperSlider = () => {
 const slides = [
-    {
-      id: 1,
-      src: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=720&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      alt: "Books on a shelf"
-    },
-    {
-      id: 2,
-      src: "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?q=80&w=720&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      alt: "Library books"
-    },
-    {
-      id: 3,
-      src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=720&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      alt: "Person reading a book"
-    },
-    {
-      id: 4,
-      src: "https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=720&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      alt: "Open book with glasses"
-    },
-    {
-      id: 5,
-      src: "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=720&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      alt: "Stack of books"
-    },
-    {
-      id: 6,
-      src: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=720&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      alt: "Bookstore with many books"
-    },
-    {
-      id: 7,
-      src: "https://images.unsplash.com/photo-1524578271613-d550eacf6090?q=80&w=720&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      alt: "Colorful books arranged"
-    },
-    {
-      id: 8,
-      src: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=720&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      alt: "Books on a table"
-    },
-    {
-      id: 9,
-      src: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=720&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      alt: "Library interior"
-    },
-    {
-      id: 10,
-      src: "https://images.unsplash.com/photo-1519682337058-a94d519337bc?q=80&w=720&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      alt: "Books with coffee"
-    },
-    {
-      id: 11,
-      src: "https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=720&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      alt: "Book in hands"
-    },
-    {
-      id: 12,
-      src: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=720&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      alt: "Modern library"
-    },
-  ];
+  {
+    id: 13,
+    src: "https://covers.openlibrary.org/b/id/8479570-L.jpg",
+    alt: "Swashbuckling pirate adventure book cover"
+  },
+  {
+    id: 14,
+    src: "https://covers.openlibrary.org/b/id/13023182-L.jpg",
+    alt: "Fairy tale castle and dragon illustration"
+  },
+  {
+    id: 15,
+    src: "https://covers.openlibrary.org/b/id/14514234-L.jpg",
+    alt: "Jungle exploration adventure book cover"
+  },
+  {
+    id: 16,
+    src: "https://covers.openlibrary.org/b/id/13725757-L.jpg",
+    alt: "Enchanted forest fairy tale cover"
+  },
+  {
+    id: 17,
+    src: "https://covers.openlibrary.org/b/id/14613767-L.jpg",
+    alt: "Desert treasure hunt adventure cover"
+  },
+  {
+    id: 18,
+    src: "https://covers.openlibrary.org/b/id/14220986-L.jpg",
+    alt: "Magical fairy kingdom book illustration"
+  },
+  {
+    id: 19,
+    src: "https://covers.openlibrary.org/b/id/14169531-L.jpg",
+    alt: "Space exploration sci-fi adventure cover"
+  },
+  {
+    id: 20,
+    src: "https://covers.openlibrary.org/b/id/14015657-L.jpg",
+    alt: "Classic fairy tale with princess and frog"
+  },
+  {
+    id: 21,
+    src: "https://covers.openlibrary.org/b/id/13906894-L.jpg",
+    alt: "Mountain climbing expedition adventure"
+  },
+  {
+    id: 22,
+    src: "https://covers.openlibrary.org/b/id/13872150-L.jpg",
+    alt: "Mythical creatures fairy tale collection"
+  },
+  {
+    id: 23,
+    src: "https://covers.openlibrary.org/b/id/13792161-L.jpg",
+    alt: "Undersea adventure with submarines"
+  },
+  {
+    id: 24,
+    src: "https://covers.openlibrary.org/b/id/13623440-L.jpg",
+    alt: "Enchanted fairy garden storybook"
+  }
+];
+
 
   return (
     <div className="swiper-container  two py-2 flex justify-center items-center">

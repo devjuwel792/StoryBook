@@ -4,7 +4,7 @@ import { IoBookOutline } from "react-icons/io5";
 import { FaBook, FaPenNib, FaTrophy, FaUser } from "react-icons/fa";
 import { Link } from "react-router";
 import { FaArrowRight, FaBell } from "react-icons/fa6";
-import Reusable_Modal from "../reusable_components/Reusable_Modal";
+import Reusable_Modal from "../../reusable_components/Reusable_Modal";
 
 const DashboardHome = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
