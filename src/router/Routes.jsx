@@ -24,9 +24,13 @@ import Students from "../components/Dashboard/TeacherPannel/Students/Students";
 import StudentDetail from "../components/Dashboard/TeacherPannel/Students/StudentDetail";
 import { StoryLibrary } from "../components/Dashboard/AdminPannel/StoryLibrary/StoryLibrary";
 import AdminStoryCreatorStudio from "../components/Dashboard/AdminPannel/StoryLibrary/StoryCreatorStudio";
-import UserManagement from "../components/dashboard/AdminPannel/users/UserManagement";
+import Congratulations from "../pages/Auth/Congratulation";
+import StudentDetailsPage from "../components/Dashboard/AdminPannel/User/UserDetails";
 import Chatbots from "../components/dashboard/AdminPannel/chatbots/Chatbots";
 import Settings from "../components/dashboard/AdminPannel/settings/Settings";
+import { UserManagement } from "../components/Dashboard/AdminPannel/User/User-Management";
+import TermsAndConditions from "../pages/Terms&Policy/Terms";
+import PrivacyPolicy from "../pages/Terms&Policy/Privacy";
 
 
 const router = createBrowserRouter([
@@ -45,6 +49,9 @@ const router = createBrowserRouter([
   { path: "/signup", element: <Signup /> },
   { path: "/forgot", element: <ForgotPassword /> },
   { path: "/otp", element: <Otp /> },
+  { path: "/congratulations", element: <Congratulations /> },
+  { path: "/terms", element: <TermsAndConditions /> },
+  { path: "/privacy", element: <PrivacyPolicy /> },
 
 
   {
@@ -98,6 +105,15 @@ path: "/achivement", element: <Achievement />
         path: "admin-story-create",
         element: <AdminStoryCreatorStudio/>,
       },
+      {
+        path: "user",
+        element: <UserManagement/>,
+      },
+      {
+        path: "user-details",
+        element: <StudentDetailsPage />,
+      },
+
       // Teacher Dashboard
       {
         path: "teacher",

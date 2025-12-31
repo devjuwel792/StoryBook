@@ -11,6 +11,7 @@ import {
   Send,
   Share2,
   Sparkles,
+  Upload,
   WandSparkles,
   X,
 } from "lucide-react";
@@ -381,6 +382,30 @@ const ShareToast = ({ onClose, onCopyLink, isCopied }) => (
 
 // Main Component
 export default function AdminStoryCreatorStudio() {
+  const [uploadedImage, setUploadedImage] = useState(null);
+  const fileInputRef = useRef(null);
+
+  const handleImageDivClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const isValidType = ["image/png", "image/jpeg", "image/jpg"].includes(
+      file.type
+    );
+    if (!isValidType) {
+      alert("Only PNG and JPG files are allowed.");
+      return;
+    }
+    if (file.size > 10 * 1024 * 1024) {
+      alert("File size must be less than 10MB.");
+      return;
+    }
+    setUploadedImage(file);
+  };
+  const navigate = useNavigate();
   const location = useLocation();
   const [title, setTitle] = useState(location.state?.title || "");
   const [content, setContent] = useState(location.state?.story || "");
@@ -505,9 +530,104 @@ export default function AdminStoryCreatorStudio() {
       </div>
 
       <div className="grid grid-cols-3 gap-6 mt-6">
-        <WritingPromptCard />
-        <QuickTipsCard />
-        <SavedStoriesCard savedStories={savedStories} />
+        {/* Card 1 */}
+        <div className="p-7 bg-white rounded-3xl shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10)] outline outline-4 outline-offset-[-4px] outline-amber-200/30 inline-flex flex-col justify-start items-start gap-4">
+          <div className="flex items-center gap-2">
+            <Lightbulb color="#FFD700" />
+            <h1 className="text-gray-800 text-xl font-bold">Upload image</h1>
+          </div>
+          <div
+            className="w-full p-4 bg-gradient-to-b from-[#FFF8E6] to-[#FFF0F5] rounded-2xl inline-flex flex-col justify-start items-center cursor-pointer hover:brightness-95 transition"
+            onClick={handleImageDivClick}
+          >
+            <Upload color="#99A1AF" strokeWidth={3} />
+            <p className="justify-start text-gray-700 text-sm font-normal font-nunito leading-6">
+              Upload Story Image
+            </p>
+            <p className="justify-start text-gray-700 text-xs font-normal font-nunito leading-6">
+              PNG, JPG files (Max 10MB)
+            </p>
+            <input
+              type="file"
+              accept="image/png, image/jpeg, image/jpg"
+              style={{ display: "none" }}
+              ref={fileInputRef}
+              onChange={handleImageChange}
+            />
+            {uploadedImage && (
+              <p className="mt-2 text-green-600 text-xs font-bold">
+                {uploadedImage.name} selected
+              </p>
+            )}
+          </div>
+          <button className="self-stretch h-10 w-full bg-gradient-to-b from-amber-200 to-orange-200 rounded-full shadow-[0px_1px_2px_-1px_rgba(0,0,0,0.10)] flex justify-center items-center text-gray-800 text-base font-bold font-nunito leading-6 hover:brightness-105 transition-all">
+            {uploadedImage ? "Uploaded" : "Upload"}
+          </button>
+        </div>
+        {/* Card 2 */}
+        <div className="p-7 bg-white rounded-3xl shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10)] outline outline-4 outline-offset-[-4px] outline-emerald-200/30  inline-flex flex-col justify-start items-start gap-4">
+          <div className="flex items-center gap-2">
+            <h1 className="text-gray-800 text-xl font-bold">Quick Tips 📝</h1>
+          </div>
+          <div className="flex flex-col items-start justify-center gap-3">
+            <div className="flex items-center gap-2">
+              <div className="justify-start text-sky-300 text-base font-bold font-nunito leading-6">
+                •
+              </div>
+              <div className="justify-start text-gray-600 text-sm font-normal font-nunito leading-5">
+                Start with "Once upon a time..."
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="justify-start text-emerald-200 text-base font-bold font-nunito leading-6">
+                •
+              </div>
+              <div className="justify-start text-gray-600 text-sm font-normal font-nunito leading-5">
+                Describe what you see and feel
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="justify-start text-red-200 text-base font-bold font-nunito leading-6">
+                •
+              </div>
+              <div className="justify-start text-gray-600 text-sm font-normal font-nunito leading-5">
+                Give your characters fun names
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="justify-start text-amber-200 text-base font-bold font-nunito leading-6">
+                •
+              </div>
+              <div className="justify-start text-gray-600 text-sm font-normal font-nunito leading-5">
+                Don't forget a happy ending!
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Card 3 */}
+        <div className="w-full p-6 bg-white rounded-3xl shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10)] outline outline-4 outline-offset-[-4px] outline-[#FFEAED] inline-flex flex-col justify-start items-start gap-3">
+          <div className="w-full flex items-center justify-between">
+            <h1 className="justify-start text-gray-800 text-xl font-bold font-nunito leading-7">
+              My Saved Stories
+            </h1>
+            <p className="text-gray-800 text-base font-bold">
+              <a href="/myStories">View All</a>
+            </p>
+          </div>
+          {savedStories.slice(0, 2).map((story) => (
+            <div
+              key={story.id}
+              className="w-full p-3 bg-[#4A5565]/5 rounded-2xl inline-flex flex-col justify-start items-start"
+            >
+              <p className="self-stretch justify-start text-[#4A5565] text-sm font-bold font-nunito leading-5 truncate">
+                {story.title}
+              </p>
+              <p className="self-stretch justify-start text-[#4A5565] text-xs font-normal font-nunito leading-4">
+                Last edited {getTimeAgo(story.timestamp)}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
 
       {showClearConfirm && (

@@ -1,9 +1,12 @@
 import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { ArrowLeft, CircleCheckBig } from "lucide-react";
+import bgImg from "../../assets/bg.png";
 
 const Otp = () => {
   const [otp, setOtp] = useState(new Array(4).fill(""));
   const inputRefs = useRef([]);
+  const navigate = useNavigate();
 
   const handleChange = (element, index) => {
     if (isNaN(element.value)) return false;
@@ -24,21 +27,29 @@ const Otp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setOtp(new Array(4).fill(""));
+    // You can add OTP validation here if needed
+    navigate("/congratulations");
   };
 
   return (
-    <div
-      className="relative w-full min-h-screen overflow-hidden"
-      style={{
-        background:
-          "linear-gradient(to bottom, #1F3A2B, #98D8C8, rgba(255,255,255,0.8))",
-      }}
-    >
-      <div className="py-20 px-24 flex items-center justify-center gap-10">
+    <div className="relative w-full min-h-screen overflow-hidden">
+      {/* Background Image */}
+      <img
+        src={bgImg}
+        alt="Background"
+        className="fixed top-0 left-0 w-full h-full min-h-screen object-cover z-0"
+        style={{ pointerEvents: 'none', userSelect: 'none' }}
+      />
+      {/* Overlay for opacity-50 */}
+      <div className="absolute inset-0 bg-black opacity-50 z-10" />
+      <div className="py-20 px-24 flex items-center justify-center gap-10 relative z-20">
         <div className="bg-white rounded-3xl shadow-2xl w-full max-w-6xl h-[906px] overflow-hidden">
           {/* Back Button */}
-          <button className="flex items-center gap-2 text-gray-600 text-sm px-6 pt-6 hover:text-gray-800 transition">
+          <button
+            type="button"
+            className="flex items-center gap-2 text-gray-600 text-sm px-6 pt-6 hover:text-gray-800 transition"
+            onClick={() => navigate(-1)}
+          >
             <ArrowLeft size={16} />
             <p className="font-semibold text-base">Back to Home</p>
           </button>

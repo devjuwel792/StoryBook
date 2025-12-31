@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BookOpen } from "lucide-react";
+import { BookOpen, Eye, EyeOff } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import bgImg from "../../assets/bg.png";
@@ -7,6 +7,7 @@ import bgImg from "../../assets/bg.png";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -84,18 +85,26 @@ const Login = () => {
               </div>
 
               {/* Password */}
-              <div>
+              <div className="relative">
                 <label className="block mb-2 font-bold text-gray-700">
                   Password
                 </label>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter your password..."
-                  className="w-full px-6 py-4 text-lg border rounded-2xl focus:ring-2 focus:ring-teal-500"
+                  className="w-full px-6 py-4 text-lg border rounded-2xl focus:ring-2 focus:ring-teal-500 pr-12"
                   required
                 />
+                <button
+                  type="button"
+                  className="absolute right-4 top-16 -translate-y-1/2 text-gray-400 hover:text-teal-600"
+                  onClick={() => setShowPassword((prev) => !prev)}
+                  tabIndex={-1}
+                >
+                  {showPassword ? <EyeOff color="#99A1AF" /> : <Eye color="#99A1AF" />}
+                </button>
               </div>
 
               {/* Forgot Password */}
