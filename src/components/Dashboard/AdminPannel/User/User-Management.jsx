@@ -11,7 +11,7 @@ export const UserManagement = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="w-fullflex flex-col justify-center px-6 py-7 bg-[#FBFBFB] gap-10">
+    <div className="w-fullflex flex-col justify-center px-6 py-7 gap-10">
       <div className="flex items-center justify-between mb-12">
         <div>
           <h1 className="text-stone-900 text-3xl font-semibold">

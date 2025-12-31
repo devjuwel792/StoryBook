@@ -1,10 +1,13 @@
 import { Pencil, Trash2 } from "lucide-react";
+import EditUserModal from "./EditUserModal";
+import { useState } from "react";
 
 const students = [
   {
     id: 1,
     name: "Sarah Johnson",
     avatar: "S",
+    email: "sarah@example.com",
     totalStudent: 4,
     lastActivity: "2 hours ago",
     grade: "A",
@@ -14,6 +17,7 @@ const students = [
     id: 2,
     name: "Mike Chen",
     avatar: "M",
+    email: "mike@example.com",
     totalStudent: 4,
     lastActivity: "2 hours ago",
     grade: "B",
@@ -23,6 +27,7 @@ const students = [
     id: 3,
     name: "Emma Williams",
     avatar: "E",
+    email: "emma@example.com",
     totalStudent: 4,
     lastActivity: "2 hours ago",
     grade: "C",
@@ -32,6 +37,7 @@ const students = [
     id: 4,
     name: "David Brown",
     avatar: "D",
+    email: "david@example.com",
     totalStudent: 4,
     lastActivity: "2 hours ago",
     grade: "A",
@@ -39,30 +45,53 @@ const students = [
   },
 ];
 
-export default function TeachersTable({ searchQuery = "", selectedGrade = "all" }) {
+export default function TeachersTable({
+  searchQuery = "",
+  selectedGrade = "all",
+}) {
   const filteredData = students.filter((item) => {
-    const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesGrade = selectedGrade === "all" || item.grade === selectedGrade;
+    const matchesSearch = item.name
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
+    const matchesGrade =
+      selectedGrade === "all" || item.grade === selectedGrade;
     return matchesSearch && matchesGrade;
   });
+  const [open, setOpen] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
 
   return (
     <div className="overflow-x-auto bg-white rounded-xl border">
       <table className="w-full text-sm">
         <thead className="border-b bg-gray-50 text-gray-600">
           <tr className="text-center">
-            <th className="px-6 py-4 font-medium text-left align-middle">Name</th>
-            <th className="px-6 py-4 font-medium text-center align-middle">Total student</th>
-            <th className="px-6 py-4 font-medium text-center align-middle">Last Activity</th>
-            <th className="px-6 py-4 font-medium text-center align-middle">Grade</th>
-            <th className="px-6 py-4 font-medium text-center align-middle">Status</th>
-            <th className="px-6 py-4 font-medium text-center align-middle">Actions</th>
+            <th className="px-6 py-4 font-medium text-left align-middle">
+              Name
+            </th>
+            <th className="px-6 py-4 font-medium text-center align-middle">
+              Total student
+            </th>
+            <th className="px-6 py-4 font-medium text-center align-middle">
+              Last Activity
+            </th>
+            <th className="px-6 py-4 font-medium text-center align-middle">
+              Grade
+            </th>
+            <th className="px-6 py-4 font-medium text-center align-middle">
+              Status
+            </th>
+            <th className="px-6 py-4 font-medium text-center align-middle">
+              Actions
+            </th>
           </tr>
         </thead>
 
         <tbody className="divide-y">
           {filteredData.map((item) => (
-            <tr key={item.id} className="hover:bg-gray-50 text-center align-middle">
+            <tr
+              key={item.id}
+              className="hover:bg-gray-50 text-center align-middle"
+            >
               {/* Name */}
               <td className="px-6 py-4 flex items-center gap-3 justify-start align-middle">
                 <div className="w-9 h-9 rounded-full bg-green-900 text-white flex items-center justify-center font-semibold">
@@ -93,13 +122,28 @@ export default function TeachersTable({ searchQuery = "", selectedGrade = "all" 
 
               {/* Actions */}
               <td className="px-6 py-4 flex items-center gap-4 justify-center align-middle">
-                <Pencil size={16} className="cursor-pointer text-gray-600 hover:text-black" />
-                <Trash2 size={16} className="cursor-pointer text-red-500 hover:text-red-700" />
+                <Pencil
+                  size={16}
+                  onClick={() => {
+                    setSelectedUser(item);
+                    setOpen(true);
+                  }}
+                  className="cursor-pointer text-gray-600 hover:text-black"
+                />
+                <Trash2
+                  size={16}
+                  className="cursor-pointer text-red-500 hover:text-red-700"
+                />
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      <EditUserModal
+        isOpen={open}
+        onClose={() => setOpen(false)}
+        userData={selectedUser}
+      />
     </div>
   );
 }

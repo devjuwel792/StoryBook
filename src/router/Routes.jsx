@@ -25,11 +25,12 @@ import StudentDetail from "../components/Dashboard/TeacherPannel/Students/Studen
 import { StoryLibrary } from "../components/Dashboard/AdminPannel/StoryLibrary/StoryLibrary";
 import AdminStoryCreatorStudio from "../components/Dashboard/AdminPannel/StoryLibrary/StoryCreatorStudio";
 import Congratulations from "../pages/Auth/Congratulation";
-import { UserManagement } from "../components/Dashboard/AdminPannel/User/User-Management";
 import StudentDetailsPage from "../components/Dashboard/AdminPannel/User/UserDetails";
-import UserManagement from "../components/dashboard/AdminPannel/users/UserManagement";
 import Chatbots from "../components/dashboard/AdminPannel/chatbots/Chatbots";
 import Settings from "../components/dashboard/AdminPannel/settings/Settings";
+import { UserManagement } from "../components/Dashboard/AdminPannel/User/User-Management";
+import TermsAndConditions from "../pages/Terms&Policy/Terms";
+import PrivacyPolicy from "../pages/Terms&Policy/Privacy";
 
 
 const router = createBrowserRouter([
@@ -49,6 +50,8 @@ const router = createBrowserRouter([
   { path: "/forgot", element: <ForgotPassword /> },
   { path: "/otp", element: <Otp /> },
   { path: "/congratulations", element: <Congratulations /> },
+  { path: "/terms", element: <TermsAndConditions /> },
+  { path: "/privacy", element: <PrivacyPolicy /> },
 
 
   {
