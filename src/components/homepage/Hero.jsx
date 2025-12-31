@@ -35,10 +35,13 @@ const Hero = () => {
   
 </div>
 </div>
-<div className='mt-5'>
-    <p className='text-[60px] font-semibold flex justify-center items-center gap-5 text-white text-center'>Read, Write, and Explore <MdMenuBook /> <SlMagicWand /></p>
-    <p className='text-center text-[24px] text-white mt-3 font-thin'>
-        Lorem ipsum dolor sit ullam dicta incidunt impedit culpa. Tempore, expedita odio!
+<div className='mt-5 relative'>
+    <p className='text-[60px] font-semibold flex justify-center items-center gap-5 text-white text-center'>Read, Write, and Explore <MdMenuBook /> <p className=" text-5xl animate-pulse">
+  ✨
+</p>
+</p>
+    <p className='text-center text-[24px] w-[40%] mx-auto text-white mt-3 font-thin'>
+       Join thousands of young readers discovering magical stories and creating their own adventures!
     </p>
 
     <div className='flex justify-center items-center gap-3 mt-9'>
@@ -51,7 +54,13 @@ const Hero = () => {
     }
 
     </div>
-    <p></p>
+<p className="absolute left-1/4 text-5xl animate-pulse">
+  ✨
+</p>
+
+
+    
+    
 </div>
 </div>
     </div>
