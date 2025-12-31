@@ -4,16 +4,6 @@ import { GiTreeBranch } from 'react-icons/gi';
 
   const cardData = [
     {
-      img : '/images/homepage/gradeLvl/🌱.png',
-      title:'Grade 1',
-      subTitle:'Beginning Readers'
-    },
-    {
-      img : '/images/homepage/gradeLvl/🌻.png',
-      title:'Grade 2',
-      subTitle:'Growing Readers'
-    },
-    {
       img : '/images/homepage/gradeLvl/🌈.png',
       title:'Grade 3',
       subTitle:'Confident Readers'
