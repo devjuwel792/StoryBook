@@ -78,10 +78,6 @@ export default function StoryCreatorStudio() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
-
   const quickQuestions = [
     "Help me start a story about space",
     "What's a good word for happy?",
@@ -95,6 +91,7 @@ export default function StoryCreatorStudio() {
     const newMsg = { id: messageIdRef.current++, text: text, sender: "user" };
     setMessages((prev) => [...prev, newMsg]);
     setChatInput("");
+    setTimeout(scrollToBottom, 100);
 
     setTimeout(() => {
       let reply = "That sounds wonderful! Tell me more about it.";
@@ -117,6 +114,7 @@ export default function StoryCreatorStudio() {
         ...prev,
         { id: aiMsgId, text: reply, sender: "ai" },
       ]);
+      setTimeout(scrollToBottom, 100);
     }, 1000);
   };
 

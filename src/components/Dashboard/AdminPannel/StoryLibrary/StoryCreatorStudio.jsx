@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useMemo, useCallback } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, ScrollRestoration } from "react-router-dom";
 import EmojiPicker from "emoji-picker-react";
 import {
   ArrowLeft,
@@ -75,9 +75,7 @@ const Header = ({ onClear, onSave, onPublish }) => (
         <ArrowLeft color="#364153" />
       </button>
       <WandSparkles size={40} color="#FFB6C1" aria-hidden="true" />
-      <h1 className="text-gray-800 text-4xl font-bold">
-        Story Creator Studio
-      </h1>
+      <h1 className="text-gray-800 text-4xl font-bold">Story Creator Studio</h1>
     </div>
     <div className="flex gap-2">
       <button
@@ -105,7 +103,16 @@ const Header = ({ onClear, onSave, onPublish }) => (
   </div>
 );
 
-const Editor = ({ title, content, onTitleChange, onContentChange, wordCount, showEmoji, onToggleEmoji, onEmojiSelect }) => (
+const Editor = ({
+  title,
+  content,
+  onTitleChange,
+  onContentChange,
+  wordCount,
+  showEmoji,
+  onToggleEmoji,
+  onEmojiSelect,
+}) => (
   <div className="col-span-8 rounded-2xl shadow-sm bg-white border">
     <div className="p-6 pb-2">
       <input
@@ -157,7 +164,11 @@ const Editor = ({ title, content, onTitleChange, onContentChange, wordCount, sho
 );
 
 const ChatMessage = ({ message }) => (
-  <div className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"}`}>
+  <div
+    className={`flex ${
+      message.sender === "user" ? "justify-end" : "justify-start"
+    }`}
+  >
     <div
       className={`max-w-[85%] px-4 py-3 text-sm font-nunito leading-6 ${
         message.sender === "user"
@@ -170,13 +181,14 @@ const ChatMessage = ({ message }) => (
   </div>
 );
 
-const ChatBox = ({ messages, chatInput, onInputChange, onSendMessage, showQuickQuestions }) => {
-  const messagesEndRef = useRef(null);
-
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
-
+const ChatBox = ({
+  messages,
+  chatInput,
+  onInputChange,
+  onSendMessage,
+  showQuickQuestions,
+  messagesEndRef,
+}) => {
   return (
     <div className="w-full h-[540px] bg-white rounded-[20px] shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] outline outline-2 outline-offset-[-2px] outline-black/10 flex flex-col overflow-hidden">
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
@@ -259,7 +271,9 @@ const QuickTipsCard = () => (
         { color: "text-amber-200", tip: "Don't forget a happy ending!" },
       ].map((item, index) => (
         <div key={index} className="flex items-center gap-2">
-          <div className={`justify-start ${item.color} text-base font-bold font-nunito leading-6`}>
+          <div
+            className={`justify-start ${item.color} text-base font-bold font-nunito leading-6`}
+          >
             •
           </div>
           <div className="justify-start text-gray-600 text-sm font-normal font-nunito leading-5">
@@ -335,15 +349,15 @@ const ClearConfirmationToast = ({ onConfirm, onCancel }) => (
         className="px-4 py-1.5 rounded-xl text-gray-600 hover:bg-gray-50 font-bold text-xs font-nunito border border-gray-200 transition-colors"
       >
         Cancel
-    </button>
-    <button
-      onClick={onConfirm}
-      className="px-4 py-1.5 rounded-xl bg-red-500 text-white hover:bg-red-600 font-bold text-xs font-nunito shadow-sm transition-colors"
-    >
-      Yes, Clear All
-    </button>
+      </button>
+      <button
+        onClick={onConfirm}
+        className="px-4 py-1.5 rounded-xl bg-red-500 text-white hover:bg-red-600 font-bold text-xs font-nunito shadow-sm transition-colors"
+      >
+        Yes, Clear All
+      </button>
+    </div>
   </div>
-</div>
 );
 
 const ShareToast = ({ onClose, onCopyLink, isCopied }) => (
@@ -417,6 +431,11 @@ export default function AdminStoryCreatorStudio() {
   const [showShareToast, setShowShareToast] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
   const messageIdRef = useRef(2);
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -428,16 +447,20 @@ export default function AdminStoryCreatorStudio() {
     const newMsg = { id: messageIdRef.current++, text: text, sender: "user" };
     setMessages((prev) => [...prev, newMsg]);
     setChatInput("");
+    setTimeout(scrollToBottom, 100);
 
     setTimeout(() => {
       let reply = "That sounds wonderful! Tell me more about it.";
       const lowerText = text.toLowerCase();
-      
+
       const responses = {
-        space: "Great choice! How about starting with: 'The stars twinkled brightly as Captain Alex prepared for the biggest adventure of their life...' You can continue from there!",
-        happy: "Some synonyms for happy are: joyful, cheerful, delighted, or ecstatic!",
-        character: "How about a brave squirrel who is afraid of heights? or a robot who loves to garden?",
-        end: "Maybe it ends with a surprise party, or waking up from a dream, or finding a hidden treasure!"
+        space:
+          "Great choice! How about starting with: 'The stars twinkled brightly as Captain Alex prepared for the biggest adventure of their life...' You can continue from there!",
+        happy:
+          "Some synonyms for happy are: joyful, cheerful, delighted, or ecstatic!",
+        character:
+          "How about a brave squirrel who is afraid of heights? or a robot who loves to garden?",
+        end: "Maybe it ends with a surprise party, or waking up from a dream, or finding a hidden treasure!",
       };
 
       for (const [key, response] of Object.entries(responses)) {
@@ -452,6 +475,7 @@ export default function AdminStoryCreatorStudio() {
         ...prev,
         { id: aiMsgId, text: reply, sender: "ai" },
       ]);
+      setTimeout(scrollToBottom, 100);
     }, 1000);
   }, []);
 
@@ -491,7 +515,8 @@ export default function AdminStoryCreatorStudio() {
 
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-[#FFF0F5] to-white p-20">
-      <Header 
+      <ScrollRestoration />
+      <Header
         onClear={handleClear}
         onSave={handleSave}
         onPublish={handlePublish}
@@ -513,18 +538,19 @@ export default function AdminStoryCreatorStudio() {
         {/* Sidebar */}
         <div className="col-span-4 space-y-4">
           <OwlAssistantCard />
-          
+
           <div className="flex items-center gap-2">
             <Sparkles size={20} color="#7C3AED" />
             <p className="text-gray-700 text-base font-normal">Story Helper</p>
           </div>
-          
+
           <ChatBox
             messages={messages}
             chatInput={chatInput}
             onInputChange={(e) => setChatInput(e.target.value)}
             onSendMessage={handleSendMessage}
             showQuickQuestions={messages.length === 1}
+            messagesEndRef={messagesEndRef}
           />
         </div>
       </div>
@@ -611,7 +637,7 @@ export default function AdminStoryCreatorStudio() {
               My Saved Stories
             </h1>
             <p className="text-gray-800 text-base font-bold">
-              <a href="/myStories">View All</a>
+              <a href="/dashboard/storyLibrary">View All</a>
             </p>
           </div>
           {savedStories.slice(0, 2).map((story) => (
