@@ -1,14 +1,10 @@
 import {
   ArrowLeft,
-  Calendar,
-  Eye,
   FileText,
-  SquarePen,
   Trash2,
   WandSparkles,
 } from "lucide-react";
 import statsData from "../../assets/myStoriesStats.json";
-// import storiesData from "../../assets/myStoriesList.json";
 import { useState } from "react";
 import StoryModal from "../../components/StoryModal";
 import { useNavigate } from "react-router";
@@ -135,22 +131,22 @@ export const MyStories = () => {
     );
   };
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#FFF0F5] to-white p-10">
+    <div className="min-h-screen bg-gradient-to-br from-[#FFF0F5] to-white p-4 md:p-10">
       <Toaster />
-      <div className=" w-[80vw] mx-auto ">
+      <div className="w-full lg:w-[90vw] xl:w-[80vw] mx-auto">
         {/* Header */}
-        <div className="flex items-center justify-between mb-12">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 md:mb-12 gap-4 md:gap-0">
           <div className="flex items-center gap-2">
             <button
               onClick={() => navigate(-1)}
-              className="h-12 w-12 rounded-full bg-white shadow flex items-center justify-center hover:bg-gray-50 transition-colors"
+              className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-white shadow flex items-center justify-center hover:bg-gray-50 transition-colors"
             >
               <ArrowLeft color="#364153" />
             </button>
-            <WandSparkles size={40} color="#FFB6C1" />
-            <div className="mt-3">
-              <h1 className="text-[#767676] text-4xl font-bold">My Stories</h1>
-              <p className="justify-start text-gray-600 text-base font-normal font-nunito leading-6">
+            <WandSparkles size={32} className="md:w-10 md:h-10" color="#FFB6C1" />
+            <div className="mt-1 md:mt-3">
+              <h1 className="text-[#767676] text-2xl md:text-4xl font-bold">My Stories</h1>
+              <p className="justify-start text-gray-600 text-sm md:text-base font-normal font-nunito leading-6">
                 All your creative works
               </p>
             </div>
@@ -160,22 +156,22 @@ export const MyStories = () => {
         <div className="flex items-center justify-end">
           <button
             onClick={() => navigate("/story-creator")}
-            className="mb-7 px-6 py-3 bg-gradient-to-br from-[#254233] to-[#96D5C5] rounded-2xl shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] transition-all hover:shadow-md hover:brightness-105 flex items-center justify-center gap-2 text-white text-base font-medium font-nunito"
+            className="mb-7 px-4 py-2 md:px-6 md:py-3 bg-gradient-to-br from-[#254233] to-[#96D5C5] rounded-2xl shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] transition-all hover:shadow-md hover:brightness-105 flex items-center justify-center gap-2 text-white text-sm md:text-base font-medium font-nunito"
           >
-            <FileText size={20} strokeWidth={1.5} />
+            <FileText size={18} className="md:w-5 md:h-5" strokeWidth={1.5} />
             New Story
           </button>
         </div>
         {/* Story List */}
         <div className="w-full bg-gray-50 rounded-2xl">
-          <div className="flex flex-col items-center justify-center gap-8 px-16 py-14">
-            <div className="w-full flex gap-4">
+          <div className="flex flex-col items-center justify-center gap-8 px-4 py-6 md:px-16 md:py-14">
+            <div className="w-full flex flex-col md:flex-row gap-4">
               {statsData.map((card) => (
                 <div
                   key={card.id}
-                  className="w-1/3 h-24 p-5 bg-white rounded-2xl shadow-[0px_1px_2px_-1px_rgba(0,0,0,0.10)] outline outline-1 outline-offset-[-1px] outline-gray-100 inline-flex flex-col justify-start items-start gap-1"
+                  className="w-full md:w-1/3 h-auto md:h-24 p-4 md:p-5 bg-white rounded-2xl shadow-[0px_1px_2px_-1px_rgba(0,0,0,0.10)] outline outline-1 outline-offset-[-1px] outline-gray-100 flex flex-row md:flex-col justify-between md:justify-start items-center md:items-start gap-1"
                 >
-                  <p className="justify-start text-[#767676] text-3xl font-semibold font-nunito">
+                  <p className="justify-start text-[#767676] text-2xl md:text-3xl font-semibold font-nunito">
                     {card.value}
                   </p>
                   <p className="flex-1 justify-start text-gray-600 text-sm font-normal font-nunito">
@@ -184,7 +180,7 @@ export const MyStories = () => {
                 </div>
               ))}
             </div>
-            <div className="w-full grid grid-cols-4 gap-6">
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {stories.map((story) => (
                 <div
                   key={story.id}

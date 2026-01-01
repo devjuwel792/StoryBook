@@ -129,7 +129,7 @@ const ViewBook = () => {
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-[#FFF6EA] to-[#FFFDF9]">
-      <div className="w-[80vw] mx-auto py-16 space-y-10">
+      <div className="w-full px-4 md:px-8 lg:w-[90vw] xl:w-[80vw] mx-auto py-6 md:py-10 lg:py-16 space-y-6 lg:space-y-10">
     
         <header className="flex items-center justify-between">
           <button onClick={()=> navigate(-1)} className="p-2 bg-white rounded-full shadow-md">
@@ -151,37 +151,37 @@ const ViewBook = () => {
         </header>
 
     
-        <div className="flex gap-8 h-[calc(100vh-200px)]">
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 h-auto lg:h-[calc(100vh-200px)]">
  
           <div className="flex-1 flex flex-col">
-            <div className="bg-white rounded-2xl shadow-xl p-8 leading-relaxed text-gray-700 flex-1 overflow-y-auto">
+            <div className="bg-white rounded-2xl shadow-xl p-4 md:p-8 leading-relaxed text-gray-700 flex-1 lg:overflow-y-auto">
               <div className="space-y-6">
-                <p className="text-lg whitespace-pre-wrap">
+                <p className="text-base md:text-lg whitespace-pre-wrap">
                   {renderContent(currentPage.content)}
                 </p>
               </div>
             </div>
 
   
-            <div className="flex items-center justify-between mt-8">
+            <div className="flex flex-col sm:flex-row items-center justify-between mt-6 lg:mt-8 gap-4 sm:gap-0">
               <button 
                 onClick={handlePrevPage}
                 disabled={currentPageIndex === 0}
-                className={`px-6 py-3 rounded-full bg-gradient-to-r from-pink-300 to-rose-300 text-white shadow hover:opacity-90 transition ${
+                className={`w-full sm:w-auto px-6 py-2 md:py-3 rounded-full bg-gradient-to-r from-pink-300 to-rose-300 text-white shadow hover:opacity-90 transition ${
                   currentPageIndex === 0 ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
               >
                 ← Previous Page
               </button>
 
-              <span className="text-sm text-gray-500">
+              <span className="text-sm text-gray-500 order-first sm:order-none mb-2 sm:mb-0">
                 Page {currentPage.pageNumber} of {sampleBookData.totalPages}
               </span>
 
               <button
                 onClick={handleNextPage}
                 disabled={currentPageIndex === sampleBookData.pages.length - 1}
-                className={`px-6 py-3 rounded-full text-white shadow hover:opacity-90 transition ${
+                className={`w-full sm:w-auto px-6 py-2 md:py-3 rounded-full text-white shadow hover:opacity-90 transition ${
                   currentPageIndex === sampleBookData.pages.length - 1 ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
                 style={{
@@ -194,8 +194,8 @@ const ViewBook = () => {
           </div>
 
           {/* Right Sidebar - Fixed height container for sticky */}
-          <div className="w-80 flex flex-col space-y-6 h-full">
-            <div className="sticky top-6 space-y-6">
+          <div className="w-full lg:w-80 flex flex-col space-y-6 h-auto lg:h-full">
+            <div className="lg:sticky lg:top-6 space-y-6">
        
               <WordHelper 
                 selectedWord={selectedWord}

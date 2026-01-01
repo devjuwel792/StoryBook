@@ -173,25 +173,25 @@ export default function StoryCreatorStudio() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-[#FFF0F5] to-white p-20">
+    <div className="min-h-screen w-full bg-gradient-to-br from-[#FFF0F5] to-white p-4 md:p-8 lg:p-20">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between mb-6 gap-4 lg:gap-0">
         <div className="flex items-center gap-2">
           <button
             onClick={() => navigate(-1)}
-            className="h-12 w-12 rounded-full bg-white shadow flex items-center justify-center hover:bg-gray-50 transition-colors"
+            className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-white shadow flex items-center justify-center hover:bg-gray-50 transition-colors flex-shrink-0"
           >
             <ArrowLeft color="#364153" />
           </button>
-          <WandSparkles size={40} color="#FFB6C1" />
-          <h1 className="text-gray-800 text-4xl font-bold">
+          <WandSparkles size={32} className="md:w-10 md:h-10" color="#FFB6C1" />
+          <h1 className="text-gray-800 text-2xl md:text-3xl lg:text-4xl font-bold">
             Story Creator Studio
           </h1>
         </div>
-        <div className="flex gap-4 justify-between">
+        <div className="flex gap-2 md:gap-4 justify-start lg:justify-between flex-wrap w-full lg:w-auto">
           <button
             onClick={handleClear}
-            className="px-7 py-2 bg-white rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] outline outline-2 outline-offset-[-2px] outline-sky-300 transition-colors hover:bg-sky-50 flex items-center gap-2 text-gray-800 text-base font-bold"
+            className="px-4 py-2 md:px-7 bg-white rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] outline outline-2 outline-offset-[-2px] outline-sky-300 transition-colors hover:bg-sky-50 flex items-center gap-2 text-gray-800 text-sm md:text-base font-bold"
           >
             <RotateCcw size={16} color="#2D3748" />
             Clear
@@ -202,7 +202,7 @@ export default function StoryCreatorStudio() {
 
           }}
             onClick={handleSave}
-            className="px-7 py-2 bg-gradient-to-br from-[#FFE87C] to-[#FFDAB9] rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] transition-all hover:shadow-md hover:brightness-105 flex items-center gap-2 text-gray-800 text-base font-bold"
+            className="px-4 py-2 md:px-7 bg-gradient-to-br from-[#FFE87C] to-[#FFDAB9] rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] transition-all hover:shadow-md hover:brightness-105 flex items-center gap-2 text-gray-800 text-sm md:text-base font-bold"
           >
             <Save size={16} color="#2D3748" />
             Save
@@ -212,7 +212,7 @@ export default function StoryCreatorStudio() {
             background: 'linear-gradient(90deg, #213C2D -0.36%, #98D8C8 100%)'
           }}
             onClick={handlePublish}
-            className="px-7 py-2 bg-gradient-to-br from-[#87CEEB] to-[#98D8C8] rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] transition-all hover:shadow-md hover:brightness-105 flex items-center gap-2 text-white text-base font-bold"
+            className="px-4 py-2 md:px-7 bg-gradient-to-br from-[#87CEEB] to-[#98D8C8] rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] transition-all hover:shadow-md hover:brightness-105 flex items-center gap-2 text-white text-sm md:text-base font-bold"
           >
             <Share2 size={16} color="#ffffff" />
             Publish
@@ -221,24 +221,24 @@ export default function StoryCreatorStudio() {
       </div>
 
       {/* Main Grid */}
-      <div className="grid grid-cols-12 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Editor */}
-        <div className="col-span-8 rounded-2xl shadow-sm bg-white border">
-          <div className="p-6 pb-2">
+        <div className="col-span-1 lg:col-span-8 rounded-2xl shadow-sm bg-white border">
+          <div className="p-4 md:p-6 pb-2">
             <input
               placeholder="Give your story a title…"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full border-b pb-2 focus:outline-none text-neutral-950/50 text-3xl font-bold font-nunito"
+              className="w-full border-b pb-2 focus:outline-none text-neutral-950/50 text-xl md:text-3xl font-bold font-nunito"
             />
           </div>
 
-          <div className="p-6 pt-0">
+          <div className="p-4 md:p-6 pt-0">
             <textarea
               placeholder="Once upon a time…"
               value={content}
               onChange={(e) => setContent(e.target.value)}
-              className="min-h-[420px] w-full resize-none text-gray-700 text-lg font-normal font-nunito focus:outline-none bg-transparent"
+              className="min-h-[300px] md:min-h-[420px] w-full resize-none text-gray-700 text-base md:text-lg font-normal font-nunito focus:outline-none bg-transparent"
               style={{
                 backgroundImage:
                   "linear-gradient(transparent 31px, #E2E8F0 32px)",
@@ -247,9 +247,9 @@ export default function StoryCreatorStudio() {
               }}
             />
 
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
               {/* Emoji */}
-              <div className="relative mt-4">
+              <div className="relative mt-2 sm:mt-4">
                 <button
                   className="text-sm text-gray-600 font-bold hover:bg-gray-100 px-3 py-2 rounded-md flex items-center gap-2"
                   onClick={() => setShowEmoji(!showEmoji)}
@@ -266,7 +266,7 @@ export default function StoryCreatorStudio() {
                 )}
               </div>
 
-              <div className="text-right text-base font-normal font-nunito text-gray-500 mt-2">
+              <div className="text-right text-sm md:text-base font-normal font-nunito text-gray-500 mt-2">
                 {getWordCount(content)} lines
               </div>
             </div>
@@ -274,10 +274,10 @@ export default function StoryCreatorStudio() {
         </div>
 
         {/* Sidebar */}
-        <div className="col-span-4 space-y-4">
+        <div className="col-span-1 lg:col-span-4 space-y-4">
           <div>
             <div className="rounded-2xl bg-gradient-to-br from-[#87CEEB] to-[#98D8C8] shadow-sm">
-              <div className="p-6 space-y-3 flex flex-col items-center">
+              <div className="p-6 space-y-3 flex flex-col items-center text-center">
                 <DotLottieReact
                   data={owlAnimation}
                   loop={true}
@@ -290,11 +290,11 @@ export default function StoryCreatorStudio() {
                 <p className="text-white text-base font-normal font-nunito">
                   Your friendly writing assistant
                 </p>
-                <div className="w-96 h-20 bg-white/20 rounded-2xl inline-flex flex-col justify-start items-start p-4 gap-1">
+                <div className="w-full bg-white/20 rounded-2xl inline-flex flex-col justify-start items-start p-4 gap-1">
                   <p className="justify-start text-white text-sm font-bold font-nunito">
                     Need help?
                   </p>
-                  <p className="w-80 h-7 justify-start text-white text-xs font-normal font-nunito">
+                  <p className="w-full justify-start text-white text-xs font-normal font-nunito">
                     I can suggest ideas, help you spell words, or give you
                     inspiration!
                   </p>
@@ -374,7 +374,7 @@ export default function StoryCreatorStudio() {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-6 mt-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
         {/* Card 1 */}
         <div className="p-7 bg-white rounded-3xl shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10)] outline outline-4 outline-offset-[-4px] outline-amber-200/30 inline-flex flex-col justify-start items-start gap-4">
           <div className="flex items-center gap-2">
@@ -450,10 +450,10 @@ export default function StoryCreatorStudio() {
         {/* Card 3 */}
         <div className="w-full p-6 bg-white rounded-3xl shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10)] outline outline-4 outline-offset-[-4px] outline-[#FFEAED] inline-flex flex-col justify-start items-start gap-3">
           <div className="w-full flex items-center justify-between">
-            <h1 className="justify-start text-gray-800 text-xl font-bold font-nunito leading-7">
+            <h1 className="justify-start text-gray-800 text-base xl:text-xl font-bold font-nunito leading-7">
               My Saved Stories
             </h1>
-            <p className="text-gray-800 text-base font-bold">
+            <p className="text-gray-800 text-sm xl:text-base font-bold">
               <a href="/myStories">View All</a>
             </p>
           </div>
@@ -498,7 +498,7 @@ export default function StoryCreatorStudio() {
 
       {/* Share Toast */}
       {showShareToast && (
-        <div className="fixed top-6 left-1/2 transform -translate-x-1/2 bg-white px-6 py-4 rounded-2xl shadow-[0px_8px_30px_rgba(0,0,0,0.12)] border border-gray-100 z-50 flex flex-col items-center gap-3 w-80">
+        <div className="fixed top-6 left-1/2 transform -translate-x-1/2 bg-white px-6 py-4 rounded-2xl shadow-[0px_8px_30px_rgba(0,0,0,0.12)] border border-gray-100 z-50 flex flex-col items-center gap-3 w-[90vw] max-w-xs sm:w-80">
           <div className="flex justify-between items-center w-full">
             <p className="text-gray-800 font-bold font-nunito text-sm">
               Share your story! 🚀

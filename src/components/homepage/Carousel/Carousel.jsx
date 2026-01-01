@@ -79,8 +79,18 @@ const slides = [
   effect="coverflow"
   loop={true}
   centeredSlides={true}
-  slidesPerView={5}
-  spaceBetween={30}   // ⬅ spacing handled here
+  slidesPerView={2}
+  spaceBetween={15}
+  breakpoints={{
+    640: {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
+    1024: {
+      slidesPerView: 5,
+      spaceBetween: 30,
+    },
+  }}
   autoplay={{
     delay: 2500,
     disableOnInteraction: false,
@@ -92,10 +102,7 @@ const slides = [
     modifier: 1.3,
     slideShadows: false,
   }}
-  className="mySwiper w-full"
-  style={{
-    marginLeft:'10px'
-  }}
+  className="mySwiper w-full lg:ml-[10px]"
 >
 
         {slides.map((slide) => (

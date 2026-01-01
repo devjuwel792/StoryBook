@@ -10,7 +10,7 @@ const Footer = () => {
      
       }}
     className="bg-[#0f172a] text-gray-300">
-      <div className="max-w-7xl mx-auto px-6 py-12 flex justify-between">
+      <div className="max-w-7xl mx-auto px-4 py-8 md:px-6 md:py-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
 
         {/* Brand / About */}
         <div>
@@ -27,7 +27,7 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold text-white mb-4">Connect</h3>
 
-          <div className="flex gap-4">
+          <div className="flex justify-center md:justify-start gap-4">
             <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-white hover:text-black transition">
               <FaFacebookF />
             </a>

@@ -86,10 +86,10 @@ const DashboardHome = () => {
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-sky-50 to-white">
-      <div className="w-[80vw] mx-auto p-24">
+      <div className="w-full lg:w-[90vw] xl:w-[80vw] mx-auto px-4 py-8 md:p-12 lg:p-24">
         {/* Header */}
         <header className="mb-8 flex justify-between w-full ">
-          <h2 className="text-2xl font-semibold text-gray-800">
+          <h2 className="text-xl md:text-2xl font-semibold text-gray-800">
             ☀️ Hi, Emma! <span className="ml-1">👋</span>
           </h2>
           <FaBell onClick={()=> setIsModalOpen(true)} size={20} />
@@ -122,7 +122,7 @@ const DashboardHome = () => {
           </div>
 
           {/* Quick Actions */}
-          <div className="grid grid-cols-1 sm:grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
             {quickActions.map((action, index) => (
               <QuickActionCard
                 key={index}
@@ -159,9 +159,9 @@ const DashboardHome = () => {
 
 const ContinueReadingCard = ({ title, progress, image }) => (
 <div>
-    <div className="lg:col-span-2 bg-white border-[#87CEEB4D]/40 border-4 rounded-2xl shadow-xl p-6 flex flex-col md:flex-row ">
-    <div className="">
-      <p className="flex gap-3 mb-3 text-[24px] justify-center font-semibold items-center text-[#1E2939]">
+    <div className="lg:col-span-2 bg-white border-[#87CEEB4D]/40 border-4 rounded-2xl shadow-xl p-4 md:p-6 flex flex-col md:flex-row gap-6 md:gap-0">
+    <div className="w-full md:w-auto">
+      <p className="flex gap-3 mb-3 text-lg md:text-[24px] justify-center font-semibold items-center text-[#1E2939]">
         <IoBookOutline className="text-blue-500 mt-1" size={22} /> Continue Reading
       </p>
       <img
@@ -171,20 +171,20 @@ const ContinueReadingCard = ({ title, progress, image }) => (
       />
     </div>
 
-    <div className="flex-1 pr-8 mt-12">
-      <h3 className="text-[24px] font-semibold text-gray-800 mb-2">{title}</h3>
-      <p className="text-gray-600 w-96 mb-4">
+    <div className="flex-1 md:pl-8 mt-4 md:mt-12">
+      <h3 className="text-xl md:text-[24px] font-semibold text-gray-800 mb-2">{title}</h3>
+      <p className="text-gray-600 w-full md:w-auto lg:w-96 mb-4">
         You're doing great! Keep reading to discover what happens next.
       </p>
 
-      <div className="mt-8">
+      <div className="mt-6 md:mt-8">
         <ProgressBar value={progress} />
       </div>
 
 <Link to='/34'>
       <button
       
-        className="mt-9 inline-flex items-center gap-2 rounded-full px-14 py-3 text-sm font-medium text-white hover:opacity-90 transition"
+        className="mt-6 md:mt-9 inline-flex items-center justify-center gap-2 rounded-full px-8 md:px-14 py-3 text-sm font-medium text-white hover:opacity-90 transition w-full md:w-auto"
         style={{
           background: 'linear-gradient(90deg, #213C2D 0%, #98D8C8 99.91%)'
         }}

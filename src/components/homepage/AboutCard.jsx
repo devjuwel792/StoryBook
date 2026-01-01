@@ -7,9 +7,9 @@ import { RiBookMarkedLine } from 'react-icons/ri';
 
 const Header = ({ heading, subheading }) => {
   return (
-    <div className='flex justify-center items-center flex-col mb-20'>
-      <p className='text-[48px] font-semibold text-center'>{heading}</p>
-      <p className='text-[20px] text-[#4A5565] text-center mt-4 max-w-2xl'>
+    <div className='flex justify-center items-center flex-col mb-10 lg:mb-20 px-4'>
+      <p className='text-3xl md:text-4xl lg:text-[48px] font-semibold text-center leading-tight'>{heading}</p>
+      <p className='text-base md:text-lg lg:text-[20px] text-[#4A5565] text-center mt-4 max-w-2xl'>
         {subheading}
       </p>
     </div>
@@ -18,12 +18,12 @@ const Header = ({ heading, subheading }) => {
 
 const Card = ({ cardData, position,image }) => {
   return (
-    <div className={`flex justify-center ${position==='left'? 'flex-row-reverse': ''}  items-start mt-20 gap-9`}>
-      <div className="grid grid-cols-1 gap-4 w-[40vw]">
+    <div className={`flex justify-center flex-col-reverse ${position==='left'? 'lg:flex-row-reverse': 'lg:flex-row'} items-center lg:items-start mt-10 lg:mt-20 gap-6 lg:gap-9 px-4 lg:px-0`}>
+      <div className="grid grid-cols-1 gap-4 w-full lg:w-[40vw]">
         {cardData.map((item, index) => (
           <div
             key={index}
-            className="flex p-5  rounded-md shadow-xl bg-[#FFF]  gap-4 w-full"
+            className="flex p-4 lg:p-5 rounded-md shadow-xl bg-[#FFF] gap-4 w-full"
       
           >
             <div
@@ -36,10 +36,10 @@ const Card = ({ cardData, position,image }) => {
             </div>
 
             <div className="flex-1">
-              <h3 className="text-[20px] font-semibold">
+              <h3 className="text-lg lg:text-[20px] font-semibold">
                 {item.text1}
               </h3>
-              <p className="text-[16px] text-[#4A5565] mt-2">
+              <p className="text-sm lg:text-[16px] text-[#4A5565] mt-2">
                 {item.text2}
               </p>
             </div>
@@ -48,9 +48,9 @@ const Card = ({ cardData, position,image }) => {
       </div>
       
       {/* Image container that matches the cards height */}
-      <div className="w-[40vw] h-full">
+      <div className="w-full lg:w-[40vw] h-auto lg:h-full">
         <img 
-          className='w-full h-full object-cover rounded-xl shadow-md' 
+          className='w-full h-auto lg:h-full object-cover rounded-xl shadow-md' 
           src={image} 
           alt="Children reading books" 
         />
@@ -119,7 +119,7 @@ const AboutCard = () => {
     <div className=' flex  flex-col-reverse '>
         {/* section 2 */}
     <div
-    className='py-16 pb-28'
+    className='py-8 pb-12 lg:py-16 lg:pb-28'
     style={{
         background: 'linear-gradient(180deg, #fffefe 0%, #fff8ef 100%)'
 
@@ -133,7 +133,7 @@ const AboutCard = () => {
     </div>
 {/* section 2 */}
 
-<div className=' py-16 pb-28'
+<div className='py-8 pb-12 lg:py-16 lg:pb-28'
  style={{
         background: 'linear-gradient(180deg, #E6F3FF 0%, #F0FFF4 100%)'
 
