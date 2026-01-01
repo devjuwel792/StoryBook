@@ -33,7 +33,7 @@ const InputField = ({
   ...props
 }) => (
   <div className="relative">
-    <label className="flex items-center gap-2 font-bold text-base text-gray-700 mb-2">
+    <label className="flex items-center gap-2 font-bold text-sm md:text-base text-gray-700 mb-2">
       <Icon size={16} className="text-teal-600" />
       {label}
     </label>
@@ -45,7 +45,7 @@ const InputField = ({
         onChange={onChange}
         onBlur={onBlur}
         placeholder={placeholder}
-        className={`w-full px-6 py-4 border rounded-2xl text-lg font-normal focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition ${
+        className={`w-full px-4 py-3 md:px-6 md:py-4 border rounded-2xl text-base md:text-lg font-normal focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition ${
           error && touched
             ? "border-red-300 bg-red-50"
             : "border-gray-300 hover:border-gray-400"
@@ -245,11 +245,11 @@ const Signup = () => {
       />
       {/* Overlay for opacity-50 */}
       <div className="absolute inset-0 bg-black opacity-50 z-10" />
-      <div className="py-20 px-4 md:px-8 lg:px-24 flex items-center justify-center gap-10 relative z-20">
+      <div className="py-8 md:py-20 px-4 md:px-8 lg:px-24 flex items-center justify-center gap-10 relative z-20">
         <div className="bg-white rounded-3xl shadow-2xl w-full max-w-[36rem] overflow-hidden">
           {/* Back Button */}
           <button
-            className="flex items-center gap-2 text-gray-600 text-sm px-6 pt-6 hover:text-gray-800"
+            className="flex items-center gap-2 text-gray-600 text-sm px-4 pt-4 md:px-6 md:pt-6 hover:text-gray-800"
             onClick={() => window.history.back()}
             aria-label="Go back to home"
           >
@@ -257,7 +257,7 @@ const Signup = () => {
             <p className="font-semibold text-base">Back to Home</p>
           </button>
 
-          <div className="px-4  md:px-8 pt-6 pb-10">
+          <div className="px-5 sm:px-8 pt-6 pb-8 md:pb-10">
             {/* Logo */}
             <div className="flex flex-col items-center justify-center gap-3 mb-8">
               <div
@@ -267,12 +267,12 @@ const Signup = () => {
                 <BookOpen className="w-9 h-9 text-white" />
               </div>
               {/* Title */}
-              <h1 className="text-3xl md:text-4xl font-bold text-[#1E2939] text-center">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1E2939] text-center">
                 Join the Adventure! 🚀
               </h1>
 
               {/* Subtitle */}
-              <p className="text-[#4A5565] text-base md:text-lg font-normal text-center">
+              <p className="text-[#4A5565] text-sm sm:text-base md:text-lg font-normal text-center">
                 Create your free account and start reading!
               </p>
             </div>
@@ -280,7 +280,7 @@ const Signup = () => {
             <form
               ref={formRef}
               onSubmit={handleSubmit}
-              className="space-y-6"
+              className="space-y-4 md:space-y-6"
               noValidate
             >
               {/* Name Field */}
@@ -313,13 +313,13 @@ const Signup = () => {
                 note="We'll send updates to your parent or teacher"
                 required
               />
-              <div className="flex items-center justify-between w-full">
+              <div className="flex flex-col sm:flex-row items-start justify-between w-full gap-4 sm:gap-0">
                 {/* Grade Selection */}
-                <div>
-                  <label className="block font-bold text-base text-gray-700 mb-3">
+                <div className="w-full sm:w-auto">
+                  <label className="block font-bold text-sm md:text-base text-gray-700 mb-2 md:mb-3">
                     Select Your Grade
                   </label>
-                  <div className="flex flex-wrap gap-3 justify-start">
+                  <div className="flex gap-3 justify-start">
                     {[3, 4, 5].map((g) => (
                       <button
                         key={g}
@@ -330,7 +330,7 @@ const Signup = () => {
                             setErrors((prev) => ({ ...prev, grade: "" }));
                           }
                         }}
-                        className={`w-20 md:w-24 h-14 rounded-2xl text-lg font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 ${
+                        className={`flex-1 sm:flex-none w-auto sm:w-20 md:w-24 h-12 md:h-14 rounded-2xl text-base md:text-lg font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 ${
                           formData.grade === g
                             ? "bg-teal-500 text-white shadow-lg scale-105"
                             : "bg-gray-200 text-gray-700 hover:bg-gray-300 hover:scale-105"
@@ -350,8 +350,8 @@ const Signup = () => {
                   )}
                 </div>
                 {/* Vocabulary Level */}
-                <div>
-                  <label className="block font-bold text-base text-gray-700 mb-3">
+                <div className="w-full sm:w-auto">
+                  <label className="block font-bold text-sm md:text-base text-gray-700 mb-2 md:mb-3">
                     Vocabulary Level
                   </label>
                   <div className="relative">
@@ -360,7 +360,7 @@ const Signup = () => {
                       onChange={(e) =>
                         handleInputChange("vocabularyLevel", e.target.value)
                       }
-                      className={`w-full px-6 py-4 border rounded-2xl text-lg font-normal focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition appearance-none bg-white ${
+                      className={`w-full px-4 py-3 md:px-6 md:py-4 border rounded-2xl text-base md:text-lg font-normal focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition appearance-none bg-white ${
                         formData.vocabularyLevel
                           ? "text-gray-900"
                           : "text-gray-400"
@@ -473,7 +473,7 @@ const Signup = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full bg-gradient-to-r from-[#98D8C8] to-[#1F3A2B] text-white font-bold text-lg py-4 rounded-2xl transition-all flex items-center justify-center gap-3 shadow-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 ${
+                className={`w-full bg-gradient-to-r from-[#98D8C8] to-[#1F3A2B] text-white font-bold text-base md:text-lg py-3 md:py-4 rounded-2xl transition-all flex items-center justify-center gap-3 shadow-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 ${
                   isSubmitting
                     ? "opacity-70 cursor-not-allowed"
                     : "hover:opacity-90 hover:shadow-xl active:scale-95"
