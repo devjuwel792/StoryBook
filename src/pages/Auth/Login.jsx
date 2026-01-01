@@ -30,7 +30,7 @@ const Login = () => {
     }
     if (email === "student@gmail.com" && password === "student@gmail.com") {
       localStorage.setItem("role", "student");
-      toast.success("Admin login successful");
+      toast.success("Student login successful");
       navigate("/student-dashboard");
       return;
     }

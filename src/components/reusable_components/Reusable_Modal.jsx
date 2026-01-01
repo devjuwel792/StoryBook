@@ -1,11 +1,20 @@
 import { Button, Modal } from 'antd';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaStar } from 'react-icons/fa6';
 import AchivementModalPage from './StudentModalComponents/AchivementModalPage';
 import DashboardModalPage from './StudentModalComponents/DashboardModalPage';
 import StoryViewModal from './adminDashboardModal/StoryViewModal';
 
 const Reusable_Modal = ({ setIsModalOpen, isModalOpen, data, location, title, nestedLocation }) => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   
   const renderComponent = () => {
     switch (location) {
@@ -22,17 +31,22 @@ const Reusable_Modal = ({ setIsModalOpen, isModalOpen, data, location, title, ne
 
 
   const getModalWidth = () => {
+    const isMobile = windowWidth < 640;
+    const isTablet = windowWidth >= 640 && windowWidth < 1024;
+
     if (location === 'notification' && nestedLocation === 'badges' ) {
-      return '80%';
+      return isMobile ? '95%' : '80%';
     }
     if(location === 'storyView'){
-      return '40%'
+      return isMobile ? '95%' : (isTablet ? '80%' : '40%');
     }
-    return 400;
+    return isMobile ? '90%' : 400;
   };
   const getModalHeight = () => {
+    const isMobile = windowWidth < 640;
+
     if (location === 'notification' && nestedLocation === 'badges') {
-      return 600;
+      return isMobile ? '70vh' : 600;
     }
     if(location ==='achivement'){
       return 300
@@ -40,14 +54,15 @@ const Reusable_Modal = ({ setIsModalOpen, isModalOpen, data, location, title, ne
     if(location ==='storyView'){
       return '80vh'
     }
-    return 500;
+    return isMobile ? '60vh' : 500;
   };
 
   return (
     <Modal
       title={title}
+      centered
       open={isModalOpen}
-      styles={{ body: { height: getModalHeight() } }} 
+      styles={{ body: { height: getModalHeight(), overflowY: 'auto' } }} 
       width={getModalWidth()}  
       onOk={(e) => {
         e.stopPropagation();
