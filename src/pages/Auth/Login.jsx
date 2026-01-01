@@ -17,7 +17,7 @@ const Login = () => {
     if (email === "teacher@gmail.com" && password === "teacher@gmail.com") {
       localStorage.setItem("role", "TEACHER");
       toast.success("Teacher login successful");
-      navigate("/dashboard");
+      navigate("/dashboard/teacher");
       return;
     }
 
@@ -25,7 +25,7 @@ const Login = () => {
     if (email === "admin@gmail.com" && password === "admin@gmail.com") {
       localStorage.setItem("role", "ADMIN");
       toast.success("Admin login successful");
-      navigate("/dashboard");
+      navigate("/dashboard/admin");
       return;
     }
     if (email === "student@gmail.com" && password === "student@gmail.com") {
