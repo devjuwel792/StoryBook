@@ -3,13 +3,13 @@ import App from "../App";
 import Signup from "../pages/Auth/Signup";
 import Login from "../pages/Auth/Login";
 import ForgotPassword from "../pages/Auth/Forgot";
-import Otp from "../pages/Auth/OTP";
+import Otp from "../pages/Auth/Otp";
 
 
-import DashboardHome from "../components/dashboard/StudentDashboard/DashboardHome";
-import LibraryLists from "../components/dashboard/StudentDashboard/_component/Library/LibraryLists";
-import ViewBook from "../components/dashboard/StudentDashboard/_component/Library/ViewBook";
-import Achievement from "../components/dashboard/StudentDashboard/_component/Achivement/Achivement";
+import DashboardHome from "../components/Dashboard/StudentDashboard/DashboardHome";
+import LibraryLists from "../components/Dashboard/StudentDashboard/_component/Library/LibraryLists";
+import ViewBook from "../components/Dashboard/StudentDashboard/_component/Library/ViewBook";
+import Achievement from "../components/Dashboard/StudentDashboard/_component/Achivement/Achivement";
 import Profile from "../pages/Profile/Profile";
 import StoryCreatorStudio from "../pages/Creator/StoryCreatorStudio";
 import { MyStories } from "../pages/MyStories/MyStories";
@@ -26,11 +26,12 @@ import { StoryLibrary } from "../components/Dashboard/AdminPannel/StoryLibrary/S
 import AdminStoryCreatorStudio from "../components/Dashboard/AdminPannel/StoryLibrary/StoryCreatorStudio";
 import Congratulations from "../pages/Auth/Congratulation";
 import StudentDetailsPage from "../components/Dashboard/AdminPannel/User/UserDetails";
-import Chatbots from "../components/dashboard/AdminPannel/chatbots/Chatbots";
-import Settings from "../components/dashboard/AdminPannel/settings/Settings";
+import Chatbots from "../components/Dashboard/AdminPannel/chatbots/Chatbots";
+import Settings from "../components/Dashboard/AdminPannel/settings/Settings";
 import { UserManagement } from "../components/Dashboard/AdminPannel/User/User-Management";
 import TermsAndConditions from "../pages/Terms&Policy/Terms";
 import PrivacyPolicy from "../pages/Terms&Policy/Privacy";
+
 
 
 const router = createBrowserRouter([

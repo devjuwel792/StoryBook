@@ -3,7 +3,7 @@ import { IoArrowBack } from "react-icons/io5";
 import { LuSend } from "react-icons/lu";
 import { BsBook, BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import { useNavigate } from "react-router";
-import StorySelectModal from "./StorySelectModal.JSX";
+import StorySelectModal from "./StorySelectModal";
 import { IoClose } from "react-icons/io5";
 import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
