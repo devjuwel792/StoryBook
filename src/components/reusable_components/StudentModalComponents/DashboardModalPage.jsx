@@ -11,6 +11,7 @@ import {
   IoDiamondOutline,
   IoRocketOutline,
 } from "react-icons/io5";
+import { ReadingLevels } from "../../Dashboard/StudentDashboard/_component/Achivement/Achivement";
 
 const notifications = Array(4).fill({
   title: "Recommended Story for you",
@@ -19,10 +20,11 @@ const notifications = Array(4).fill({
 });
 
 const bookmarks = Array(4).fill({
-  image: 'https://plus.unsplash.com/premium_photo-1687428554400-3ebabab7de29?q=80&w=689&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  title: 'The Demo Title',
+  image:
+    "https://plus.unsplash.com/premium_photo-1687428554400-3ebabab7de29?q=80&w=689&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  title: "The Demo Title",
   grade: 3,
-  progress: 40
+  progress: 40,
 });
 
 const badgesData = [
@@ -111,7 +113,7 @@ const badgesData = [
 const DashboardModalPage = ({ nestedLocation }) => {
   const renderComponent = () => {
     switch (nestedLocation) {
-      case 'notification':
+      case "notification":
         return (
           <div className="space-y-2">
             {notifications.map((notification, index) => (
@@ -119,7 +121,7 @@ const DashboardModalPage = ({ nestedLocation }) => {
             ))}
           </div>
         );
-      case 'bookmarks':
+      case "bookmarks":
         return (
           <div className="space-y-3">
             {bookmarks.map((bookmark, index) => (
@@ -127,22 +129,24 @@ const DashboardModalPage = ({ nestedLocation }) => {
             ))}
           </div>
         );
-      case 'wordCount':
+      case "wordCount":
         return (
           <div className="space-y-3">
-            <WordItem 
-              word="Perseverance" 
-              definition="continued effort to do or achieve something despite difficulties" 
+            <WordItem
+              word="Perseverance"
+              definition="continued effort to do or achieve something despite difficulties"
               onSpeak={() => console.log("Speaking")}
             />
-            <WordItem 
-              word="Eloquent" 
-              definition="having or exercising the power of fluent, forceful, and appropriate speech" 
+            <WordItem
+              word="Eloquent"
+              definition="having or exercising the power of fluent, forceful, and appropriate speech"
               onSpeak={() => console.log("Speaking")}
             />
           </div>
         );
-      case 'badges':
+      case "readingLevel":
+        return <ReadingLevels />;
+      case "badges":
         return <BagesModal />;
       default:
         return null;
@@ -154,10 +158,10 @@ const DashboardModalPage = ({ nestedLocation }) => {
       {/* Header */}
       <div className="flex items-center justify-between mb-3">
         <h3 className="text-xl font-medium text-gray-800">
-          {nestedLocation === 'notification' && 'Notification'}
-          {nestedLocation === 'bookmarks' && 'Bookmarks'}
-          {nestedLocation === 'wordCount' && 'Vocabulary'}
-          {nestedLocation === 'badges' && 'Badges Collection'}
+          {nestedLocation === "notification" && "Notification"}
+          {nestedLocation === "bookmarks" && "Bookmarks"}
+          {nestedLocation === "wordCount" && "Vocabulary"}
+          {nestedLocation === "readingLevel" && "Badges Collection"}
         </h3>
       </div>
 
@@ -179,19 +183,13 @@ const NotificationItem = ({ title, message, time }) => (
 
       {/* Text */}
       <div className="leading-tight">
-        <p className="text-[11px] text-gray-600">
-          {title}
-        </p>
-        <p className="text-[12px] font-medium text-gray-800">
-          {message}
-        </p>
+        <p className="text-[11px] text-gray-600">{title}</p>
+        <p className="text-[12px] font-medium text-gray-800">{message}</p>
       </div>
     </div>
 
     {/* Time */}
-    <span className="text-[10px] text-gray-400 whitespace-nowrap">
-      {time}
-    </span>
+    <span className="text-[10px] text-gray-400 whitespace-nowrap">{time}</span>
   </div>
 );
 
@@ -208,9 +206,7 @@ const BookMarks = ({ image, title, grade, rating }) => (
 
     {/* Info */}
     <div className="flex-1 space-y-1">
-      <p className="text-sm font-semibold text-gray-800 truncate">
-        {title}
-      </p>
+      <p className="text-sm font-semibold text-gray-800 truncate">{title}</p>
 
       <span className="inline-block text-[10px] bg-yellow-100 text-yellow-800 px-2 py-[2px] rounded-full font-medium">
         Grade {grade}
@@ -239,9 +235,7 @@ const WordItem = ({ word, definition, onSpeak }) => (
     <div className="flex-1">
       <p className="text-sm font-semibold text-gray-800">
         {word} :
-        <span className="ml-1 font-normal text-gray-600">
-          {definition}
-        </span>
+        <span className="ml-1 font-normal text-gray-600">{definition}</span>
       </p>
     </div>
 
@@ -270,29 +264,42 @@ const BagesModal = () => {
 
 /* ---------------- Badge Component ---------------- */
 
-const Badge = ({ icon, title, description, points, iconBg, shadowColor, status }) => {
+const Badge = ({
+  icon,
+  title,
+  description,
+  points,
+  iconBg,
+  shadowColor,
+  status,
+}) => {
   return (
-    <div 
+    <div
       className="rounded-xl p-4 flex items-center justify-center flex-col gap-3 text-center transition-transform hover:scale-[1.02] w-full "
-      style={{ 
+      style={{
         boxShadow: `0 4px 20px ${shadowColor}`,
         background: status === "locked" ? "#F3F4F6" : "white",
-        opacity: status === "locked" ? 0.7 : 1
+        opacity: status === "locked" ? 0.7 : 1,
       }}
     >
-      <div 
+      <div
         className="w-16 h-16 mx-auto rounded-full flex items-center justify-center text-lg"
         style={{ background: iconBg }}
       >
-        {React.isValidElement(icon) 
-          ? React.cloneElement(icon, { className: "text-white text-2xl" })
-          : <span className="text-2xl">{icon}</span>
-        }
+        {React.isValidElement(icon) ? (
+          React.cloneElement(icon, { className: "text-white text-2xl" })
+        ) : (
+          <span className="text-2xl">{icon}</span>
+        )}
       </div>
 
-      <p className="text-sm font-semibold text-gray-800 truncate w-full">{title}</p>
-      <p className="text-[12px] text-gray-600 min-h-[32px] line-clamp-2">{description}</p>
-      
+      <p className="text-sm font-semibold text-gray-800 truncate w-full">
+        {title}
+      </p>
+      <p className="text-[12px] text-gray-600 min-h-[32px] line-clamp-2">
+        {description}
+      </p>
+
       {status === "earned" ? (
         <>
           <p className="text-xs font-semibold flex justify-center items-center gap-1 text-blue-500">
