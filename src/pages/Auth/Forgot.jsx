@@ -41,19 +41,19 @@ const ForgotPassword = () => {
                 <Mail className="text-white w-8 h-8 md:w-12 md:h-12" />
               </div>
               {/* Title */}
-              <h1 className="text-2xl md:text-4xl font-bold text-[#1E2939] text-center">
+              <h1 className="text-base md:text-2xl font-bold text-[#1E2939] text-center headerFont">
                 Forgot Password? 🤔
               </h1>
 
               {/* Subtitle */}
-              <p className="text-[#4A5565] text-base md:text-lg font-normal text-center">
+              <p className="text-[#4A5565] text-base md:text-lg font-normal text-center normalFont">
                 No worries! We'll help you reset it.
               </p>
             </div>
 
             <div className="bg-gradient-to-b from-[#E6F3FF] to-[#F0FFF4] max-w-sm mx-auto border-2 border-[#87CEEB4D] rounded-2xl p-4 md:p-6 mb-6 flex items-center justify-center">
               {/* Instruction */}
-              <p className="text-center text-[#364153] font-normal text-sm md:text-base">
+              <p className="text-center text-[#364153] font-normal text-sm md:text-base normalFont">
                 📧 Enter your email address below, and we'll send them OTP to
                 reset your password!
               </p>
@@ -64,7 +64,7 @@ const ForgotPassword = () => {
             >
               {/* Email Field */}
               <div className="relative">
-                <label className="flex items-center gap-2 font-bold text-sm md:text-base text-gray-700 mb-2">
+                <label className="flex headerFont items-center gap-2 font-bold text-xs md:text-sm text-gray-700 mb-2">
                   <Mail size={16} className="text-teal-600" />
                   Your Email
                 </label>
@@ -80,7 +80,7 @@ const ForgotPassword = () => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-[#98D8C8] to-[#1F3A2B] text-white font-bold text-base md:text-lg py-3 md:py-4 rounded-2xl hover:opacity-90 transition-all flex items-center justify-center gap-3 shadow-lg"
+                className="w-full headerFont bg-gradient-to-r from-[#98D8C8] to-[#1F3A2B] text-white font-bold text-base md:text-sm py-3 md:py-4 rounded-2xl hover:opacity-90 transition-all flex items-center justify-center gap-3 shadow-lg"
               >
                 Send
               </button>

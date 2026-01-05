@@ -33,7 +33,7 @@ const InputField = ({
   ...props
 }) => (
   <div className="relative">
-    <label className="flex items-center gap-2 font-bold text-sm md:text-base text-gray-700 mb-2">
+    <label className="flex items-center gap-2 font-bold text-xs md:text-sm text-gray-700 mb-2 headerFont">
       <Icon size={16} className="text-teal-600" />
       {label}
     </label>
@@ -45,7 +45,7 @@ const InputField = ({
         onChange={onChange}
         onBlur={onBlur}
         placeholder={placeholder}
-        className={`w-full px-4 py-3 md:px-6 md:py-4 border rounded-2xl text-base md:text-lg font-normal focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition ${
+        className={`w-full normalFont px-4 py-3 md:px-6 md:py-4 border rounded-2xl text-base md:text-lg font-normal focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition ${
           error && touched
             ? "border-red-300 bg-red-50"
             : "border-gray-300 hover:border-gray-400"
@@ -267,12 +267,12 @@ const Signup = () => {
                 <BookOpen className="w-9 h-9 text-white" />
               </div>
               {/* Title */}
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1E2939] text-center">
+              <h1 className="text-2xl sm:text-3xl md:text-xl headerFont font-bold text-[#1E2939] text-center">
                 Join the Adventure! 🚀
               </h1>
 
               {/* Subtitle */}
-              <p className="text-[#4A5565] text-sm sm:text-base md:text-lg font-normal text-center">
+              <p className="text-[#4A5565] text-sm sm:text-base md:text-lg normalFont font-normal text-center">
                 Create your free account and start reading!
               </p>
             </div>
@@ -473,7 +473,7 @@ const Signup = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full bg-gradient-to-r from-[#98D8C8] to-[#1F3A2B] text-white font-bold text-base md:text-lg py-3 md:py-4 rounded-2xl transition-all flex items-center justify-center gap-3 shadow-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 ${
+                className={`w-full headerFont bg-gradient-to-r from-[#98D8C8] to-[#1F3A2B] text-white font-bold text-sm md:text-base py-3 md:py-4 rounded-2xl transition-all flex items-center justify-center gap-3 shadow-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 ${
                   isSubmitting
                     ? "opacity-70 cursor-not-allowed"
                     : "hover:opacity-90 hover:shadow-xl active:scale-95"
@@ -495,11 +495,11 @@ const Signup = () => {
             </form>
 
             {/* Sign In Link */}
-            <p className="text-center font-normal text-base text-gray-600 mt-6">
+            <p className="text-center font-normal text-base text-gray-600 mt-6 normalFont">
               Already have an account?{" "}
               <a
                 href="/login"
-                className="text-teal-600 font-medium hover:underline focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 rounded"
+                className="text-teal-600 font-medium hover:underline focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 rounded normalFont"
               >
                 Sign In
               </a>
@@ -507,7 +507,7 @@ const Signup = () => {
 
             {/* Security Note */}
             <div
-              className="mt-8 bg-teal-50 rounded-2xl p-4 flex items-center gap-3"
+              className="mt-8 bg-teal-50 rounded-2xl p-4 flex items-center gap-3 normalFont"
               role="note"
               aria-label="Security information"
             >

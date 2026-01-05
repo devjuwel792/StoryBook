@@ -142,10 +142,10 @@ export const StoryLibrary = () => {
             key={item.id}
             className="w-96 h-36 p-6 bg-white rounded-2xl outline outline-[0.80px] outline-offset-[-0.80px] outline-black/10 inline-flex flex-col justify-start items-start gap-8"
           >
-            <p className="justify-start text-gray-600 text-sm font-normal font-nunito leading-5">
+            <p className="justify-start text-gray-600 text-sm font-normal leading-5">
               {item.label}
             </p>
-            <p className="justify-start text-zinc-800 text-3xl font-normal font-nunito leading-9">
+            <p className="justify-start text-zinc-800 text-3xl font-normal leading-9">
               {item.value}
             </p>
           </div>
@@ -153,17 +153,17 @@ export const StoryLibrary = () => {
       </div>
       <div className="w-full flex items-center gap-3">
         {/* Search Bar */}
-<div className="relative w-full">
+        <div className="relative w-full">
           <input
-          type="text"
-          placeholder="Search stories..."
-          className="w-full h-11 pl-10 pr-3 py-1 relative bg-zinc-100 rounded-lg outline outline-[0.80px] outline-offset-[-0.80px] outline-black/0 text-gray-700 text-sm font-normal font-nunito focus:outline-blue-300"
-        />
-        <IoSearchOutline className="absolute top-1/3 left-3 " />
-</div>
+            type="text"
+            placeholder="Search stories..."
+            className="w-full h-11 pl-10 pr-3 py-1 relative bg-zinc-100 rounded-lg outline outline-[0.80px] outline-offset-[-0.80px] outline-black/0 text-gray-700 text-sm font-normal focus:outline-blue-300"
+          />
+          <IoSearchOutline className="absolute top-1/3 left-3 " />
+        </div>
         {/* Grade Filter */}
         <select
-          className="w-1/4 h-11 px-3 bg-zinc-100 rounded-lg outline outline-[0.80px] outline-offset-[-0.80px] outline-black/0 text-neutral-950 text-sm font-normal font-nunito leading-5 focus:outline-blue-300"
+          className="w-1/4 h-11 px-3 bg-zinc-100 rounded-lg outline outline-[0.80px] outline-offset-[-0.80px] outline-black/0 text-neutral-950 text-sm font-normal leading-5 focus:outline-blue-300"
           defaultValue="all"
         >
           <option value="all">All Grades</option>
@@ -173,7 +173,7 @@ export const StoryLibrary = () => {
         </select>
         {/* Upload Story Button */}
         <button
-          className="w-1/4 h-11 bg-yellow-400 rounded-lg flex items-center justify-center gap-2 hover:bg-yellow-300 transition-colors text-zinc-800 text-sm font-normal font-nunito leading-5"
+          className="w-1/4 h-11 bg-yellow-400 rounded-lg flex items-center justify-center gap-2 hover:bg-yellow-300 transition-colors text-zinc-800 text-sm font-normal leading-5"
           type="button"
         >
           <Upload size={16} color="#1F3A2B" strokeWidth={1.5} />
@@ -194,7 +194,7 @@ export const StoryLibrary = () => {
             />
             <div className="flex flex-col gap-2 p-5">
               <div className="flex items-center justify-between">
-                <h2 className="text-neutral-950 text-lg font-normal font-nunito leading-7">
+                <h2 className="text-neutral-950 text-lg font-normal leading-7">
                   {story.title}
                 </h2>
                 <span
@@ -202,21 +202,20 @@ export const StoryLibrary = () => {
                     story.status === "Published"
                       ? "bg-emerald-500/10 text-emerald-600"
                       : "bg-gray-200 text-gray-500"
-                  } rounded-full px-3 py-1 text-xs font-normal font-nunito`}
+                  } rounded-full px-3 py-1 text-xs font-normal`}
                 >
                   {story.status}
                 </span>
               </div>
-              <p className="text-gray-600 text-sm font-normal font-nunito">
+              <p className="text-gray-600 text-sm font-normal">
                 by {story.author}
               </p>
               <div className="flex items-center justify-between gap-3">
-
-                          <span className="text-gray-600 text-sm font-normal flex items-center gap-2 font-nunito">
+                <span className="text-gray-600 text-sm font-normal flex items-center gap-2">
                   {story.pages} Pages <IoBookOutline />
                 </span>
 
-                <span className="rounded-lg px-2 py-0.5 bg-gray-100 text-gray-600 text-sm font-normal font-nunito">
+                <span className="rounded-lg px-2 py-0.5 bg-gray-100 text-gray-600 text-sm font-normal">
                   Grade: {story.grade}
                 </span>
                 <span className="flex items-center gap-1">
@@ -235,7 +234,7 @@ export const StoryLibrary = () => {
                     setModalPage(1);
                     setModalOpen(true);
                   }}
-                  className="flex-1 h-8 bg-white rounded-lg outline outline-[0.80px] outline-offset-[-0.80px] outline-black/10 flex items-center justify-center text-neutral-950 text-sm font-normal font-nunito"
+                  className="flex-1 h-8 bg-white rounded-lg outline outline-[0.80px] outline-offset-[-0.80px] outline-black/10 flex items-center justify-center text-neutral-950 text-sm font-normal"
                 >
                   View
                 </button>
@@ -250,13 +249,14 @@ export const StoryLibrary = () => {
                       },
                     })
                   }
-                  className="flex-1 h-8 bg-white rounded-lg outline outline-[0.80px] outline-offset-[-0.80px] outline-black/10 flex items-center justify-center text-neutral-950 text-sm font-normal font-nunito"
+                  className="flex-1 h-8 bg-white rounded-lg outline outline-[0.80px] outline-offset-[-0.80px] outline-black/10 flex items-center justify-center text-neutral-950 text-sm font-normal"
                 >
                   Edit
                 </button>
-                <button 
+                <button
                   onClick={() => handleDelete(story.id)}
-                  className="w-9 h-8 bg-white rounded-lg outline outline-[0.80px] outline-offset-[-0.80px] outline-black/10 flex items-center justify-center">
+                  className="w-9 h-8 bg-white rounded-lg outline outline-[0.80px] outline-offset-[-0.80px] outline-black/10 flex items-center justify-center"
+                >
                   <Trash2 size={16} color="#E7000B" strokeWidth={1.5} />
                 </button>
               </div>

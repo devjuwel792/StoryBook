@@ -117,7 +117,7 @@ export default function TeacherDashboard() {
 
   // ---------------- Render ----------------
   return (
-    <div className="px-6 font-[Montserrat]">
+    <div className="px-6 headerFont">
       <h1 className="text-2xl font-semibold text-[#1F1F1F]">
         Teacher Dashboard
       </h1>

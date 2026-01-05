@@ -14,8 +14,8 @@ const Footer = () => {
 
         {/* Brand / About */}
         <div>
-          <h2 className="text-2xl font-bold text-white">StoryTime</h2>
-          <p className="mt-4 text-sm leading-relaxed">
+          <h2 className="text-2xl font-bold text-white headerFont">StoryTime</h2>
+          <p className="mt-4 text-sm leading-relaxed normalFont">
             Building modern, high-performance websites with clean design
             and powerful technology.
           </p>
@@ -25,7 +25,7 @@ const Footer = () => {
 
         {/* Social / Contact */}
         <div>
-          <h3 className="text-lg font-semibold text-white mb-4">Connect</h3>
+          <h3 className="text-lg font-semibold text-white mb-4 normalFont">Connect</h3>
 
           <div className="flex justify-center md:justify-start gap-4">
             <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-white hover:text-black transition">
@@ -42,7 +42,7 @@ const Footer = () => {
             </a>
           </div>
 
-          <p className="mt-4 text-sm">
+          <p className="mt-4 text-sm normalFont">
             Email: <span className="text-white">hello@yourbrand.com</span>
           </p>
         </div>
@@ -50,7 +50,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/10 py-4 text-center text-sm text-gray-400">
+      <div className="border-t border-white/10 py-4 text-center text-xs text-gray-400 headerFont">
         © {new Date().getFullYear()} YourBrand. All rights reserved.
       </div>
     </footer>

@@ -1,4 +1,4 @@
-import { Link, NavLink,  useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { MdOutlineDashboard } from "react-icons/md";
 import { IoSettingsOutline } from "react-icons/io5";
 import { LuUsers } from "react-icons/lu";
@@ -22,16 +22,14 @@ const TeacherSidebar = ({ collapsed }) => {
     <div className="green border-r-2 border-r-[#E8E8E8] min-h-screen flex flex-col justify-between inter">
       {/* Logo */}
       <div className="flex flex-col py-4">
-     
-          <div
-            className={`flex items-center gap-2  pt-2 pb-4 cursor-pointer ${
-              collapsed ? "px-0" : "px-6 "
-            }`}
-          >
-            {/* <img src={logo} alt="Logo" className="h-[63px] w-[63px] mb-2" /> */}
-               <Link to="/">
+        <div
+          className={`flex items-center gap-2  pt-2 pb-4 cursor-pointer ${
+            collapsed ? "px-0" : "px-6 "
+          }`}
+        >
+          {/* <img src={logo} alt="Logo" className="h-[63px] w-[63px] mb-2" /> */}
+          <Link to="/">
             {!collapsed && (
-              
               <div>
                 <h1 className="text-xl font-medium text-color whitespace-nowrap">
                   Teacher Pannel
@@ -41,12 +39,15 @@ const TeacherSidebar = ({ collapsed }) => {
                 </p>
               </div>
             )}
-              </Link>
-          </div>
-      
+          </Link>
+        </div>
 
         {/* Menu Items */}
-        <nav className={`flex flex-col  text-color ${!collapsed ? 'border-t-2  border-[#384f37b3]' : 'mt-0' }`}>
+        <nav
+          className={`flex flex-col  text-color ${
+            !collapsed ? "border-t-2  border-[#384f37b3]" : "mt-0"
+          }`}
+        >
           {/* Lesson Plan */}
           <NavLink
             to="/dashboard/teacher"
@@ -60,7 +61,7 @@ const TeacherSidebar = ({ collapsed }) => {
               >
                 <MdOutlineDashboard className="w-[24px] h-[24px] " />
                 {!collapsed && (
-                  <h1 className="text-base font-medium font-[Montserrat]">
+                  <h1 className="text-base font-medium headerFont">
                     Dashboard
                   </h1>
                 )}
@@ -81,9 +82,7 @@ const TeacherSidebar = ({ collapsed }) => {
               >
                 <LuUsers className="w-[24px] h-[24px]" />
                 {!collapsed && (
-                  <h1 className="text-base font-medium font-[Montserrat]">
-                    Student
-                  </h1>
+                  <h1 className="text-base font-medium headerFont">Student</h1>
                 )}
               </div>
             </div>

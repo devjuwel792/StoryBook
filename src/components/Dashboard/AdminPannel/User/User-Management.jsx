@@ -26,7 +26,7 @@ export const UserManagement = () => {
           className="w-56 h-11 relative bg-yellow-400 text-[#1F3A2B] rounded-lg flex items-center justify-center gap-2 shadow-md hover:brightness-105 transition-all cursor-pointer"
         >
           <UserPlus size={16} strokeWidth={1.5} />
-          <button className="text-center justify-start text-sm font-normal font-nunito">
+          <button className="text-center justify-start text-sm font-normal">
             Add User
           </button>
         </div>
@@ -43,7 +43,7 @@ export const UserManagement = () => {
             activeTab === "student" ? "outline-zinc-800" : "outline-gray-200"
           }`}
         >
-          <span className="text-neutral-950 text-base font-normal font-nunito">
+          <span className="text-neutral-950 text-base font-normal">
             Student
           </span>
         </button>
@@ -58,7 +58,7 @@ export const UserManagement = () => {
             activeTab === "teacher" ? "outline-zinc-800" : "outline-gray-200"
           }`}
         >
-          <span className="text-neutral-950 text-base font-normal font-nunito">
+          <span className="text-neutral-950 text-base font-normal">
             Teacher
           </span>
         </button>
@@ -74,11 +74,11 @@ export const UserManagement = () => {
               ? "Search Students..."
               : "Search Teachers..."
           }
-          className="w-3/4 h-11 pl-4 pr-3 py-1 bg-zinc-100 rounded-lg outline outline-[0.80px] outline-offset-[-0.80px] outline-black/0 text-gray-700 text-sm font-normal font-nunito focus:outline-blue-300"
+          className="w-3/4 h-11 pl-4 pr-3 py-1 bg-zinc-100 rounded-lg outline outline-[0.80px] outline-offset-[-0.80px] outline-black/0 text-gray-700 text-sm font-normal focus:outline-blue-300"
         />
         {/* Grade Filter */}
         <select
-          className="w-1/4 h-11 px-3 bg-zinc-100 rounded-lg outline outline-[0.80px] outline-offset-[-0.80px] outline-black/0 text-neutral-950 text-sm font-normal font-nunito leading-5 focus:outline-blue-300"
+          className="w-1/4 h-11 px-3 bg-zinc-100 rounded-lg outline outline-[0.80px] outline-offset-[-0.80px] outline-black/0 text-neutral-950 text-sm font-normal leading-5 focus:outline-blue-300"
           value={selectedGrade}
           onChange={(e) => setSelectedGrade(e.target.value)}
         >

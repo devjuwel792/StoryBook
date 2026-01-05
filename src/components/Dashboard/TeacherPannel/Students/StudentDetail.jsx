@@ -200,8 +200,8 @@ export default function StudentDetail() {
       </div>
 
       {/* Recommended Stories */}
-      <div className="font-[Montserrat] ">
-        <h3 className="mb-8 font-medium font-[Montserrat] text-2xl text-[#1E2939]">
+      <div className="">
+        <h3 className="mb-8 font-medium headerFont text-2xl text-[#1E2939]">
           Recommended Story
         </h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">

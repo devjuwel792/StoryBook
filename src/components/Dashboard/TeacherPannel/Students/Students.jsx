@@ -85,7 +85,7 @@ const initialStudents = [
 
 export default function Students() {
   return (
-    <div className="px-6 font-[Montserrat]">
+    <div className="px-6 headerFont">
       <div>
         <h1 className="text-2xl font-semibold text-[#1F1F1F]">
           Student Management

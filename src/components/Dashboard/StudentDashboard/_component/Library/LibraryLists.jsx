@@ -162,7 +162,7 @@ const LibraryLists = () => {
             <IoArrowBack />
           </button>
 
-          <h2 className="text-[40px] font-semibold flex items-center gap-3 text-gray-800">
+          <h2 className="text-xl font-semibold flex items-center gap-3 text-gray-800 headerFont">
             <IoBookOutline className="text-[#FFB6C1] mt-1" size={44} />
             Story Library
           </h2>
@@ -173,7 +173,7 @@ const LibraryLists = () => {
           <IoSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
           <input
             placeholder="Search for a story..."
-            className="w-full pl-12 pr-4 py-3 rounded-full bg-white shadow outline-none"
+            className="w-full normalFont pl-12 pr-4 py-3 rounded-full bg-white shadow outline-none"
           />
         </div>
 
@@ -214,7 +214,7 @@ const LibraryLists = () => {
 
 const Section = ({ title, children }) => (
   <div className="space-y-4">
-    <h3 className="text-2xl font-semibold  text-gray-700">{title}</h3>
+    <h3 className="text-lg font-semibold  text-gray-700 headerFont">{title}</h3>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4  gap-6">
       {children}
     </div>
@@ -246,7 +246,7 @@ const FilterPill = ({ label, options }) => {
         className="flex items-center gap-6 bg-white rounded-full shadow cursor-pointer"
       >
         <p
-          className="px-4 py-3 text-white text-sm rounded-l-full"
+          className="px-4 py-3 text-white text-sm rounded-l-full headerFont"
           style={{
             background: "linear-gradient(90deg, #213C2D 0%, #98D8C8 100%)",
           }}
@@ -262,7 +262,7 @@ const FilterPill = ({ label, options }) => {
 
       {/* Dropdown */}
       {open && (
-        <div className="absolute z-50 mt-2 w-full bg-white rounded-2xl shadow-xl py-2">
+        <div className="absolute normalFont z-50 mt-2 w-full bg-white rounded-2xl shadow-xl py-2">
           {options.map((item) => (
             <button
               key={item}
@@ -299,23 +299,23 @@ const StoryCard = ({ title, author, grade, pages, rating, image }) => (
       className="w-full h-[330px] object-cover rounded-xl"
     />
 
-    <h4 className="font-semibold text-gray-800">{title}</h4>
+    <h4 className="font-semibold text-gray-800 text-xs headerFont">{title}</h4>
 
     <div className="flex justify-between">
-    <p className="text-xs text-gray-500">{author}</p>
+    <p className="text-xs text-gray-500 normalFont">{author}</p>
       <RatingStars rating={rating} />
     </div>
 
-    <div className="flex items-center justify-between text-xs text-gray-500">
+    <div className="flex items-center justify-between text-gray-500 headerFont">
       <span
-        className="px-3 py-2 text-[14px] rounded-full"
+        className="px-3 py-2 text-[10px] rounded-full"
         style={{
           background: "linear-gradient(180deg, #FFE87C 0%, #FFDAB9 100%)",
         }}
       >
         {grade}
       </span>
-      <span className="text-[15px]">📖 {pages} Pages</span>
+      <span className="text-[10px] headerFont">📖 {pages} Pages</span>
     </div>
 
     

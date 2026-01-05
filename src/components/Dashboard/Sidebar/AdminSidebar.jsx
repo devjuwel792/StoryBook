@@ -41,12 +41,12 @@ const AdminSidebar = ({ collapsed }) => {
                   <BookOpen color="#1F3A2B" strokeWidth={1.5} />
                 </div>
                 <div className="flex flex-col justify-center">
-                  <h1 className="justify-start text-white text-2xl font-normal font-nunito">
-                  LiteracyHub
-                </h1>
-                <p className="justify-start text-gray-400 text-xs font-normal font-nunito">
-                  Admin Portal
-                </p>
+                  <h1 className="justify-start text-white text-2xl font-normal">
+                    LiteracyHub
+                  </h1>
+                  <p className="justify-start text-gray-400 text-xs font-normal">
+                    Admin Portal
+                  </p>
                 </div>
               </div>
             )}
@@ -163,9 +163,7 @@ const AdminSidebar = ({ collapsed }) => {
               >
                 <MessageSquare className="w-5 h-5" />
                 {!collapsed && (
-                  <h1 className="text-sm font-normal montserrat">
-                    AI Chatbot
-                  </h1>
+                  <h1 className="text-sm font-normal montserrat">AI Chatbot</h1>
                 )}
               </div>
             </div>

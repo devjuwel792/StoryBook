@@ -92,7 +92,7 @@ const DashboardHome = () => {
       <div className="w-full lg:w-[90vw] xl:w-[80vw] mx-auto px-4 py-8 md:p-12 lg:p-24">
         {/* Header */}
         <header className="mb-8 flex justify-between w-full ">
-          <h2 className="text-xl md:text-2xl font-semibold text-gray-800">
+          <h2 className="headerFont text-base md:text-xl font-semibold text-gray-800">
             ☀️ Hi, Emma! <span className="ml-1">👋</span>
           </h2>
           <FaBell onClick={() => setIsModalOpen(true)} size={20} />
@@ -168,7 +168,7 @@ const ContinueReadingCard = ({ title, progress, image }) => (
   <div>
     <div className="lg:col-span-2 bg-white border-[#87CEEB4D]/40 border-4 rounded-2xl shadow-xl p-4 md:p-6 flex flex-col md:flex-row gap-6 md:gap-0">
       <div className="w-full md:w-auto">
-        <p className="flex gap-3 mb-3 text-lg md:text-[24px] justify-center font-semibold items-center text-[#1E2939]">
+        <p className="flex gap-3 mb-3 text-sm md:text-base headerFont justify-center font-semibold items-center text-[#1E2939]">
           <IoBookOutline className="text-blue-500 mt-1" size={22} /> Continue
           Reading
         </p>
@@ -180,10 +180,10 @@ const ContinueReadingCard = ({ title, progress, image }) => (
       </div>
 
       <div className="flex-1 md:pl-8 mt-4 md:mt-12">
-        <h3 className="text-xl md:text-[24px] font-semibold text-gray-800 mb-2">
+        <h3 className="text-xl md:text-base headerFont font-semibold text-gray-800 mb-2">
           {title}
         </h3>
-        <p className="text-gray-600 w-full md:w-auto lg:w-96 mb-4">
+        <p className="text-gray-600 w-full md:w-auto lg:w-96 mb-4 normalFont">
           You're doing great! Keep reading to discover what happens next.
         </p>
 
@@ -193,7 +193,7 @@ const ContinueReadingCard = ({ title, progress, image }) => (
 
         <Link to="/34">
           <button
-            className="mt-6 md:mt-9 inline-flex items-center justify-center gap-2 rounded-full px-8 md:px-14 py-3 text-sm font-medium text-white hover:opacity-90 transition w-full md:w-auto"
+            className="mt-6 md:mt-9 inline-flex items-center justify-center gap-2 rounded-full px-8 md:px-14 py-3 text-xs headerFont font-medium text-white hover:opacity-90 transition w-full md:w-auto"
             style={{
               background: "linear-gradient(90deg, #213C2D 0%, #98D8C8 99.91%)",
             }}
@@ -216,11 +216,11 @@ const RecentStoryCard = ({ title, progress, image }) => (
         alt={title}
       />
       <div className="flex-1">
-        <h3 className="font-semibold text-gray-800">{title}</h3>
-        <p className="text-sm text-gray-500 mt-1">Your Progress {progress}%</p>
+        <h3 className="font-semibold text-gray-800 headerFont text-xs">{title}</h3>
+        <p className="text-xs text-gray-500 mt-1 normalFont">Your Progress {progress}%</p>
         <Link to="/33">
           <button
-            className="mt-2 flex items-center gap-1 text-sm font-medium text-white px-4 py-1 rounded-3xl hover:text-[#98D8C8] transition"
+            className="mt-2 headerFont flex items-center gap-1 text-xs font-medium text-white px-4 py-1 rounded-3xl hover:text-[#98D8C8] transition"
             style={{
               background: "linear-gradient(90deg, #213C2D 0%, #98D8C8 99.91%)",
             }}
@@ -235,7 +235,7 @@ const RecentStoryCard = ({ title, progress, image }) => (
 
 const ProgressBar = ({ value }) => (
   <div className="w-full">
-    <div className="flex justify-between mb-1 text-xs text-gray-500">
+    <div className="flex justify-between mb-1 text-xs text-gray-500 normalFont">
       <span>Your Progress</span>
       <span>{value}%</span>
     </div>
@@ -257,8 +257,8 @@ const QuickActionCard = ({ title, subtitle, bg, icon, link }) => (
     <div className="flex items-center gap-2">
       <p className="bg-[#FFFFFFCC]/80 p-3 rounded-3xl">{icon}</p>
       <div>
-        <h4 className="font-semibold text-lg">{title}</h4>
-        <p className="text-sm opacity-80">{subtitle}</p>
+        <h4 className="font-semibold text-sm headerFont ">{title}</h4>
+        <p className="text-sm opacity-80 normalFont">{subtitle}</p>
       </div>
     </div>
   </Link>
@@ -277,7 +277,7 @@ const StatCard = ({ value, label, borderColor, textColor, nestedLocation }) => {
       }}
     >
       <h3 className="text-3xl font-bold">{value}</h3>
-      <p className="mt-1 text-sm text-gray-500">{label}</p>
+      <p className="mt-1 text-sm text-gray-500 normalFont">{label}</p>
       <Reusable_Modal
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}

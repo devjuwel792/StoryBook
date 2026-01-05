@@ -161,7 +161,7 @@ const DashboardModalPage = ({ nestedLocation }) => {
           {nestedLocation === "notification" && "Notification"}
           {nestedLocation === "bookmarks" && "Bookmarks"}
           {nestedLocation === "wordCount" && "Vocabulary"}
-          {nestedLocation === "readingLevel" && "Badges Collection"}
+          {nestedLocation === "readingLevel" && ""}
         </h3>
       </div>
 

@@ -29,14 +29,14 @@ const Congratulations = () => {
                 <CircleCheckBig className="text-white w-10 h-10 md:w-16 md:h-16" />
               </div>
               {/* Title */}
-              <h1 className="text-2xl md:text-4xl font-bold text-[#1E2939] mt-6 md:mt-10 text-center">
+              <h1 className="headerFont text-xl md:text-2xl font-bold text-[#1E2939] mt-6 md:mt-10 text-center">
                 Congratulations!
               </h1>
             </div>
             <button
               onClick={handleSubmit}
               type="submit"
-              className="w-full sm:w-96 mx-auto bg-gradient-to-r from-[#98D8C8] to-[#1F3A2B] text-white font-bold text-base md:text-lg py-3 md:py-4 rounded-2xl hover:opacity-90 transition-all flex items-center justify-center gap-3 shadow-lg"
+              className="w-full headerFont sm:w-96 mx-auto bg-gradient-to-r from-[#98D8C8] to-[#1F3A2B] text-white font-bold text-xs md:text-sm py-3 md:py-4 rounded-2xl hover:opacity-90 transition-all flex items-center justify-center gap-3 shadow-lg"
             >
               Go To Login
             </button>

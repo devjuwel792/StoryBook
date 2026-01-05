@@ -8,8 +8,8 @@ import { RiBookMarkedLine } from 'react-icons/ri';
 const Header = ({ heading, subheading }) => {
   return (
     <div className='flex justify-center items-center flex-col mb-10 lg:mb-20 px-4'>
-      <p className='text-3xl md:text-4xl lg:text-[48px] font-semibold text-center leading-tight'>{heading}</p>
-      <p className='text-base md:text-lg lg:text-[20px] text-[#4A5565] text-center mt-4 max-w-2xl'>
+      <p className='text-2xl md:text-3xl lg:text-4xl font-semibold text-center leading-tight headerFont'>{heading}</p>
+      <p className='text-base md:text-lg lg:text-[20px] text-[#4A5565] text-center mt-4 max-w-2xl normalFont'>
         {subheading}
       </p>
     </div>
@@ -36,10 +36,10 @@ const Card = ({ cardData, position,image }) => {
             </div>
 
             <div className="flex-1">
-              <h3 className="text-lg lg:text-[20px] font-semibold">
+              <h3 className="text-sm lg:text-base font-semibold headerFont">
                 {item.text1}
               </h3>
-              <p className="text-sm lg:text-[16px] text-[#4A5565] mt-2">
+              <p className="text-xs lg:text-sm text-[#4A5565] mt-2 normalFont">
                 {item.text2}
               </p>
             </div>

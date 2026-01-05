@@ -23,16 +23,16 @@ const DuelCard = ({ data }) => {
         {data.icon}
       </p>
       <div className="space-y-2">
-        <h2 className="text-2xl lg:text-[30px] text-[#1E2939] font-semibold">
+        <h2 className="text-lg lg:text-xl text-[#1E2939] font-semibold headerFont">
           {data.text1}
         </h2>
-        <p className="text-[#4A5565] text-base lg:text-[18px] px-1">
+        <p className="text-[#4A5565] text-base lg:text-[18px] px-1 normalFont">
           {data.text2}
         </p>
 
         <div className="space-y-1">
           {data.nestedText.map((item, index) => (
-            <div key={index} className="flex items-center gap-2 text-[#364153]">
+            <div key={index} className="flex items-center gap-2 text-[#364153] normal">
               <FaStar className="text-yellow-300" />
               <p>{item.text}</p>
             </div>
@@ -123,23 +123,23 @@ const AchievementCard = () => {
             <p className="text-3xl lg:text-[40px] font-semibold">
               {items.title}
             </p>
-            <p className="text-base lg:text-[18px]">{items.subTitle}</p>
+            <p className="text-sm lg:text-base headerFont">{items.subTitle}</p>
           </div>
         ))}
       </div>
 
       <div className="flex flex-col justify-center items-center py-8 lg:py-12 gap-5 lg:gap-7 bg-[#FFFFFF] p-6 lg:p-8 w-full lg:w-[83vw] mx-auto rounded-xl shadow-xl text-center">
-        <h2 className="text-2xl lg:text-[36px] font-semibold">
+        <h2 className="text-xl lg:text-2xl font-semibold headerFont">
           Ready to Start Your Reading Adventure? 🚀
         </h2>
-        <p className="text-base lg:text-[20px] text-[#4A5565]">
+        <p className="text-base lg:text-lg text-[#4A5565] normalFont">
           Join thousands of kids learning to love reading and writing. Sign up
           now and get started for FREE!
         </p>
 
         <button
           onClick={() => navigate("/signup")}
-          className="text-lg lg:text-[20px] px-10 lg:px-20 text-white py-3 rounded-3xl"
+          className="text-lg lg:text-[20px] px-10 lg:px-20 text-white py-3 rounded-3xl headerFont"
           style={{
             background:
               "linear-gradient(270deg, #98D8C8 -0.1%, #1F3A2B 100.1%)",
