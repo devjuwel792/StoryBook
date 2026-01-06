@@ -3,7 +3,6 @@ import { Users, BookOpen, Search } from "lucide-react";
 import StatsCard from "../TeacherPannel/TeacherDash/StatsCard";
 import RecentActivity from "../TeacherPannel/TeacherDash/RecentActivity";
 
-
 export default function AdminDashboard() {
   // ---------------- Fake Data ----------------
   const statsData = [
@@ -118,11 +117,9 @@ export default function AdminDashboard() {
 
   // ---------------- Render ----------------
   return (
-    <div className="px-6 font-[Montserrat]">
-      <h1 className="text-2xl font-semibold text-[#1F1F1F]">
-        Admin Dashboard
-      </h1>
-      <p className="mt-1 text-base text-[#4A5565]">
+    <div className="px-6 headerFont">
+      <h1 className="text-2xl font-semibold text-[#1F1F1F]">Admin Dashboard</h1>
+      <p className="mt-1 text-base text-[#4A5565] normalFont">
         Welcome back! Here's what's happening with your students.
       </p>
 

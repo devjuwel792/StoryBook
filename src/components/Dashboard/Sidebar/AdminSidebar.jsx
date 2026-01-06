@@ -40,13 +40,13 @@ const AdminSidebar = ({ collapsed }) => {
                 <div className="w-10 h-10 bg-yellow-400 rounded-[10px] inline-flex justify-center items-center">
                   <BookOpen color="#1F3A2B" strokeWidth={1.5} />
                 </div>
-                <div className="flex flex-col justify-center">
-                  <h1 className="justify-start text-white text-2xl font-normal font-nunito">
-                  LiteracyHub
-                </h1>
-                <p className="justify-start text-gray-400 text-xs font-normal font-nunito">
-                  Admin Portal
-                </p>
+                <div className="flex flex-col justify-center normalFont">
+                  <h1 className="justify-start text-white text-2xl font-normal">
+                    LiteracyHub
+                  </h1>
+                  <p className="justify-start text-gray-400 text-xs font-normal">
+                    Admin Portal
+                  </p>
                 </div>
               </div>
             )}
@@ -76,8 +76,8 @@ const AdminSidebar = ({ collapsed }) => {
               >
                 <AiOutlineHome className="w-5 h-5" />
                 {!collapsed && (
-                  <h1 className="text-sm font-normal montserrat">
-                    Admin Dashboard
+                  <h1 className="text-[10px] font-normal headerFont">
+                    Dashboard
                   </h1>
                 )}
               </div>
@@ -105,7 +105,7 @@ const AdminSidebar = ({ collapsed }) => {
               >
                 <FaUsers className="w-5 h-5" />
                 {!collapsed && (
-                  <h1 className="text-sm font-normal montserrat">
+                  <h1 className="text-[10px] font-normal headerFont">
                     User Management
                   </h1>
                 )}
@@ -134,7 +134,7 @@ const AdminSidebar = ({ collapsed }) => {
               >
                 <BookOpen className="w-5 h-5" />
                 {!collapsed && (
-                  <h1 className="text-sm font-normal montserrat">
+                  <h1 className="text-[10px] font-normal headerFont">
                     Story Library
                   </h1>
                 )}
@@ -163,9 +163,7 @@ const AdminSidebar = ({ collapsed }) => {
               >
                 <MessageSquare className="w-5 h-5" />
                 {!collapsed && (
-                  <h1 className="text-sm font-normal montserrat">
-                    AI Chatbot
-                  </h1>
+                  <h1 className="text-[10px] font-normal headerFont">AI Chatbot</h1>
                 )}
               </div>
             </div>
@@ -188,7 +186,7 @@ const AdminSidebar = ({ collapsed }) => {
               >
                 <FiSettings className="w-5 h-5" />
                 {!collapsed && (
-                  <h1 className="text-sm font-normal montserrat">Settings</h1>
+                  <h1 className="text-[10px] font-normal headerFont">Settings</h1>
                 )}
               </div>
             </div>
@@ -199,7 +197,7 @@ const AdminSidebar = ({ collapsed }) => {
       {/* Logout */}
       <div
         onClick={handleLogOut}
-        className="flex items-center p-2 pb-10 pl-8 space-x-3 text-red-600 rounded-lg cursor-pointer"
+        className="flex items-center p-2 pb-10 pl-8 space-x-3 text-red-600 rounded-lg cursor-pointer normalFont"
       >
         <FaSignOutAlt />
         {!collapsed && <span>Log Out</span>}

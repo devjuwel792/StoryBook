@@ -27,7 +27,7 @@ const Hero = () => {
           <div className="flex gap-4 md:gap-6">
             <button
               onClick={() => navigate("/login")}
-              className="bg-white px-6 py-2 md:py-2 md:px-8 font-semibold rounded-3xl text-sm md:text-base"
+              className="bg-white px-6 py-2 md:py-2 md:px-8 font-semibold rounded-3xl text-sm md:text-base headerFont" 
             >
               Sign In
             </button>
@@ -37,23 +37,23 @@ const Hero = () => {
                 background:
                   "linear-gradient(90deg, #FFB6C1 0.13%, #FFE87C 100.19%)",
               }}
-              className="bg-white px-6 py-2 md:py-0 md:px-9 font-semibold rounded-3xl text-sm md:text-base"
+              className="bg-white px-6 py-2 md:py-0 md:px-9 font-semibold rounded-3xl text-sm md:text-base headerFont"
             >
               Sign Up Free
             </button>
           </div>
         </div>
         <div className="mt-10 md:mt-5 relative">
-          <p className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] xl:text-6xl font-semibold flex flex-wrap justify-center items-center gap-2 md:gap-5 text-white text-center leading-tight">
+          <p className="headerFont py-6 text-3xl sm:text-4xl md:text-4xl xl:text-5xl font-semibold flex flex-wrap justify-center items-center gap-2 md:gap-5 text-white text-center leading-tight">
             Read, Write, and Explore <MdMenuBook />{" "}
             <span className="text-3xl sm:text-5xl animate-pulse">✨</span>
           </p>
-          <p className="text-center text-base sm:text-lg md:text-[24px] w-full sm:w-[80%] lg:w-[75%] 2xl:w-[40%] mx-auto text-white mt-3 font-thin px-2">
+          <p className="normalFont text-center text-base sm:text-lg md:text-xl w-full sm:w-[80%] lg:w-[75%] 2xl:w-[40%] mx-auto text-white mt-3 font-thin px-2">
             Join thousands of young readers discovering magical stories and
             creating their own adventures!
           </p>
 
-          <div className="flex flex-wrap justify-center items-center gap-3 mt-9">
+          <div className="flex flex-wrap justify-center items-center gap-3 mt-9 normalFont">
             {[
               "1000+ stories",
               "story creator",

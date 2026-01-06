@@ -61,14 +61,14 @@ const Otp = () => {
                 <CircleCheckBig className="text-white w-10 h-10 md:w-16 md:h-16" />
               </div>
               {/* Title */}
-              <h1 className="text-2xl md:text-4xl font-bold text-[#1E2939] mt-6 md:mt-10 text-center">
+              <h1 className="text-2xl headerFont md:text-2xl font-bold text-[#1E2939] mt-6 md:mt-10 text-center">
                 Email Sent! 📬
               </h1>
             </div>
 
             <div className="bg-gradient-to-b from-[#E6F3FF] to-[#F0FFF4] max-w-sm mx-auto border-2 border-[#87CEEB4D] rounded-2xl p-4 md:p-6 mb-6 flex items-center justify-center">
               {/* Instruction */}
-              <p className="text-center text-[#364153] font-normal text-sm md:text-base">
+              <p className="normalFont text-center text-[#364153] font-normal text-sm md:text-base">
                 We've sent a password reset OTP to your email address.
               </p>
             </div>
@@ -101,7 +101,7 @@ const Otp = () => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-[#98D8C8] to-[#1F3A2B] text-white font-bold text-base md:text-lg py-3 md:py-4 rounded-2xl hover:opacity-90 transition-all flex items-center justify-center gap-3 shadow-lg"
+                className="w-full headerFont bg-gradient-to-r from-[#98D8C8] to-[#1F3A2B] text-white font-bold text-xs md:text-sm py-3 md:py-4 rounded-2xl hover:opacity-90 transition-all flex items-center justify-center gap-3 shadow-lg"
               >
                 Confirm OTP
               </button>

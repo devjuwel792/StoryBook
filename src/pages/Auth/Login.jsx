@@ -59,11 +59,11 @@ const Login = () => {
                 <BookOpen className="text-white w-6 h-6 md:w-9 md:h-9" />
               </div>
 
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1E2939] text-center">
+              <h1 className="text-2xl sm:text-3xl md:text-2xl font-bold text-[#1E2939] text-center headerFont">
                 Welcome Back! 👋
               </h1>
 
-              <p className="text-[#4A5565] text-base md:text-lg text-center">
+              <p className="text-[#4A5565] text-base md:text-lg text-center normalFont">
                 Ready to read some amazing stories?
               </p>
             </div>
@@ -71,7 +71,7 @@ const Login = () => {
             <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
               {/* Email */}
               <div>
-                <label className="block mb-2 font-bold text-gray-700 text-sm md:text-base">
+                <label className="block mb-2 font-bold text-gray-700 text-xs md:text-sm headerFont">
                   Email
                 </label>
                 <input
@@ -79,14 +79,14 @@ const Login = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email..."
-                  className="w-full px-4 py-3 md:px-6 md:py-4 text-base md:text-lg border rounded-2xl focus:ring-2 focus:ring-teal-500"
+                  className="w-full normalFont px-4 py-3 md:px-6 md:py-4 text-base md:text-lg border rounded-2xl focus:ring-2 focus:ring-teal-500"
                   required
                 />
               </div>
 
               {/* Password */}
               <div className="relative">
-                <label className="block mb-2 font-bold text-gray-700 text-sm md:text-base">
+                <label className="block mb-2 font-bold text-gray-700 text-xs md:text-sm headerFont">
                   Password
                 </label>
                 <input
@@ -94,7 +94,7 @@ const Login = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter your password..."
-                  className="w-full px-4 py-3 md:px-6 md:py-4 text-base md:text-lg border rounded-2xl focus:ring-2 focus:ring-teal-500 pr-12"
+                  className="w-full normalFont px-4 py-3 md:px-6 md:py-4 text-base md:text-lg border rounded-2xl focus:ring-2 focus:ring-teal-500 pr-12"
                   required
                 />
                 <button
@@ -108,22 +108,22 @@ const Login = () => {
               </div>
 
               {/* Forgot Password */}
-              <p className="text-right text-[#87CEEB] font-bold text-sm md:text-base">
+              <p className="text-right text-[#87CEEB] font-bold text-sm md:text-base normalFont">
                 <a href="/forgot">Forgot Password?</a>
               </p>
 
               {/* Submit */}
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-[#98D8C8] to-[#1F3A2B] text-white font-bold text-base md:text-lg py-3 md:py-4 rounded-2xl shadow-lg"
+                className="w-full bg-gradient-to-r from-[#98D8C8] to-[#1F3A2B] text-white font-bold text-base md:text-lg py-3 md:py-4 rounded-2xl shadow-lg headerFont"
               >
                 Log in
               </button>
             </form>
 
-            <p className="mt-6 text-center text-gray-600 text-sm md:text-base">
+            <p className="mt-6 text-center text-gray-600 text-sm md:text-base normalFont">
               Are you a parent or teacher?{" "}
-              <a href="/login" className="text-[#87CEEB] hover:underline">
+              <a href="/login" className="text-[#87CEEB] hover:underline normalFont">
                 Click here
               </a>
             </p>

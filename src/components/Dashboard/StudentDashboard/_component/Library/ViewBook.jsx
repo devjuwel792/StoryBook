@@ -136,7 +136,7 @@ const ViewBook = () => {
             <IoArrowBack />
           </button>
 
-          <h2 className="font-semibold text-gray-800 text-xl">
+          <h2 className="font-semibold text-gray-800 text-base headerFont">
             {sampleBookData.title}
           </h2>
 
@@ -156,14 +156,14 @@ const ViewBook = () => {
           <div className="flex-1 flex flex-col">
             <div className="bg-white rounded-2xl shadow-xl p-4 md:p-8 leading-relaxed text-gray-700 flex-1 lg:overflow-y-auto">
               <div className="space-y-6">
-                <p className="text-base md:text-lg whitespace-pre-wrap">
+                <p className="text-base normalFont md:text-lg whitespace-pre-wrap">
                   {renderContent(currentPage.content)}
                 </p>
               </div>
             </div>
 
   
-            <div className="flex flex-col sm:flex-row items-center justify-between mt-6 lg:mt-8 gap-4 sm:gap-0">
+            <div className="flex flex-col sm:flex-row items-center justify-between mt-6 lg:mt-8 gap-4 sm:gap-0 headerFont">
               <button 
                 onClick={handlePrevPage}
                 disabled={currentPageIndex === 0}
@@ -267,25 +267,25 @@ const WordHelper = ({ selectedWord, wordDefinition, isLoading, onClear }) => {
     return (
       <div className="bg-white rounded-2xl shadow p-6 space-y-4">
         <div className="flex justify-between items-center">
-          <h4 className="text-sm font-medium text-gray-500">Word Helper 📘</h4>
+          <h4 className="text-xs font-medium text-gray-500 headerFont">Word Helper 📘</h4>
           <button className="text-gray-400 hover:text-gray-600 opacity-0 cursor-default">✕</button>
         </div>
 
-        <h3 className="text-lg font-semibold text-gray-800">Select a word</h3>
+        <h3 className="text-sm font-semibold text-gray-800 headerFont">Select a word</h3>
 
-        <div className="bg-purple-50 rounded-lg p-3 text-sm text-gray-700">
+        <div className="normalFont bg-purple-50 rounded-lg p-3 text-sm text-gray-700">
           Click any word in the story to see its definition
         </div>
 
         <button
           onClick={speakWord}
-          className="flex items-center gap-2 justify-center w-full rounded-full bg-gradient-to-r from-[#213C2D] to-[#98D8C8] text-white py-3 text-sm hover:opacity-90 transition"
+          className="flex items-center gap-2 justify-center w-full rounded-full bg-gradient-to-r from-[#213C2D] to-[#98D8C8] text-white py-3 text-xs hover:opacity-90 transition headerFont"
         >
           <IoVolumeMedium />
           Hear it
         </button>
 
-        <button className="w-full rounded-full border border-gray-200 py-3 text-sm text-gray-600 hover:bg-gray-50 transition">
+        <button className="w-full headerFont rounded-full border border-gray-200 py-3 text-xs text-gray-600 hover:bg-gray-50 transition">
           Add to Vocabulary
         </button>
       </div>
@@ -359,10 +359,10 @@ const WordHelper = ({ selectedWord, wordDefinition, isLoading, onClear }) => {
 
 const ReadingTip = () => (
   <div className="bg-white rounded-2xl shadow p-6 space-y-2 border border-purple-200">
-    <h4 className="flex items-center gap-2 font-semibold text-purple-700">
+    <h4 className="flex items-center gap-2 font-semibold text-purple-700 headerFont text-xs">
       💡 Reading Tip
     </h4>
-    <p className="text-sm text-gray-600">
+    <p className="text-sm text-gray-600 normalFont">
       Take your time and imagine the story in your mind. What do you think will
       happen next?
     </p>

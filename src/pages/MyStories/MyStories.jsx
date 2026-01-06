@@ -1,9 +1,4 @@
-import {
-  ArrowLeft,
-  FileText,
-  Trash2,
-  WandSparkles,
-} from "lucide-react";
+import { ArrowLeft, FileText, Trash2, WandSparkles } from "lucide-react";
 import statsData from "../../assets/myStoriesStats.json";
 import { useState } from "react";
 import StoryModal from "../../components/StoryModal";
@@ -143,10 +138,16 @@ export const MyStories = () => {
             >
               <ArrowLeft color="#364153" />
             </button>
-            <WandSparkles size={32} className="md:w-10 md:h-10" color="#FFB6C1" />
+            <WandSparkles
+              size={32}
+              className="md:w-10 md:h-10"
+              color="#FFB6C1"
+            />
             <div className="mt-1 md:mt-3">
-              <h1 className="text-[#767676] text-2xl md:text-4xl font-bold">My Stories</h1>
-              <p className="justify-start text-gray-600 text-sm md:text-base font-normal font-nunito leading-6">
+              <h1 className="text-[#767676] text-2xl md:text-2xl font-bold headerFont">
+                My Stories
+              </h1>
+              <p className="justify-start normalFont text-gray-600 text-sm md:text-base font-normal leading-6">
                 All your creative works
               </p>
             </div>
@@ -156,7 +157,7 @@ export const MyStories = () => {
         <div className="flex items-center justify-end">
           <button
             onClick={() => navigate("/story-creator")}
-            className="mb-7 px-4 py-2 md:px-6 md:py-3 bg-gradient-to-br from-[#254233] to-[#96D5C5] rounded-2xl shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] transition-all hover:shadow-md hover:brightness-105 flex items-center justify-center gap-2 text-white text-sm md:text-base font-medium font-nunito"
+            className="mb-7 px-4 py-2 md:px-6 md:py-3 bg-gradient-to-br from-[#254233] to-[#96D5C5] rounded-2xl shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] transition-all hover:shadow-md hover:brightness-105 flex items-center justify-center gap-2 text-white text-sm md:text-sm headerFont font-medium"
           >
             <FileText size={18} className="md:w-5 md:h-5" strokeWidth={1.5} />
             New Story
@@ -171,10 +172,10 @@ export const MyStories = () => {
                   key={card.id}
                   className="w-full md:w-1/3 h-auto md:h-24 p-4 md:p-5 bg-white rounded-2xl shadow-[0px_1px_2px_-1px_rgba(0,0,0,0.10)] outline outline-1 outline-offset-[-1px] outline-gray-100 flex flex-row md:flex-col justify-between md:justify-start items-center md:items-start gap-1"
                 >
-                  <p className="justify-start text-[#767676] text-2xl md:text-3xl font-semibold font-nunito">
+                  <p className="justify-start text-[#767676] text-2xl md:text-xl font-semibold headerFont">
                     {card.value}
                   </p>
-                  <p className="flex-1 justify-start text-gray-600 text-sm font-normal font-nunito">
+                  <p className="flex-1 justify-start text-gray-600 text-sm font-normal normalFont">
                     {card.title}
                   </p>
                 </div>
@@ -193,27 +194,27 @@ export const MyStories = () => {
                   />
                   <div className="flex flex-col gap-2 p-5">
                     <div className="flex items-center justify-between">
-                      <h2 className="text-neutral-950 text-lg font-normal font-nunito leading-7">
+                      <h2 className="text-neutral-950 text-sm font-normal leading-7 headerFont">
                         {story.title}
                       </h2>
                       <span
                         className={`${
                           story.status === "Published"
                             ? "bg-emerald-500/10 text-emerald-600"
-                            : "bg-gray-200 text-gray-500"
-                        } rounded-full px-3 py-1 text-xs font-normal font-nunito`}
+                            : "bg-gray-200 text-gray-500 normalFont"
+                        } rounded-full px-3 py-1 text-xs font-normal`}
                       >
                         {story.status}
                       </span>
                     </div>
-                    <p className="text-gray-600 text-sm font-normal font-nunito">
+                    <p className="text-gray-600 text-sm font-normal normalFont">
                       by {story.author}
                     </p>
-                    <div className="flex items-center gap-3">
-                      <span className="rounded-lg px-2 py-0.5 bg-gray-100 text-gray-600 text-sm font-normal font-nunito">
+                    <div className="flex items-center gap-3 normalFont">
+                      <span className="rounded-lg px-2 py-0.5 bg-gray-100 text-gray-600 text-sm font-normal">
                         Grade: {story.grade}
                       </span>
-                      <span className="text-gray-600 text-sm font-normal font-nunito">
+                      <span className="text-gray-600 text-sm font-normal">
                         {story.pages} Pages
                       </span>
                       <span className="flex items-center gap-1">
@@ -225,14 +226,14 @@ export const MyStories = () => {
                         ))}
                       </span>
                     </div>
-                    <div className="flex gap-2 mt-4 border-t pt-4">
+                    <div className="flex gap-2 mt-4 border-t pt-4 headerFont">
                       <button
                         onClick={() => {
                           setModalStory(story);
                           setModalPage(1);
                           setModalOpen(true);
                         }}
-                        className="flex-1 h-8 bg-white rounded-lg outline outline-[0.80px] outline-offset-[-0.80px] outline-black/10 flex items-center justify-center text-neutral-950 text-sm font-normal font-nunito"
+                        className="flex-1 h-8 bg-white rounded-lg outline outline-[0.80px] outline-offset-[-0.80px] outline-black/10 flex items-center justify-center text-neutral-950 text-xs font-normal"
                       >
                         View
                       </button>
@@ -247,7 +248,7 @@ export const MyStories = () => {
                             },
                           })
                         }
-                        className="flex-1 h-8 bg-white rounded-lg outline outline-[0.80px] outline-offset-[-0.80px] outline-black/10 flex items-center justify-center text-neutral-950 text-sm font-normal font-nunito"
+                        className="flex-1 h-8 bg-white rounded-lg outline outline-[0.80px] outline-offset-[-0.80px] outline-black/10 flex items-center justify-center text-neutral-950 text-xs font-normal"
                       >
                         Edit
                       </button>

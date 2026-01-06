@@ -12,7 +12,7 @@ const Profile = () => {
           <button onClick={()=> navigate(-1)} className="p-2 bg-white rounded-full shadow">
             <IoArrowBack />
           </button>
-          <h2 className="text-xl font-semibold text-gray-800 flex items-center gap-2">
+          <h2 className="text-base font-semibold text-gray-800 flex items-center gap-2 headerFont">
             👤 My Profile
           </h2>
         </header>
@@ -55,7 +55,7 @@ const Profile = () => {
 
 const AvatarCard = () => (
   <div className="bg-white rounded-2xl shadow-xl p-6 text-center space-y-4">
-    <h3 className="text-sm font-semibold text-gray-600">Your Avatar</h3>
+    <h3 className="text-xs font-semibold text-gray-600 headerFont">Your Avatar</h3>
 
     <div className="relative mx-auto w-28 h-28 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center text-5xl text-white">
       👧
@@ -65,8 +65,8 @@ const AvatarCard = () => (
     </div>
 
     <div>
-      <p className="text-[24px] text-[#1E2939] font-semibold">Emma</p>
-      <p className="">Grade 3</p>
+      <p className="text-lg text-[#1E2939] font-semibold headerFont">Emma</p>
+      <p className="normalFont">Grade 3</p>
     </div>
 
     <div className="flex gap-4 justify-center">
@@ -78,7 +78,7 @@ const AvatarCard = () => (
 
 const PersonalInfo = () => (
   <div className="lg:col-span-2 bg-white rounded-2xl shadow border border-cyan-200 p-6 space-y-6">
-    <h3 className="font-semibold text-[24px] text-gray-800 flex items-center gap-2">
+    <h3 className="font-semibold text-lg text-gray-800 flex items-center gap-2 headerFont">
       👤 Personal Information
     </h3>
 
@@ -87,7 +87,7 @@ const PersonalInfo = () => (
     <Input label="Favorite Genre" value="" />
 
     <button
-      className="w-full py-3 rounded-full text-white font-medium shadow"
+      className="w-full py-3 rounded-full text-white font-medium shadow headerFont"
       style={{
         background: "linear-gradient(90deg, #213C2D 0%, #98D8C8 100%)",
       }}
@@ -99,7 +99,7 @@ const PersonalInfo = () => (
 
 const ReadingPreferences = () => (
   <div className="bg-white rounded-2xl shadow border border-yellow-200 p-6 space-y-4">
-    <h3 className="font-semibold text-gray-800 text-[24px] flex items-center gap-2">
+    <h3 className="font-semibold text-gray-800 text-lg flex items-center gap-2 headerFont">
       🌟 Reading Preferences
     </h3>
 
@@ -126,8 +126,8 @@ const ActionCard = ({ icon, title, subtitle, borderColor, textColor }) => (
     className={`flex-1 bg-white rounded-2xl p-6 shadow border ${borderColor} cursor-pointer hover:scale-[1.02] transition`}
   >
     <div className={`text-xl mb-2 ${textColor}`}>{icon}</div>
-    <p className={`font-semibold ${textColor}`}>{title}</p>
-    <p className="text-sm text-gray-500">{subtitle}</p>
+    <p className={`font-semibold headerFont ${textColor}`}>{title}</p>
+    <p className="text-sm text-gray-500 normalFont">{subtitle}</p>
   </div>
 );
 
@@ -135,10 +135,10 @@ const ActionCard = ({ icon, title, subtitle, borderColor, textColor }) => (
 
 const Input = ({ label, value }) => (
   <div className="space-y-1">
-    <label className="text-[14px] text-black font-semibold">{label}</label>
+    <label className="text-[10px] text-black font-semibold headerFont">{label}</label>
     <input
       defaultValue={value}
-      className="w-full rounded-lg border border-gray-200 px-4 py-2 outline-none focus:ring-2 focus:ring-cyan-200"
+      className="w-full rounded-lg border border-gray-200 px-4 py-2 outline-none focus:ring-2 focus:ring-cyan-200 normalFont"
     />
   </div>
 );
@@ -155,15 +155,15 @@ const StatMini = ({ value, label, highlight,textColor }) => (
     style={{
         color:textColor
     }}
-    className="text-2xl  font-semibold">{value}</p>
-    <p className="text-[12px] mt-2">{label}</p>
+    className="text-lg  font-semibold headerFont">{value}</p>
+    <p className="text-[12px] mt-2 normalFont">{label}</p>
   </div>
 );
 
 const PreferenceItem = ({ title, subtitle, bg }) => (
   <div className={`rounded-xl p-4 ${bg}`}>
-    <p className="text-[18px] font-semibold text-gray-800">{title}</p>
-    <p className="text-[14px] text-gray-600">{subtitle}</p>
+    <p className="text-[14px] font-semibold text-gray-800 headerFont">{title}</p>
+    <p className="text-[14px] text-gray-600 normalFont">{subtitle}</p>
   </div>
 );
 

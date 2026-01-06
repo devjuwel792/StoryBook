@@ -37,7 +37,7 @@ const EditSection = ({ data, section }) => {
 
   return (
     <div
-      className="flex bg-white flex-col gap-4 p-3 relative"
+      className="flex bg-white flex-col gap-4 p-3 relative normalFont"
       style={{
         minHeight: "500px",
         boxShadow: "0px 0px 10px 0px #0000001A",

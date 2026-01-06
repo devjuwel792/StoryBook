@@ -18,18 +18,18 @@ const ActivityRow = ({ name, lastActive, dict, stories, image }) => {
           </div>
         )}
         <div>
-          <p className="text-lg font-semibold">{name}</p>
-          <p className="text-base text-gray-400 inter">
+          <p className="text-sm font-semibold">{name}</p>
+          <p className="text-base text-gray-400 normalFont">
             Last active: {lastActive}
           </p>
         </div>
       </div>
       <div className="flex gap-6 text-base text-[#2E2E2E]">
-        <div className="flex flex-col items-center justify-center inter">
-          {dict} <span> dict. click</span>
+        <div className="flex flex-col items-center text-sm justify-center headerFont">
+          {dict} <span className="normalFont"> dict. click</span>
         </div>
-        <div className="flex flex-col items-center justify-center inter">
-          {stories} <span> stories</span>
+        <div className="flex flex-col items-center justify-center headerFont">
+          {stories} <span className="normalFont"> stories</span>
         </div>
       </div>
     </div>

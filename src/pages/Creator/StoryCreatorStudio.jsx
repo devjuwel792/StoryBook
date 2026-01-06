@@ -31,7 +31,9 @@ export default function StoryCreatorStudio() {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (!file) return;
-    const isValidType = ["image/png", "image/jpeg", "image/jpg"].includes(file.type);
+    const isValidType = ["image/png", "image/jpeg", "image/jpg"].includes(
+      file.type
+    );
     if (!isValidType) {
       alert("Only PNG and JPG files are allowed.");
       return;
@@ -184,35 +186,36 @@ export default function StoryCreatorStudio() {
             <ArrowLeft color="#364153" />
           </button>
           <WandSparkles size={32} className="md:w-10 md:h-10" color="#FFB6C1" />
-          <h1 className="text-gray-800 text-2xl md:text-3xl lg:text-4xl font-bold">
+          <h1 className="text-gray-800 text-lg md:text-xl lg:text-2xl headerFont font-bold">
             Story Creator Studio
           </h1>
         </div>
-        <div className="flex gap-2 md:gap-4 justify-start lg:justify-between flex-wrap w-full lg:w-auto">
+        <div className="flex headerFont gap-2 md:gap-4 justify-start lg:justify-between flex-wrap w-full lg:w-auto">
           <button
             onClick={handleClear}
-            className="px-4 py-2 md:px-7 bg-white rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] outline outline-2 outline-offset-[-2px] outline-sky-300 transition-colors hover:bg-sky-50 flex items-center gap-2 text-gray-800 text-sm md:text-base font-bold"
+            className="px-4 py-2 md:px-7 bg-white rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] outline outline-2 outline-offset-[-2px] outline-sky-300 transition-colors hover:bg-sky-50 flex items-center gap-2 text-gray-800 text-xs md:text-sm font-bold"
           >
             <RotateCcw size={16} color="#2D3748" />
             Clear
           </button>
           <button
-          style={{
-            background: 'linear-gradient(90.49deg, #FFB6C1 0.57%, #FFDAB9 99.28%)'
-
-          }}
+            style={{
+              background:
+                "linear-gradient(90.49deg, #FFB6C1 0.57%, #FFDAB9 99.28%)",
+            }}
             onClick={handleSave}
-            className="px-4 py-2 md:px-7 bg-gradient-to-br from-[#FFE87C] to-[#FFDAB9] rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] transition-all hover:shadow-md hover:brightness-105 flex items-center gap-2 text-gray-800 text-sm md:text-base font-bold"
+            className="px-4 py-2 md:px-7 bg-gradient-to-br from-[#FFE87C] to-[#FFDAB9] rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] transition-all hover:shadow-md hover:brightness-105 flex items-center gap-2 text-gray-800 text-xs md:text-sm font-bold"
           >
             <Save size={16} color="#2D3748" />
             Save
           </button>
           <button
-          style={{
-            background: 'linear-gradient(90deg, #213C2D -0.36%, #98D8C8 100%)'
-          }}
+            style={{
+              background:
+                "linear-gradient(90deg, #213C2D -0.36%, #98D8C8 100%)",
+            }}
             onClick={handlePublish}
-            className="px-4 py-2 md:px-7 bg-gradient-to-br from-[#87CEEB] to-[#98D8C8] rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] transition-all hover:shadow-md hover:brightness-105 flex items-center gap-2 text-white text-sm md:text-base font-bold"
+            className="px-4 py-2 md:px-7 bg-gradient-to-br from-[#87CEEB] to-[#98D8C8] rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] transition-all hover:shadow-md hover:brightness-105 flex items-center gap-2 text-white text-xs md:text-sm font-bold"
           >
             <Share2 size={16} color="#ffffff" />
             Publish
@@ -229,7 +232,7 @@ export default function StoryCreatorStudio() {
               placeholder="Give your story a title…"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full border-b pb-2 focus:outline-none text-neutral-950/50 text-xl md:text-3xl font-bold font-nunito"
+              className="w-full headerFont border-b pb-2 focus:outline-none text-neutral-950/50 text-base md:text-xl font-bold"
             />
           </div>
 
@@ -238,7 +241,7 @@ export default function StoryCreatorStudio() {
               placeholder="Once upon a time…"
               value={content}
               onChange={(e) => setContent(e.target.value)}
-              className="min-h-[300px] md:min-h-[420px] w-full resize-none text-gray-700 text-base md:text-lg font-normal font-nunito focus:outline-none bg-transparent"
+              className="min-h-[300px] normalFont md:min-h-[420px] w-full resize-none text-gray-700 text-base md:text-lg font-normal focus:outline-none bg-transparent"
               style={{
                 backgroundImage:
                   "linear-gradient(transparent 31px, #E2E8F0 32px)",
@@ -251,10 +254,15 @@ export default function StoryCreatorStudio() {
               {/* Emoji */}
               <div className="relative mt-2 sm:mt-4">
                 <button
-                  className="text-sm text-gray-600 font-bold hover:bg-gray-100 px-3 py-2 rounded-md flex items-center gap-2"
+                  className="text-xs text-gray-600 font-bold hover:bg-gray-100 px-3 py-2 rounded-md flex items-center gap-2 headerFont"
                   onClick={() => setShowEmoji(!showEmoji)}
                 >
-                  <Sparkles size={16} color="#4A5565" /> Add Stickers & Emojis {showEmoji? <IoMdArrowDropdown size={20} />:<IoMdArrowDropup size={20} />}
+                  <Sparkles size={16} color="#4A5565" /> Add Stickers & Emojis{" "}
+                  {showEmoji ? (
+                    <IoMdArrowDropdown size={20} />
+                  ) : (
+                    <IoMdArrowDropup size={20} />
+                  )}
                 </button>
 
                 {showEmoji && (
@@ -266,7 +274,7 @@ export default function StoryCreatorStudio() {
                 )}
               </div>
 
-              <div className="text-right text-sm md:text-base font-normal font-nunito text-gray-500 mt-2">
+              <div className="text-right text-xs md:text-base font-normal text-gray-500 mt-2 headerFont">
                 {getWordCount(content)} lines
               </div>
             </div>
@@ -284,17 +292,15 @@ export default function StoryCreatorStudio() {
                   autoplay={true}
                   style={{ width: 150, height: 120 }}
                 />
-                <p className="text-white text-xl font-bold font-nunito">
-                  Hi! I'm Owlbert!
-                </p>
-                <p className="text-white text-base font-normal font-nunito">
+                <p className="text-white text-base font-bold headerFont">Hi! I'm Owlbert!</p>
+                <p className="text-white text-base font-normal normalFont">
                   Your friendly writing assistant
                 </p>
                 <div className="w-full bg-white/20 rounded-2xl inline-flex flex-col justify-start items-start p-4 gap-1">
-                  <p className="justify-start text-white text-sm font-bold font-nunito">
+                  <p className="justify-start text-white text-xs font-bold headerFont">
                     Need help?
                   </p>
-                  <p className="w-full justify-start text-white text-xs font-normal font-nunito">
+                  <p className="w-full justify-start text-white text-sm font-normal normalFont">
                     I can suggest ideas, help you spell words, or give you
                     inspiration!
                   </p>
@@ -305,10 +311,10 @@ export default function StoryCreatorStudio() {
 
           <div className="flex items-center gap-2">
             <Sparkles size={20} color="#7C3AED" />
-            <p className="text-gray-700 text-base font-normal">Story Helper</p>
+            <p className="text-gray-700 text-sm font-normal headerFont">Story Helper</p>
           </div>
           {/* Chatbox */}
-          <div className="w-full h-[340px] bg-white rounded-[20px] shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] outline outline-2 outline-offset-[-2px] outline-black/10 flex flex-col overflow-hidden">
+          <div className="w-full h-[340px] normalFont bg-white rounded-[20px] shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] outline outline-2 outline-offset-[-2px] outline-black/10 flex flex-col overflow-hidden">
             <div className="flex-1 overflow-y-auto p-4 space-y-4">
               {messages.map((msg) => (
                 <div
@@ -318,7 +324,7 @@ export default function StoryCreatorStudio() {
                   }`}
                 >
                   <div
-                    className={`max-w-[85%] px-4 py-3 text-sm font-nunito leading-6 ${
+                    className={`max-w-[85%] px-4 py-3 text-sm leading-6 ${
                       msg.sender === "user"
                         ? "bg-[#213C2D]/80 text-white rounded-2xl rounded-tr-sm shadow-sm"
                         : "bg-slate-200 text-gray-700 rounded-2xl rounded-tl-sm"
@@ -331,7 +337,7 @@ export default function StoryCreatorStudio() {
 
               {messages.length === 1 && (
                 <div className="mt-4">
-                  <p className="text-xs text-slate-500 font-nunito mb-3 ml-1">
+                  <p className="text-xs text-slate-500 mb-3 ml-1">
                     Quick questions:
                   </p>
                   <div className="flex flex-col gap-2">
@@ -339,7 +345,7 @@ export default function StoryCreatorStudio() {
                       <button
                         key={idx}
                         onClick={() => handleSendMessage(q)}
-                        className="w-fit text-left px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-full text-xs text-gray-700 font-nunito transition-colors border border-black/5"
+                        className="w-fit text-left px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-full text-xs text-gray-700 transition-colors border border-black/5"
                       >
                         {q}
                       </button>
@@ -360,7 +366,7 @@ export default function StoryCreatorStudio() {
                     e.key === "Enter" && handleSendMessage(chatInput)
                   }
                   placeholder="Ask me anything..."
-                  className="flex-1 px-3 py-2 text-sm text-gray-700 font-nunito placeholder-slate-400 focus:outline-none bg-transparent"
+                  className="flex-1 px-3 py-2 text-sm text-gray-700 placeholder-slate-400 focus:outline-none bg-transparent"
                 />
                 <button
                   onClick={() => handleSendMessage(chatInput)}
@@ -379,17 +385,17 @@ export default function StoryCreatorStudio() {
         <div className="p-7 bg-white rounded-3xl shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10)] outline outline-4 outline-offset-[-4px] outline-amber-200/30 inline-flex flex-col justify-start items-start gap-4">
           <div className="flex items-center gap-2">
             <Lightbulb color="#FFD700" />
-            <h1 className="text-gray-800 text-xl font-bold">Upload image</h1>
+            <h1 className="text-gray-800 text-base font-bold headerFont">Upload image</h1>
           </div>
           <div
-            className="w-full p-4 bg-gradient-to-b from-[#FFF8E6] to-[#FFF0F5] rounded-2xl inline-flex flex-col justify-start items-center cursor-pointer hover:brightness-95 transition"
+            className="w-full normalFont p-4 bg-gradient-to-b from-[#FFF8E6] to-[#FFF0F5] rounded-2xl inline-flex flex-col justify-start items-center cursor-pointer hover:brightness-95 transition"
             onClick={handleImageDivClick}
           >
             <Upload color="#99A1AF" strokeWidth={3} />
-            <p className="justify-start text-gray-700 text-sm font-normal font-nunito leading-6">
+            <p className="justify-start text-gray-700 text-sm font-normal leading-6">
               Upload Story Image
             </p>
-            <p className="justify-start text-gray-700 text-xs font-normal font-nunito leading-6">
+            <p className="justify-start text-gray-700 text-xs font-normal leading-6">
               PNG, JPG files (Max 10MB)
             </p>
             <input
@@ -400,48 +406,50 @@ export default function StoryCreatorStudio() {
               onChange={handleImageChange}
             />
             {uploadedImage && (
-              <p className="mt-2 text-green-600 text-xs font-bold">{uploadedImage.name} selected</p>
+              <p className="mt-2 text-green-600 text-xs font-bold">
+                {uploadedImage.name} selected
+              </p>
             )}
           </div>
-          <button className="self-stretch h-10 w-full bg-gradient-to-b from-amber-200 to-orange-200 rounded-full shadow-[0px_1px_2px_-1px_rgba(0,0,0,0.10)] flex justify-center items-center text-gray-800 text-base font-bold font-nunito leading-6 hover:brightness-105 transition-all">
-            {uploadedImage ? 'Uploaded' : 'Upload'}
+          <button className="self-stretch text-xs headerFont h-10 w-full bg-gradient-to-b from-amber-200 to-orange-200 rounded-full shadow-[0px_1px_2px_-1px_rgba(0,0,0,0.10)] flex justify-center items-center text-gray-800 font-bold leading-6 hover:brightness-105 transition-all">
+            {uploadedImage ? "Uploaded" : "Upload"}
           </button>
         </div>
         {/* Card 2 */}
         <div className="p-7 bg-white rounded-3xl shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10)] outline outline-4 outline-offset-[-4px] outline-emerald-200/30  inline-flex flex-col justify-start items-start gap-4">
           <div className="flex items-center gap-2">
-            <h1 className="text-gray-800 text-xl font-bold">Quick Tips 📝</h1>
+            <h1 className="text-gray-800 text-base font-bold headerFont">Quick Tips 📝</h1>
           </div>
-          <div className="flex flex-col items-start justify-center gap-3">
+          <div className="flex flex-col items-start justify-center gap-3 normalFont">
             <div className="flex items-center gap-2">
-              <div className="justify-start text-sky-300 text-base font-bold font-nunito leading-6">
+              <div className="justify-start text-sky-300 text-base font-bold leading-6">
                 •
               </div>
-              <div className="justify-start text-gray-600 text-sm font-normal font-nunito leading-5">
+              <div className="justify-start text-gray-600 text-sm font-normal leading-5">
                 Start with "Once upon a time..."
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <div className="justify-start text-emerald-200 text-base font-bold font-nunito leading-6">
+              <div className="justify-start text-emerald-200 text-base font-bold leading-6">
                 •
               </div>
-              <div className="justify-start text-gray-600 text-sm font-normal font-nunito leading-5">
+              <div className="justify-start text-gray-600 text-sm font-normal leading-5">
                 Describe what you see and feel
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <div className="justify-start text-red-200 text-base font-bold font-nunito leading-6">
+              <div className="justify-start text-red-200 text-base font-bold leading-6">
                 •
               </div>
-              <div className="justify-start text-gray-600 text-sm font-normal font-nunito leading-5">
+              <div className="justify-start text-gray-600 text-sm font-normal leading-5">
                 Give your characters fun names
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <div className="justify-start text-amber-200 text-base font-bold font-nunito leading-6">
+              <div className="justify-start text-amber-200 text-base font-bold leading-6">
                 •
               </div>
-              <div className="justify-start text-gray-600 text-sm font-normal font-nunito leading-5">
+              <div className="justify-start text-gray-600 text-sm font-normal leading-5">
                 Don't forget a happy ending!
               </div>
             </div>
@@ -450,10 +458,10 @@ export default function StoryCreatorStudio() {
         {/* Card 3 */}
         <div className="w-full p-6 bg-white rounded-3xl shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10)] outline outline-4 outline-offset-[-4px] outline-[#FFEAED] inline-flex flex-col justify-start items-start gap-3">
           <div className="w-full flex items-center justify-between">
-            <h1 className="justify-start text-gray-800 text-base xl:text-xl font-bold font-nunito leading-7">
+            <h1 className="justify-start text-gray-800 text-xs xl:text-base headerFont font-bold leading-7">
               My Saved Stories
             </h1>
-            <p className="text-gray-800 text-sm xl:text-base font-bold">
+            <p className="text-gray-800 normalFont text-sm xl:text-base font-bold">
               <a href="/myStories">View All</a>
             </p>
           </div>
@@ -462,10 +470,10 @@ export default function StoryCreatorStudio() {
               key={story.id}
               className="w-full p-3 bg-[#4A5565]/5 rounded-2xl inline-flex flex-col justify-start items-start"
             >
-              <p className="self-stretch justify-start text-[#4A5565] text-sm font-bold font-nunito leading-5 truncate">
+              <p className="self-stretch justify-start text-[#4A5565] text-xs font-bold leading-5 truncate headerFont">
                 {story.title}
               </p>
-              <p className="self-stretch justify-start text-[#4A5565] text-xs font-normal font-nunito leading-4">
+              <p className="self-stretch justify-start normalFont text-[#4A5565] text-xs font-normal leading-4">
                 Last edited {getTimeAgo(story.timestamp)}
               </p>
             </div>
@@ -476,19 +484,19 @@ export default function StoryCreatorStudio() {
       {/* Clear Confirmation Toast */}
       {showClearConfirm && (
         <div className="fixed top-6 left-1/2 transform -translate-x-1/2 bg-white px-6 py-4 rounded-2xl shadow-[0px_8px_30px_rgba(0,0,0,0.12)] border border-gray-100 z-50 flex flex-col items-center gap-3">
-          <p className="text-gray-800 font-bold font-nunito text-sm">
+          <p className="text-gray-800 font-bold text-sm">
             Are you sure you want to clear everything?
           </p>
           <div className="flex gap-3">
             <button
               onClick={() => setShowClearConfirm(false)}
-              className="px-4 py-1.5 rounded-xl text-gray-600 hover:bg-gray-50 font-bold text-xs font-nunito border border-gray-200 transition-colors"
+              className="px-4 py-1.5 rounded-xl text-gray-600 hover:bg-gray-50 font-bold text-xs border border-gray-200 transition-colors"
             >
               Cancel
             </button>
             <button
               onClick={confirmClear}
-              className="px-4 py-1.5 rounded-xl bg-red-500 text-white hover:bg-red-600 font-bold text-xs font-nunito shadow-sm transition-colors"
+              className="px-4 py-1.5 rounded-xl bg-red-500 text-white hover:bg-red-600 font-bold text-xs shadow-sm transition-colors"
             >
               Yes, Clear All
             </button>
@@ -500,7 +508,7 @@ export default function StoryCreatorStudio() {
       {showShareToast && (
         <div className="fixed top-6 left-1/2 transform -translate-x-1/2 bg-white px-6 py-4 rounded-2xl shadow-[0px_8px_30px_rgba(0,0,0,0.12)] border border-gray-100 z-50 flex flex-col items-center gap-3 w-[90vw] max-w-xs sm:w-80">
           <div className="flex justify-between items-center w-full">
-            <p className="text-gray-800 font-bold font-nunito text-sm">
+            <p className="text-gray-800 font-bold text-sm">
               Share your story! 🚀
             </p>
             <button
@@ -512,7 +520,7 @@ export default function StoryCreatorStudio() {
           </div>
 
           <div className="flex items-center gap-2 w-full bg-slate-50 p-2 rounded-xl border border-gray-200">
-            <p className="text-xs text-gray-500 font-nunito truncate flex-1 select-all">
+            <p className="text-xs text-gray-500 truncate flex-1 select-all">
               https://storybook.app/share/story-123
             </p>
             <button
