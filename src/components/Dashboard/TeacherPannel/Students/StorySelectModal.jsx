@@ -71,7 +71,7 @@ export default function StorySelectModal({ isOpen, onClose, onSelectStory }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 py-6 bg-black/50">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 py-6 bg-black/50 normalFont">
       <div className="bg-white w-full max-w-5xl rounded-2xl shadow-2xl max-h-[90vh] overflow-hidden flex flex-col">
         {/* Header */}
         <div className="p-6 ">
@@ -130,7 +130,7 @@ export default function StorySelectModal({ isOpen, onClose, onSelectStory }) {
                 </div>
                 <div className="px-3 py-4">
                   <div className="flex items-center justify-between">
-                    <h4 className="font-normal text-[#0A0A0A] text-lg inter">
+                    <h4 className="font-normal text-[#0A0A0A] text-sm headerFont pb-2">
                       {story.title}
                     </h4>
                     <p

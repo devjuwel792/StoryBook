@@ -31,10 +31,10 @@ const TeacherSidebar = ({ collapsed }) => {
           <Link to="/">
             {!collapsed && (
               <div>
-                <h1 className="text-xl font-medium text-color whitespace-nowrap">
-                  Teacher Pannel
+                <h1 className="text-sm font-medium text-color whitespace-nowrap headerFont">
+                  Teacher Panel
                 </h1>
-                <p className="text-[14px] text-[#FFFFFFB3]">
+                <p className="text-[14px] text-[#FFFFFFB3] normalFont">
                   Literacy Platform
                 </p>
               </div>
@@ -101,7 +101,7 @@ const TeacherSidebar = ({ collapsed }) => {
               >
                 <IoSettingsOutline className="w-[24px] h-[24px]" />
                 {!collapsed && (
-                  <h1 className="text-base font-medium montserrat">Settings</h1>
+                  <h1 className="text-base font-medium headerFont">Settings</h1>
                 )}
               </div>
             </div>

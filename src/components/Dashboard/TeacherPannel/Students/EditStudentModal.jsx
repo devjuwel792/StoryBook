@@ -19,7 +19,7 @@ export default function EditStudentModal({ isOpen, onClose }) {
             <div className="flex items-center justify-center w-10 h-10 text-white rounded-full green">
               <FiUsers />
             </div>
-            <h2 className="text-lg font-medium text-[#1F1F1F] inter">
+            <h2 className="text-base font-medium text-[#1F1F1F] headerFont">
               Update Student Info
             </h2>
           </div>
@@ -34,10 +34,10 @@ export default function EditStudentModal({ isOpen, onClose }) {
           {/* Grade */}
           <div className="flex items-center gap-16 mb-9">
             <div className="">
-              <label className="block mb-2 text-base text-[#364153] font-medium">
+              <label className="block mb-2 text-xs text-[#364153] font-medium headerFont">
                 Select Your Grade
               </label>
-              <div className="flex gap-3">
+              <div className="flex gap-3 normalFont">
                 {[3, 4, 5].map((g) => (
                   <button
                     key={g}
@@ -49,10 +49,10 @@ export default function EditStudentModal({ isOpen, onClose }) {
               </div>
             </div>
             <div className="">
-              <label className="block mb-2 text-base text-[#364153] font-medium">
+              <label className="block mb-2 text-xs text-[#364153] font-medium headerFont">
                 Vocabulary Level
               </label>
-              <select className="w-48 px-3 py-2 border rounded-lg border-[#E5E7EB]">
+              <select className="w-48 px-3 py-2 border rounded-lg border-[#E5E7EB] normalFont">
                 <option>Select</option>
                 <option>Beginner</option>
                 <option>Intermediate</option>
@@ -66,33 +66,33 @@ export default function EditStudentModal({ isOpen, onClose }) {
           {/* Inputs */}
           <div className="grid items-end grid-cols-4 gap-6">
             <div>
-              <label className="block mb-1 text-sm text-[#0A0A0A] font-semibold">
+              <label className="block mb-1 text-xs text-[#0A0A0A] font-semibold headerFont">
                 Students Name:
               </label>
               <input
-                className="w-full px-3 py-2 border rounded-lg"
+                className="w-full px-3 py-2 border rounded-lg normalFont"
                 placeholder="Enter Name"
               />
             </div>
 
             <div>
-              <label className="block mb-1 text-sm text-[#0A0A0A] font-semibold">
+              <label className="block mb-1 text-xs text-[#0A0A0A] font-semibold headerFont">
                 Students Mail:
               </label>
               <input
-                className="w-full px-3 py-2 border rounded-lg"
+                className="w-full px-3 py-2 border rounded-lg normalFont"
                 placeholder="student@gmail.com"
               />
             </div>
 
             <div className="relative">
-              <label className="block mb-1 text-sm text-[#0A0A0A] font-semibold">
+              <label className="block mb-1 text-xs text-[#0A0A0A] font-semibold headerFont">
                 Password:
               </label>
 
               <input
                 type={showPassword ? "text" : "password"}
-                className="w-full px-3 py-2 pr-10 border rounded-lg"
+                className="w-full px-3 py-2 pr-10 border rounded-lg normalFont"
                 placeholder="********"
               />
 
@@ -107,7 +107,7 @@ export default function EditStudentModal({ isOpen, onClose }) {
 
             <button
               onClick={handleEditStudent}
-              className="px-4 py-2 text-white bg-gradient-to-r from-[#2B4839] to-[#92D1C1] rounded-lg hover:bg-green-700"
+              className="px-4 py-2 text-white bg-gradient-to-r from-[#2B4839] to-[#92D1C1] rounded-lg hover:bg-green-700 normalFont"
             >
               Update Students
             </button>

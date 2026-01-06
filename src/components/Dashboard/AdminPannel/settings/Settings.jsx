@@ -8,15 +8,15 @@ const Header = ({active}) => {
   return (
     <div className="flex w-[80vw] mx-auto justify-between items-center">
       <div className="">
-        <p className="text-[28px] text-[#1F1F1F] font-semibold">Settings</p>
-        <p className="text-[16px] text-[#4A5565]">
+        <p className="text-[20px] text-[#1F1F1F] font-semibold headerFont">Settings</p>
+        <p className="text-[16px] text-[#4A5565] normalFont">
           Manage platform preferences and configurations
         </p>
       </div>
 {
   active !== 0 && (
           <button
-        className="px-5 py-2 rounded-2xl text-white font-medium hover:opacity-90 transition-opacity"
+        className="px-5 py-2 rounded-2xl text-white font-medium hover:opacity-90 transition-opacity headerFont text-sm"
         style={{
           background: "linear-gradient(90deg, #294637 0%, #95D4C4 100%)",
         }}
@@ -54,7 +54,7 @@ const Settings = () => {
         <Header active={active} />
       </div>
 
-      <div className="grid grid-cols-3 w-[80vw] mx-auto justify-items-center bg-[#ECECF0] p-1 rounded-lg">
+      <div className="grid grid-cols-3 w-[80vw] mx-auto justify-items-center bg-[#ECECF0] p-1 rounded-lg headerFont text-sm">
         {tabOptions.map((item, index) => (
           <button
             key={index} 

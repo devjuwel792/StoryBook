@@ -46,17 +46,17 @@ export default function StudentManagementTable({ initialStudents = [] }) {
   return (
     <div className="mt-5 bg-white ">
       {/* Filters */}
-      <div className="flex flex-wrap gap-3 mb-4">
+      <div className="flex flex-wrap gap-3 mb-4 w-full">
         <input
           type="text"
           placeholder="Search students..."
-          className="w-2/3 px-3 py-2 text-sm border rounded-lg bg-[#F3F3F5]"
+          className="w-2/3 px-3 py-2 text-sm border rounded-lg bg-[#F3F3F5] normalFont"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
 
         <select
-          className="px-3 py-2 text-sm border rounded-lg bg-[#F3F3F5]"
+          className="px-3 py-2 text-sm border rounded-lg bg-[#F3F3F5] normalFont"
           value={grade}
           onChange={(e) => setGrade(e.target.value)}
         >
@@ -70,7 +70,7 @@ export default function StudentManagementTable({ initialStudents = [] }) {
 
         <button
           onClick={() => setOpen(true)}
-          className="px-4 py-2 ml-auto text-sm font-medium bg-[#E8CC13] rounded-lg flex items-center gap-2 text-green"
+          className="px-4 py-2 ml-auto text-xs font-medium bg-[#E8CC13] rounded-lg flex items-center gap-2 text-green headerFont"
         >
           <FiUserPlus /> Add Students
         </button>
@@ -80,7 +80,7 @@ export default function StudentManagementTable({ initialStudents = [] }) {
       <div className="overflow-x-auto border border-[#0000001A] rounded-xl">
         <table className="w-full text-sm border-collapse">
           <thead>
-            <tr className="text-[#272727] font-normal bg-white inter">
+            <tr className="text-[#272727] font-normal bg-white headerFont text-xs">
               <th className="p-3 text-left">Name</th>
               <th className="p-3">Grade</th>
               <th className="p-3">Vocabulary</th>
@@ -93,7 +93,7 @@ export default function StudentManagementTable({ initialStudents = [] }) {
 
           <tbody>
             {filteredStudents.map((s) => (
-              <tr key={s.id} className="border-t hover:bg-gray-50">
+              <tr key={s.id} className="border-t hover:bg-gray-50 normalFont">
                 <td className="flex items-center gap-2 p-3">
                   <div className="flex items-center justify-center text-xs text-white bg-[#1F3A2B] rounded-full w-7 h-7">
                     {s.name.charAt(0)}
@@ -173,7 +173,7 @@ export default function StudentManagementTable({ initialStudents = [] }) {
             ))}
             {filteredStudents.length === 0 && (
               <tr>
-                <td colSpan={7} className="py-6 text-center text-gray-400">
+                <td colSpan={7} className="py-6 text-center text-gray-400 normalFont">
                   No students found
                 </td>
               </tr>

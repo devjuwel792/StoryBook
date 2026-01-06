@@ -86,11 +86,11 @@ export default function StudentDetail() {
 
       {/* Student Info */}
       <div className="flex items-center gap-4 p-6 mb-20 border rounded-lg">
-        <div className="flex items-center justify-center w-12 h-12 text-xl text-white green rounded-full border border-[#EBEBEB]">
+        <div className="flex items-center justify-center w-12 h-12 text-base text-white green rounded-full border border-[#EBEBEB] headerFont">
           {fakeStudent.name.charAt(0)}
         </div>
-        <div>
-          <h2 className="text-base text-[#1F1F1F] inter">{fakeStudent.name}</h2>
+        <div className="normalFont">
+          <h2 className="text-sm text-[#1F1F1F] headerFont">{fakeStudent.name}</h2>
           <p className="text-sm text-[#2E2E2E] inter mt-1">
             Last active: {fakeStudent.lastActive}
           </p>
@@ -108,32 +108,32 @@ export default function StudentDetail() {
       {/* Story & Reading Level */}
       <div className="flex justify-between gap-4 mb-6">
         <div className="flex flex-col items-start justify-center gap-3 ">
-          <label className="text-base font-bold text-[#2E2E2E]">
+          <label className="text-xs font-bold text-[#2E2E2E] headerFont">
             Total Story:
           </label>
           <input
             type="number"
             value={fakeStudent.totalStory}
             readOnly
-            className="px-3 py-1 mt-1 text-center border rounded-lg "
+            className="px-3 py-1 mt-1 text-center border rounded-lg normalFont"
           />
         </div>
         <div className="flex flex-col items-start justify-center gap-3 ">
-          <label className="text-base font-bold text-[#2E2E2E]">
+          <label className="text-xs font-bold text-[#2E2E2E] headerFont">
             Reading level:
           </label>
           <input
             type="number"
             value={fakeStudent.readingLevel}
             readOnly
-            className="px-3 py-1 mt-1 text-center border rounded-lg"
+            className="px-3 py-1 mt-1 text-center border rounded-lg normalFont"
           />
         </div>
         <div className="flex flex-col items-start justify-center gap-3 ">
-          <label className="text-base font-bold text-[#2E2E2E]">
+          <label className="text-xs font-bold text-[#2E2E2E] headerFont">
             Recommend Story:
           </label>
-          <div className="flex items-center justify-start gap-2">
+          <div className="flex items-center justify-start gap-2 normalFont">
             {/* No story selected */}
             {!selectedStory && (
               <button
@@ -148,7 +148,7 @@ export default function StudentDetail() {
             {selectedStory && (
               <>
                 <div className="flex items-center gap-2 px-4 py-1 text-sm bg-[#F5F5F5] border border-[#E5E5E5] rounded-lg">
-                  <span className="text-black inter">
+                  <span className="text-black normalFont">
                     {selectedStory.title}
                   </span>
                   <button
@@ -164,7 +164,7 @@ export default function StudentDetail() {
                     toast.success("Story recommended successfully!");
                     setSelectedStory(null);
                   }}
-                  className="flex items-center justify-center gap-2 px-4 py-1 text-sm text-black bg-[#E8CC13] rounded-lg"
+                  className="flex items-center justify-center gap-2 px-4 py-1 text-xs text-black bg-[#E8CC13] rounded-lg headerFont"
                 >
                   <LuSend /> Recommend
                 </button>
@@ -176,10 +176,10 @@ export default function StudentDetail() {
 
       {/* Dictionary Views */}
       <div className="mb-20 bg-white border border-[#F3F3F3] p-6 rounded-xl mt-24">
-        <h3 className="mb-2 font-medium inter text-[#000000]">
+        <h3 className="mb-2 font-medium text-[#000000] headerFont text-sm">
           Dictionary Views
         </h3>
-        <p className="mb-2 text-sm text-[#000000] font-normal inter">
+        <p className="mb-2 text-sm text-[#000000] font-normal normalFont">
           Words this student looked up ({fakeStudent.dictionaryViews.length}{" "}
           total views)
         </p>
@@ -190,10 +190,10 @@ export default function StudentDetail() {
               className="flex items-center justify-between px-3 py-6 border border-[#EBEBEB] bg-white rounded-lg inter"
             >
               <div>
-                <p className="font-medium text-[#1F1F1F]">{item.word}</p>
-                <p className="text-xs text-[#1F1F1F]">From: {item.from}</p>
+                <p className="font-normal text-[10px] text-[#1F1F1F] headerFont">{item.word}</p>
+                <p className="text-xs text-[#1F1F1F] normalFont">From: {item.from}</p>
               </div>
-              <p className="text-sm text-green-600">{item.times} times</p>
+              <p className="text-[10px] text-green-600 headerFont">{item.times} times</p>
             </div>
           ))}
         </div>
@@ -201,7 +201,7 @@ export default function StudentDetail() {
 
       {/* Recommended Stories */}
       <div className="">
-        <h3 className="mb-8 font-medium headerFont text-2xl text-[#1E2939]">
+        <h3 className="mb-8 font-normal headerFont text-lg text-[#1E2939]">
           Recommended Story
         </h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
@@ -214,11 +214,11 @@ export default function StudentDetail() {
               />
               <div className="px-3 py-4">
                 <div className="flex items-center justify-between">
-                  <h4 className="font-normal text-[#0A0A0A] text-lg inter">
+                  <h4 className="font-normal text-[#0A0A0A] text-sm headerFont pb-2">
                     {story.title}
                   </h4>
                   <p
-                    className={`text-xs ${
+                    className={`text-xs normalFont ${
                       story.published
                         ? "text-green-600 bg-[#e1f8f0] px-3 py-1 rounded-full"
                         : "text-red-600"
@@ -227,8 +227,8 @@ export default function StudentDetail() {
                     {story.published ? "Published" : "Draft"}
                   </p>
                 </div>
-                <p className="text-sm text-[#4A5565] mb-3">by {story.author}</p>
-                <div className="flex items-center justify-between">
+                <p className="text-xs text-[#4A5565] mb-3 normalFont">by {story.author}</p>
+                <div className="flex items-center justify-between normalFont">
                   <p className="flex items-center gap-2 text-sm text-[#4A5565]">
                     {" "}
                     <BsBook />

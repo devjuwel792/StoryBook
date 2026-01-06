@@ -76,7 +76,7 @@ const AdminSidebar = ({ collapsed }) => {
               >
                 <AiOutlineHome className="w-5 h-5" />
                 {!collapsed && (
-                  <h1 className="text-sm font-normal montserrat">
+                  <h1 className="text-sm font-normal headerFont">
                     Admin Dashboard
                   </h1>
                 )}
@@ -105,7 +105,7 @@ const AdminSidebar = ({ collapsed }) => {
               >
                 <FaUsers className="w-5 h-5" />
                 {!collapsed && (
-                  <h1 className="text-sm font-normal montserrat">
+                  <h1 className="text-sm font-normal headerFont">
                     User Management
                   </h1>
                 )}
@@ -134,7 +134,7 @@ const AdminSidebar = ({ collapsed }) => {
               >
                 <BookOpen className="w-5 h-5" />
                 {!collapsed && (
-                  <h1 className="text-sm font-normal montserrat">
+                  <h1 className="text-sm font-normal headerFont">
                     Story Library
                   </h1>
                 )}
@@ -163,7 +163,7 @@ const AdminSidebar = ({ collapsed }) => {
               >
                 <MessageSquare className="w-5 h-5" />
                 {!collapsed && (
-                  <h1 className="text-sm font-normal montserrat">AI Chatbot</h1>
+                  <h1 className="text-sm font-normal headerFont">AI Chatbot</h1>
                 )}
               </div>
             </div>
@@ -186,7 +186,7 @@ const AdminSidebar = ({ collapsed }) => {
               >
                 <FiSettings className="w-5 h-5" />
                 {!collapsed && (
-                  <h1 className="text-sm font-normal montserrat">Settings</h1>
+                  <h1 className="text-sm font-normal headerFont">Settings</h1>
                 )}
               </div>
             </div>
