@@ -75,26 +75,26 @@ const Header = ({ onClear, onSave, onPublish }) => (
         <ArrowLeft color="#364153" />
       </button>
       <WandSparkles size={40} color="#FFB6C1" aria-hidden="true" />
-      <h1 className="text-gray-800 text-4xl font-bold">Story Creator Studio</h1>
+      <h1 className="text-gray-800 text-2xl font-bold headerFont">Story Creator Studio</h1>
     </div>
-    <div className="flex gap-2">
+    <div className="flex gap-2 headerFont">
       <button
         onClick={onClear}
-        className="px-4 py-2 bg-white rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] outline outline-2 outline-offset-[-2px] outline-sky-300 transition-colors hover:bg-sky-50 flex items-center gap-2 text-gray-800 text-base font-bold"
+        className="px-4 py-2 bg-white rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] outline outline-2 outline-offset-[-2px] outline-sky-300 transition-colors hover:bg-sky-50 flex items-center gap-2 text-gray-800 text-sm font-bold"
       >
         <RotateCcw size={16} color="#2D3748" />
         Clear
       </button>
       <button
         onClick={onSave}
-        className="px-4 py-2 bg-gradient-to-br from-[#FFE87C] to-[#FFDAB9] rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] transition-all hover:shadow-md hover:brightness-105 flex items-center gap-2 text-gray-800 text-base font-bold"
+        className="px-4 py-2 bg-gradient-to-br from-[#FFE87C] to-[#FFDAB9] rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] transition-all hover:shadow-md hover:brightness-105 flex items-center gap-2 text-gray-800 text-sm font-bold"
       >
         <Save size={16} color="#2D3748" />
         Save
       </button>
       <button
         onClick={onPublish}
-        className="px-4 py-2 bg-gradient-to-br from-[#87CEEB] to-[#98D8C8] rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] transition-all hover:shadow-md hover:brightness-105 flex items-center gap-2 text-white text-base font-bold"
+        className="px-4 py-2 bg-gradient-to-br from-[#87CEEB] to-[#98D8C8] rounded-full shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] transition-all hover:shadow-md hover:brightness-105 flex items-center gap-2 text-white text-sm font-bold"
       >
         <Share2 size={16} color="#ffffff" />
         Publish
@@ -119,7 +119,7 @@ const Editor = ({
         placeholder="Give your story a title…"
         value={title}
         onChange={onTitleChange}
-        className="w-full border-b pb-2 focus:outline-none text-neutral-950/50 text-3xl font-bold"
+        className="w-full border-b pb-2 focus:outline-none text-neutral-950/50 text-xl font-bold headerFont"
         aria-label="Story title"
       />
     </div>
@@ -129,7 +129,7 @@ const Editor = ({
         placeholder="Once upon a time…"
         value={content}
         onChange={onContentChange}
-        className="min-h-[420px] w-full resize-none text-gray-700 text-lg font-normal focus:outline-none bg-transparent"
+        className="min-h-[420px] w-full resize-none text-gray-700 text-lg font-normal focus:outline-none bg-transparent normalFont"
         style={{
           backgroundImage: "linear-gradient(transparent 31px, #E2E8F0 32px)",
           backgroundSize: "100% 32px",
@@ -141,7 +141,7 @@ const Editor = ({
       <div className="flex items-center justify-between">
         <div className="relative mt-4">
           <button
-            className="text-sm text-gray-600 font-bold hover:bg-gray-100 px-3 py-2 rounded-md flex items-center gap-2"
+            className="text-xs text-gray-600 font-bold hover:bg-gray-100 px-3 py-2 rounded-md flex items-center gap-2 headerFont"
             onClick={onToggleEmoji}
             aria-label="Add emojis and stickers"
           >
@@ -155,7 +155,7 @@ const Editor = ({
           )}
         </div>
 
-        <div className="text-right text-base font-normal text-gray-500 mt-2">
+        <div className="text-right text-xs font-normal text-gray-500 mt-2 headerFont">
           {wordCount} words
         </div>
       </div>
@@ -190,7 +190,7 @@ const ChatBox = ({
   messagesEndRef,
 }) => {
   return (
-    <div className="w-full h-[540px] bg-white rounded-[20px] shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] outline outline-2 outline-offset-[-2px] outline-black/10 flex flex-col overflow-hidden">
+    <div className="w-full h-[540px] bg-white rounded-[20px] shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.10)] outline outline-2 outline-offset-[-2px] outline-black/10 flex flex-col overflow-hidden normalFont">
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {messages.map((msg) => (
           <ChatMessage key={msg.id} message={msg} />
@@ -198,7 +198,7 @@ const ChatBox = ({
 
         {showQuickQuestions && (
           <div className="mt-4">
-            <p className="text-xs text-slate-500 mb-3 ml-1">Quick questions:</p>
+            <p className="text-[10px] text-slate-500 mb-3 ml-1 headerFont">Quick questions:</p>
             <div className="flex flex-col gap-2">
               {QUICK_QUESTIONS.map((q, idx) => (
                 <button
@@ -318,13 +318,13 @@ const OwlAssistantCard = () => (
         autoplay={true}
         style={{ width: 150, height: 120 }}
       />
-      <p className="text-white text-xl font-bold">Hi! I'm Owlbert!</p>
-      <p className="text-white text-base font-normal">
+      <p className="text-white text-base font-bold headerFont">Hi! I'm Owlbert!</p>
+      <p className="text-white text-base font-normal normalFont">
         Your friendly writing assistant
       </p>
       <div className="w-96 h-20 bg-white/20 rounded-2xl inline-flex flex-col justify-start items-start p-4 gap-1">
-        <p className="justify-start text-white text-sm font-bold">Need help?</p>
-        <p className="w-80 h-7 justify-start text-white text-xs font-normal">
+        <p className="justify-start text-white text-[10px] font-bold headerFont">Need help?</p>
+        <p className="w-80 h-7 justify-start text-white text-xs font-normal normalFont">
           I can suggest ideas, help you spell words, or give you inspiration!
         </p>
       </div>
@@ -533,7 +533,7 @@ export default function AdminStoryCreatorStudio() {
 
           <div className="flex items-center gap-2">
             <Sparkles size={20} color="#7C3AED" />
-            <p className="text-gray-700 text-base font-normal">Story Helper</p>
+            <p className="text-gray-700 text-xs font-normal headerFont">Story Helper</p>
           </div>
 
           <ChatBox
@@ -552,10 +552,10 @@ export default function AdminStoryCreatorStudio() {
         <div className="p-7 bg-white rounded-3xl shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10)] outline outline-4 outline-offset-[-4px] outline-amber-200/30 inline-flex flex-col justify-start items-start gap-4">
           <div className="flex items-center gap-2">
             <Lightbulb color="#FFD700" />
-            <h1 className="text-gray-800 text-xl font-bold">Upload image</h1>
+            <h1 className="text-gray-800 text-base font-bold headerFont">Upload image</h1>
           </div>
           <div
-            className="w-full p-4 bg-gradient-to-b from-[#FFF8E6] to-[#FFF0F5] rounded-2xl inline-flex flex-col justify-start items-center cursor-pointer hover:brightness-95 transition"
+            className="w-full p-4 bg-gradient-to-b from-[#FFF8E6] to-[#FFF0F5] rounded-2xl inline-flex flex-col justify-start items-center cursor-pointer hover:brightness-95 transition normalFont"
             onClick={handleImageDivClick}
           >
             <Upload color="#99A1AF" strokeWidth={3} />
@@ -578,16 +578,16 @@ export default function AdminStoryCreatorStudio() {
               </p>
             )}
           </div>
-          <button className="self-stretch h-10 w-full bg-gradient-to-b from-amber-200 to-orange-200 rounded-full shadow-[0px_1px_2px_-1px_rgba(0,0,0,0.10)] flex justify-center items-center text-gray-800 text-base font-bold leading-6 hover:brightness-105 transition-all">
+          <button className="self-stretch h-10 w-full bg-gradient-to-b from-amber-200 to-orange-200 rounded-full shadow-[0px_1px_2px_-1px_rgba(0,0,0,0.10)] flex justify-center items-center text-gray-800 text-[10px] headerFont font-bold leading-6 hover:brightness-105 transition-all">
             {uploadedImage ? "Uploaded" : "Upload"}
           </button>
         </div>
         {/* Card 2 */}
         <div className="p-7 bg-white rounded-3xl shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10)] outline outline-4 outline-offset-[-4px] outline-emerald-200/30  inline-flex flex-col justify-start items-start gap-4">
           <div className="flex items-center gap-2">
-            <h1 className="text-gray-800 text-xl font-bold">Quick Tips 📝</h1>
+            <h1 className="text-gray-800 text-base font-bold headerFont">Quick Tips 📝</h1>
           </div>
-          <div className="flex flex-col items-start justify-center gap-3">
+          <div className="flex flex-col items-start justify-center gap-3 normalFont">
             <div className="flex items-center gap-2">
               <div className="justify-start text-sky-300 text-base font-bold leading-6">
                 •
@@ -625,10 +625,10 @@ export default function AdminStoryCreatorStudio() {
         {/* Card 3 */}
         <div className="w-full p-6 bg-white rounded-3xl shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.10)] outline outline-4 outline-offset-[-4px] outline-[#FFEAED] inline-flex flex-col justify-start items-start gap-3">
           <div className="w-full flex items-center justify-between">
-            <h1 className="justify-start text-gray-800 text-xl font-bold leading-7">
+            <h1 className="justify-start text-gray-800 text-base font-bold leading-7 headerFont">
               My Saved Stories
             </h1>
-            <p className="text-gray-800 text-base font-bold">
+            <p className="text-gray-800 text-base font-bold normalFont">
               <a href="/dashboard/storyLibrary">View All</a>
             </p>
           </div>
@@ -637,10 +637,10 @@ export default function AdminStoryCreatorStudio() {
               key={story.id}
               className="w-full p-3 bg-[#4A5565]/5 rounded-2xl inline-flex flex-col justify-start items-start"
             >
-              <p className="self-stretch justify-start text-[#4A5565] text-sm font-bold leading-5 truncate">
+              <p className="self-stretch justify-start text-[#4A5565] text-[10px] font-bold leading-5 truncate headerFont">
                 {story.title}
               </p>
-              <p className="self-stretch justify-start text-[#4A5565] text-xs font-normal leading-4">
+              <p className="self-stretch justify-start text-[#4A5565] text-xs font-normal leading-4 normalFont">
                 Last edited {getTimeAgo(story.timestamp)}
               </p>
             </div>

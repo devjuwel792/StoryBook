@@ -131,8 +131,8 @@ export const StoryLibrary = () => {
     <div className="flex w-[80vw] mx-auto flex-col justify-center  py-7 gap-10">
       <Toaster />
       <div className="">
-        <h1 className="text-stone-900 text-3xl font-semibold">Story Library</h1>
-        <p className="text-stone-900 text-xl font-normal mt-1">
+        <h1 className="text-stone-900 text-xl font-semibold headerFont">Story Library</h1>
+        <p className="text-stone-900 text-xl font-normal mt-1 normalFont">
           View and manage all students
         </p>
       </div>
@@ -142,16 +142,16 @@ export const StoryLibrary = () => {
             key={item.id}
             className="w-96 h-36 p-6 bg-white rounded-2xl outline outline-[0.80px] outline-offset-[-0.80px] outline-black/10 inline-flex flex-col justify-start items-start gap-8"
           >
-            <p className="justify-start text-gray-600 text-sm font-normal leading-5">
+            <p className="justify-start text-gray-600 text-sm font-normal leading-5 normalFont">
               {item.label}
             </p>
-            <p className="justify-start text-zinc-800 text-3xl font-normal leading-9">
+            <p className="justify-start text-zinc-800 text-xl font-normal leading-9 headerFont">
               {item.value}
             </p>
           </div>
         ))}
       </div>
-      <div className="w-full flex items-center gap-3">
+      <div className="w-full flex items-center gap-3 normalFont">
         {/* Search Bar */}
         <div className="relative w-full">
           <input
@@ -173,7 +173,7 @@ export const StoryLibrary = () => {
         </select>
         {/* Upload Story Button */}
         <button
-          className="w-1/4 h-11 bg-yellow-400 rounded-lg flex items-center justify-center gap-2 hover:bg-yellow-300 transition-colors text-zinc-800 text-sm font-normal leading-5"
+          className="w-1/4 h-11 bg-yellow-400 rounded-lg flex items-center justify-center gap-2 hover:bg-yellow-300 transition-colors text-zinc-800 text-xs font-normal headerFont"
           type="button"
         >
           <Upload size={16} color="#1F3A2B" strokeWidth={1.5} />
@@ -185,7 +185,7 @@ export const StoryLibrary = () => {
         {stories.map((story) => (
           <div
             key={story.id}
-            className=" bg-white rounded-2xl outline outline-2 outline-offset-[-1.83px] outline-black/10 overflow-hidden flex flex-col"
+            className=" bg-white rounded-2xl outline outline-2 outline-offset-[-1.83px] outline-black/10 overflow-hidden flex flex-col normalFont"
           >
             <img
               className="w-full h-48 object-cover"
@@ -194,7 +194,7 @@ export const StoryLibrary = () => {
             />
             <div className="flex flex-col gap-2 p-5">
               <div className="flex items-center justify-between">
-                <h2 className="text-neutral-950 text-lg font-normal leading-7">
+                <h2 className="text-neutral-950 text-[10px] font-normal leading-7 headerFont ">
                   {story.title}
                 </h2>
                 <span

@@ -14,10 +14,10 @@ export const UserManagement = () => {
     <div className="w-fullflex flex-col justify-center px-6 py-7 gap-10">
       <div className="flex items-center justify-between mb-12">
         <div>
-          <h1 className="text-stone-900 text-3xl font-semibold">
+          <h1 className="text-stone-900 text-xl font-semibold headerFont">
             User Management
           </h1>
-          <p className="text-stone-900 text-xl font-normal mt-1">
+          <p className="text-stone-900 text-base font-normal mt-1 normalFont">
             View and manage all students & Teacher
           </p>
         </div>
@@ -26,7 +26,7 @@ export const UserManagement = () => {
           className="w-56 h-11 relative bg-yellow-400 text-[#1F3A2B] rounded-lg flex items-center justify-center gap-2 shadow-md hover:brightness-105 transition-all cursor-pointer"
         >
           <UserPlus size={16} strokeWidth={1.5} />
-          <button className="text-center justify-start text-sm font-normal">
+          <button className="text-center justify-start text-[10px] font-normal headerFont">
             Add User
           </button>
         </div>
@@ -43,7 +43,7 @@ export const UserManagement = () => {
             activeTab === "student" ? "outline-zinc-800" : "outline-gray-200"
           }`}
         >
-          <span className="text-neutral-950 text-base font-normal">
+          <span className="text-neutral-950 text-xs font-normal headerFont">
             Student
           </span>
         </button>
@@ -58,12 +58,12 @@ export const UserManagement = () => {
             activeTab === "teacher" ? "outline-zinc-800" : "outline-gray-200"
           }`}
         >
-          <span className="text-neutral-950 text-base font-normal">
+          <span className="text-neutral-950 text-xs font-normal headerFont">
             Teacher
           </span>
         </button>
       </div>
-      <div className="w-full flex items-center gap-4 mb-6">
+      <div className="w-full flex items-center gap-4 mb-6 normalFont">
         {/* Search Bar */}
         <input
           type="text"

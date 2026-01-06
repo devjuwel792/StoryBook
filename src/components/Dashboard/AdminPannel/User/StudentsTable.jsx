@@ -70,7 +70,7 @@ export default function StudentsTable({
     <div className="overflow-x-auto border border-[#0000001A] rounded-xl">
       <table className="w-full text-sm border-collapse">
         <thead>
-          <tr className="text-[#272727] font-normal bg-white inter">
+          <tr className="text-[#272727] font-normal bg-white headerFont text-xs">
             <th className="p-3 text-left">Name</th>
             <th className="p-3">Grade</th>
             <th className="p-3">Vocabulary</th>
@@ -83,7 +83,7 @@ export default function StudentsTable({
 
         <tbody>
           {filteredData.map((item) => (
-            <tr key={item.id} className="border-t hover:bg-gray-50">
+            <tr key={item.id} className="border-t hover:bg-gray-50 normalFont">
               <td className="flex items-center gap-2 p-3">
                 <div className="flex items-center justify-center text-xs text-white bg-[#1F3A2B] rounded-full w-7 h-7">
                   {item.name.charAt(0)}

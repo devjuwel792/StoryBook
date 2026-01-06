@@ -98,7 +98,7 @@ export default function TeachersTable({
     <div className="overflow-x-auto bg-white rounded-xl border">
       <Toaster />
       <table className="w-full text-sm">
-        <thead className="border-b bg-gray-50 text-gray-600">
+        <thead className="border-b bg-gray-50 text-gray-600 headerFont text-xs">
           <tr className="text-center">
             <th className="px-6 py-4 font-medium text-left align-middle">
               Name
@@ -121,7 +121,7 @@ export default function TeachersTable({
           </tr>
         </thead>
 
-        <tbody className="divide-y">
+        <tbody className="divide-y normalFont">
           {filteredData.map((item) => (
             <tr
               key={item.id}
