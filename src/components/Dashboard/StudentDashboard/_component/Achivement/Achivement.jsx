@@ -149,7 +149,7 @@ const Achievement = () => {
           </button>
           <div className="flex items-center justify-center gap-2">
             <IoTrophyOutline size={30} className="text-[#FFD700]" />
-            <h2 className="text-[30px] font-semibold text-gray-800">
+            <h2 className="text-xl font-semibold text-gray-800 headerFont">
               My Progress
             </h2>
           </div>
@@ -191,10 +191,10 @@ const ProfileProgress = () => {
         </div>
 
         <div className="flex-1 min-w-0">
-          <h3 className="font-semibold text-2xl sm:text-[30px] text-white truncate">
+          <h3 className="font-semibold text-2xl sm:text-xl headerFont text-white truncate">
             Emma
           </h3>
-          <p className="text-sm text-white mt-3">Level 4 · Book Champion 🏆</p>
+          <p className="text-sm text-white mt-3 normalFont">Level 4 · Book Champion 🏆</p>
 
           {/* Progress Bar */}
           <div className="mt-3">
@@ -206,7 +206,7 @@ const ProfileProgress = () => {
                 ></div>
               </div>
             </div>
-            <span className="text-white">
+            <span className="text-white normalFont">
               {progressPercentage}% to next level
             </span>
           </div>
@@ -227,8 +227,8 @@ const StatCard = ({ value, label, icon, iconBg, borderColor }) => (
     >
       {React.cloneElement(icon, { className: "text-white text-2xl" })}
     </div>
-    <h3 className="text-2xl font-bold text-gray-800">{value}</h3>
-    <p className="text-sm text-[#4A5565] mt-1">{label}</p>
+    <h3 className="text-lg font-bold text-gray-800 headerFont">{value}</h3>
+    <p className="text-sm text-[#4A5565] mt-1 normalFont">{label}</p>
   </div>
 );
 
@@ -243,7 +243,7 @@ export const ReadingLevels = () => {
 
   return (
     <div className="bg-white rounded-2xl p-6 border-4 border-[#E6E6FA66] shadow space-y-6">
-      <h3 className="font-semibold text-gray-800 flex items-center gap-2 text-lg">
+      <h3 className="font-semibold text-gray-800 flex items-center gap-2 text-sm headerFont">
         ⭐ Your Reading Level
       </h3>
 
@@ -308,15 +308,15 @@ const TimelineItem = ({
         <div className="flex justify-between items-start">
           <div>
             <h4
-              className={`font-semibold ${
+              className={`font-semibold headerFont text-sm ${
                 highlight ? "text-yellow-800" : "text-gray-800"
               }`}
             >
               {title}
             </h4>
-            {progress && <p className="text-xs">Read 20 books to complete</p>}
+            {progress && <p className="text-xs normalFont">Read 20 books to complete</p>}
             <p
-              className={`text-sm mt-1 ${
+              className={`text-sm mt-1 normalFont ${
                 highlight ? "text-yellow-600" : "text-gray-600"
               }`}
             >
@@ -327,7 +327,7 @@ const TimelineItem = ({
 
         {/* Progress bar for current level */}
         {progress && (
-          <div className="mt-3">
+          <div className="mt-3 normalFont">
             <div className="flex justify-between text-xs text-gray-600 mb-1">
               <span>Progress</span>
               <span>{progress}%</span>

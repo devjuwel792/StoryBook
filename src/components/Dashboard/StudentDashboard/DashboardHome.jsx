@@ -276,7 +276,7 @@ const StatCard = ({ value, label, borderColor, textColor, nestedLocation }) => {
         color: textColor,
       }}
     >
-      <h3 className="text-3xl font-bold">{value}</h3>
+      <h3 className="text-xl font-bold headerFont">{value}</h3>
       <p className="mt-1 text-sm text-gray-500 normalFont">{label}</p>
       <Reusable_Modal
         isModalOpen={isModalOpen}
